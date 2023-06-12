@@ -8,5 +8,19 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  var startTime = new Date();
+
+  var sum = 0;
+  for (var i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  var endTime = new Date();
+  var elapsedTime = (endTime - startTime) / 1000;
+
+  return elapsedTime;
 }
+
+console.log(calculateTime(100));
+console.log(calculateTime(100000));
+console.log(calculateTime(1000000000));

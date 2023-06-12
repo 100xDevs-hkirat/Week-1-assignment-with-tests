@@ -8,8 +8,48 @@
   - `npm run test-expenditure-analysis`
 */
 
+const items = [
+  {
+    itemName: "biscuit",
+    category: "saaman",
+    price: "20",
+    timestamp: "20/12/20",
+  },
+  {
+    itemName: "choclate",
+    category: "saaman",
+    price: "10",
+    timestamp: "21/12/20",
+  },
+  {
+    itemName: "lassidrink",
+    category: "drink",
+    price: "10",
+    timestamp: "10/12/20",
+  },
+];
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categoryMap = {};
+
+  transactions.forEach((transaction) => {
+    const { category, price } = transaction;
+    const totalPrice = parseFloat(price);
+
+    if (categoryMap.hasOwnProperty(category)) {
+      categoryMap[category] += totalPrice;
+    } else {
+      categoryMap[category] = totalPrice;
+    }
+  });
+
+  const result = Object.keys(categoryMap).map((category) => {
+    return { category: category, totalSpent: categoryMap[category] };
+  });
+
+  return result;
 }
+const output = calculateTotalSpentByCategory(items);
+console.log(output);
 
 module.exports = calculateTotalSpentByCategory;
