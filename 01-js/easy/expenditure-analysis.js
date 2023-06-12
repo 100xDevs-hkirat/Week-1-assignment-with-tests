@@ -8,8 +8,31 @@
   - `npm run test-expenditure-analysis`
 */
 
+/* 				id: 1,
+timestamp: 1656076800000,
+price: 10,
+category: 'Food',
+itemName: 'Pizza',
+*/
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let totalByCategory={}
+
+  for(let transaction of transactions){
+    const category=transaction['category'];
+    if(totalByCategory.hasOwnProperty(category)){
+      totalByCategory[category]+=transaction['price'];
+    }else{
+      totalByCategory[category]=transaction['price'];
+    }
+  }
+
+
+  const result=Object.keys(totalByCategory).map((key)=>({'category':key,'totalSpent':totalByCategory[key]}));
+
+
+  return result;
 }
+
 
 module.exports = calculateTotalSpentByCategory;
