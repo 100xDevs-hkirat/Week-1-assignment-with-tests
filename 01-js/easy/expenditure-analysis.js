@@ -9,7 +9,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categoryBox = {};
+  //now we aim to create categoryBox = { Food: 30, Clothing: 15 } which is {category: categoryBox[category]or simply sum of prices for particular category}
+  for (let transaction of transactions) {
+    const { category, price } = transaction;
+    if (categoryBox.hasOwnProperty(category)) {
+      categoryBox[category] += price;
+      console.log(categoryBox);
+    } else {
+      categoryBox[category] = price;
+      console.log(categoryBox);
+    }
+  }
+  const result = [];
+  for (const category in categoryBox) {
+    result.push({ category, totalSpent: categoryBox[category] });
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
