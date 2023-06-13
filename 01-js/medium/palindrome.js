@@ -7,6 +7,16 @@
 */
 
 function isPalindrome(str) {
+  let lowerStr = str.toLowerCase()
+  let start = 0
+  let end = str.length - 1
+
+  while (start < end) {
+    if (!/[a-zA-Z]/g.test(lowerStr[start])) start++
+    else if (!/[a-zA-Z]/g.test(lowerStr[end])) end--
+    else if (lowerStr[start++] === lowerStr[end--]) continue
+    else return false
+  }
   return true;
 }
 
