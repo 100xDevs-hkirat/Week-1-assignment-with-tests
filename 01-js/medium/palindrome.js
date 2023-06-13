@@ -7,7 +7,8 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = [...str].map(i => [..." .!,@?"].some(c => c === i) ? '' : i).join('')
+  return str.toLowerCase() === [...str].reverse().join('').toLowerCase();
 }
 
 module.exports = isPalindrome;
