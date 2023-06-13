@@ -9,7 +9,7 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  var answer = [];
+  const answer = [];
 
   for (const transaction of transactions) {
     const { category, price } = transaction;
@@ -19,7 +19,7 @@ function calculateTotalSpentByCategory(transactions) {
     if (objectWithCategory) {
       objectWithCategory.totalSpent = parseInt(objectWithCategory.totalSpent) + parseInt(price);
     } else {
-      objectWithCategory = new Object();
+      objectWithCategory = {};
       objectWithCategory.category = transaction.category;
       objectWithCategory.totalSpent = transaction.price;
       answer.push(objectWithCategory);

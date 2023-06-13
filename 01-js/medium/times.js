@@ -8,9 +8,9 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    var sum = 0;
+    let sum = 0;
     const timeBefore = Date.now();
-    for (var i = 1; i <= n; i++) {
+    for (let i = 1; i <= n; i++) {
         sum += i;
     }
     const timeAfter = Date.now();
