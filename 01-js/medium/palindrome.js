@@ -24,8 +24,7 @@ function isPalindrome(str) {
   const array2String = JSON.stringify(rev);
   const areEqual = array1String === array2String;
   
-  // console.log(rev);
-  // console.log(act);
+ 
   return areEqual;
 }
 
