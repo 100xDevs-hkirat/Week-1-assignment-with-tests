@@ -10,9 +10,41 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-todo-list`
 */
-
 class Todo {
+  constructor() {
+    this.todos = []; // List of todos
+  }
 
+  add(todo) {
+    this.todos.push(todo);
+  }
+
+  remove(index) {
+    this.todos.splice(index, 1);
+  }
+
+  update(index, updatedTodo) {
+    if (index >= 0 && index < this.todos.length) {
+      this.todos[index] = updatedTodo;
+    }
+  }
+
+  getAll() {
+    return this.todos;
+  }
+
+  get(index) {
+    if (index >= 0 && index < this.todos.length) {
+      return this.todos[index];
+    }
+    return null;
+  }
+
+  clear() {
+    this.todos = [];
+  }
 }
+
+const todoList = new Todo();
 
 module.exports = Todo;
