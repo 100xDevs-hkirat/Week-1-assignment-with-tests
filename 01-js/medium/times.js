@@ -6,7 +6,22 @@ Try running it for
 3. Sum from 1-1000000000
 Hint - use Date class exposed in JS
 */
-
+function fn(x){
+    var StartTime= new Date().getTime();
+    let sum=0;
+    for(let i=0;i<x;i++){
+        sum+=i;
+    }
+    var EndTime= new Date().getTime();
+    var TimeTaken=(EndTime-StartTime);
+    return TimeTaken;
+}
 function calculateTime(n) {
+    console.log(fn(n))
+    console.log(fn(100))
+    console.log(fn(10000))
+    console.log(fn(100000000))
     return 0.01;
 }
+
+calculateTime(1)
