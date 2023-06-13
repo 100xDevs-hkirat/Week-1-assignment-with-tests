@@ -9,10 +9,10 @@
 
 function isPalindrome(str) {
   const pattern = /[^A-Za-z]/g;
-  const str1 = str.replace(pattern, "").toLowerCase()
+  const str1 = str.replace(pattern, "").toLowerCase();
   
-  const rev = []
-  const act = []
+  const rev = [];
+  const act = [];
   for(var i = str1.length -1; i >= 0; i--){
       rev.push(str1[i]); 
   }
