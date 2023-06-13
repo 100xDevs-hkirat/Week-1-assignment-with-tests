@@ -8,35 +8,15 @@
 */
 
 function isAnagram(str1, str2) {
-  if (str1.length != str2.length) {
-    console.log("false");
-    return false;
-  }
-
-  var dict1 = {};
-  var dict2 = {};
+  if (str1.length != str2.length) return false;
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  console.log(str1, str2);
+  str1 = str1.split("").sort().join("");
+  str2 = str2.split("").sort().join("");
+  console.log(str1, str2);
   for (var i = 0; i < str1.length; i++) {
-    var val = str1[i].toLowerCase();
-    if (val in dict1) {
-      dict1[val]++;
-    } else {
-      dict1[val] = 1;
-    }
-  }
-  for (var i = 0; i < str2.length; i++) {
-    var val = str2[i].toLowerCase();
-    if (val in dict2) {
-      dict2[val]++;
-    } else {
-      dict2[val] = 1;
-    }
-  }
-  for (var key in dict1) {
-    if (key in dict2) {
-      if (dict2[key] != dict1[key]) {
-        return false;
-      }
-    }
+    if (str1[i] != str2[i]) return false;
   }
   return true;
 }
