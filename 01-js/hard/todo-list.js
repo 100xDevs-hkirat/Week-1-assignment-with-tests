@@ -13,6 +13,38 @@
 
 class Todo {
 
+  todos = [];
+
+  add(todo){
+    this.todos.push(todo);
+  }
+
+  remove(indexOfTodo){
+    this.todos = this.todos.slice(0,indexOfTodo).concat(this.todos.slice(indexOfTodo+1));
+  }
+
+  update(index, updatedTodo){
+    // this.todos[index] = updatedTodo;
+    if (index >= 0 && index < this.todos.length) {
+      this.todos[index] = updatedTodo;
+    }
+  }
+
+  getAll(){
+    return this.todos;
+  }
+
+  get(indexOfTodo){
+    // return this.todos[indexOfTodo];
+    if (indexOfTodo >= 0 && indexOfTodo < this.todos.length) {
+      return this.todos[indexOfTodo];
+    }
+    return null;
+  }
+
+  clear(){
+    this.todos = []
+  }
 }
 
 module.exports = Todo;
