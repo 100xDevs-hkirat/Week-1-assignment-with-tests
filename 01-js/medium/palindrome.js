@@ -7,7 +7,18 @@
 */
 
 function isPalindrome(str) {
+
+  lowstr = str.replace(/[^\w]/g, '').toLowerCase();
+
+
+  for (let i = 0, j = lowstr.length - 1; i < j; i++, j--) {
+    if (lowstr[i] !== lowstr[j]) {
+      return false; // Characters don't match, not a palindrome
+    }
+  }
+  
   return true;
+
 }
 
 module.exports = isPalindrome;
