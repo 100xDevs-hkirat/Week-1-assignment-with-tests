@@ -9,7 +9,23 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var hashmap = new Map();
+  for (var i = 0; i < transactions.length; i++) {
+    var category = String(transactions[i].category);
+    if(hashmap.has(category)) {
+      hashmap.set(category,hashmap.get(category)+parseInt(transactions[i].price));
+    }else{
+      hashmap.set(category,parseInt(transactions[i].price));
+    }
+  }
+
+  var result = [];
+  hashmap.forEach(function(value, key) {
+    var category_list = {category : key, totalSpent : value};
+    result.push(category_list);
+  });
+  
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;

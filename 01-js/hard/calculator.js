@@ -17,6 +17,39 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  multiply(data){
+    this.result *= data;
+  }
+  add(data){
+    this.result += data;
+  }
+  subtract(data){
+    this.result -= data;
+  }
+  divide(data){
+    if(data === 0){
+      throw err;
+    }
+    this.result /= data;
+  }
+  clear(){
+    this.result = 0;
+  }
+  calculate(str) {
+    // Replace Space with Empty String
+    var expression = str.replace(/ /g, "");
+    if (expression.includes('/0')) {
+      throw new Error('Cannot Divide by Zero');
+    }
+    this.result = eval(expression);
+  }
+}
 
 module.exports = Calculator;
