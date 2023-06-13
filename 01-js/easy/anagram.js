@@ -11,7 +11,9 @@ function isAnagram(str1, str2) {
   str1 = str1.toLowerCase();
   str2 = str2.toLowerCase();
   if (str1.length !== str2.length) return false;
+
   const chars1 = {}
+
   for (const i of str1) {
     if (chars1[i]) {
       chars1[i] += 1;
@@ -30,8 +32,8 @@ function isAnagram(str1, str2) {
   for (const key of str1) {
     if (chars1[key] !== 0) return false;
   }
-  return true;
 
+  return true;
 }
 
 module.exports = isAnagram;
