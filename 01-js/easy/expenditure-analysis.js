@@ -17,7 +17,7 @@ const transactions = [
     timestamp: "11/06/2023"
   },
   {
-    category: "Food",
+    category: "Game",
     itemName: "PS5",
     price: "177",
     timestamp: "12/06/2023" 
