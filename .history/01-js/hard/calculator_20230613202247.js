@@ -38,12 +38,6 @@ class Calculator {
   {
     this.result = this.result / num;
   }
-  divideByzero(num){
-    if(num == 0)
-    {
-      throw new Error('Cannot divide by zero');
-    }
-  }
   clear()
   {
     this.result = 0;
@@ -58,15 +52,22 @@ class Calculator {
     if (!regex.test(parsedExpression)) {
       throw new Error('Invalid expression');
     }
-
+  
     try {
       let result = eval(parsedExpression);
+      if (!Number.isFinite(result)) {
+        throw new Error('Invalid operation: Division by zero');
+      }
       this.result = result;
     } catch (error) {
-      throw new Error('Error evaluating expression');
+      if (error instanceof SyntaxError) {
+        throw new Error('Invalid expression');
+      } else {
+        throw new Error('Error evaluating expression');
+      }
     }
-     
   }
+  
   
 }
 

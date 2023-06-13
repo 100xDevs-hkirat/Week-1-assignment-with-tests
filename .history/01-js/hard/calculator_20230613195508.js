@@ -16,58 +16,7 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-class Calculator {
 
-  constructor()
-  {
-    this.result = 0;
-  }
-  add(num)
-  {
-    this.result = this.result + num;
-  }
-  subtract(num)
-  {
-    this.result = this.result - num;
-  }
-  multiply(num)
-  {
-    this.result = this.result * num;
-  }
-  divide(num)
-  {
-    this.result = this.result / num;
-  }
-  divideByzero(num){
-    if(num == 0)
-    {
-      throw new Error('Cannot divide by zero');
-    }
-  }
-  clear()
-  {
-    this.result = 0;
-  }
-  getResult()
-  {
-    return this.result;
-  }
-  calculate(expression) {
-    const parsedExpression = expression.replace(/\s+/g, '');
-    const regex = /^[0-9+\-*/().\s]+$/;
-    if (!regex.test(parsedExpression)) {
-      throw new Error('Invalid expression');
-    }
-
-    try {
-      let result = eval(parsedExpression);
-      this.result = result;
-    } catch (error) {
-      throw new Error('Error evaluating expression');
-    }
-     
-  }
-  
-}
+class Calculator {}
 
 module.exports = Calculator;

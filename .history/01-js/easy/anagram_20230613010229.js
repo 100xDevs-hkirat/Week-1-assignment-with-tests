@@ -15,6 +15,9 @@ function isAnagram(str1, str2) {
   const arr1 = Array.from(str1.toLowerCase());
   const arr2 = Array.from(str2.toLowerCase());
 
+  // const arr1 = Array.from(str1);
+  // const arr2 = Array.from(str2);
+
   arr1.sort();
   arr2.sort();
 

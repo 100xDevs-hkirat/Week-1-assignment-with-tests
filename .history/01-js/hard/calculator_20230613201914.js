@@ -38,12 +38,6 @@ class Calculator {
   {
     this.result = this.result / num;
   }
-  divideByzero(num){
-    if(num == 0)
-    {
-      throw new Error('Cannot divide by zero');
-    }
-  }
   clear()
   {
     this.result = 0;
@@ -65,7 +59,6 @@ class Calculator {
     } catch (error) {
       throw new Error('Error evaluating expression');
     }
-     
   }
   
 }

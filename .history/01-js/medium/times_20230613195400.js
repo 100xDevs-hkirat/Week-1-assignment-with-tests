@@ -22,4 +22,4 @@ function calculateTime(n) {
 
     console.log(ans);
 }
- calculateTime(1000000000); 
+ calculateTime(100); 

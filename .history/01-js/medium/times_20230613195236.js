@@ -18,8 +18,8 @@ function calculateTime(n) {
      const endTime = new Date();
      const timeDifference = endTime - startTime ;
      const timeInSeconds = timeDifference/1000;
-    var ans = timeInSeconds;
+    return timeInSeconds;
 
-    console.log(ans);
+    console.log(timeInSeconds);
 }
- calculateTime(1000000000); 
+ calculateTime(1000000000); // 0.001 seconds

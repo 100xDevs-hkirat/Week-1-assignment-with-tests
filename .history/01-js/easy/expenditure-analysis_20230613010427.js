@@ -11,24 +11,24 @@
 function calculateTotalSpentByCategory(transactions) {
   const result = [];
 
-  for (const transaction of transactions){
-    const{category, price} = transaction;
+  for (const transaction of transactions) {
+    const { category, price } = transaction;
     let foundCategory = false;
 
-    for(const categoryObject of result){
-      if(category in categoryObject){
+    for (const categoryObject of result) {
+      if (categoryObject.hasOwnProperty(category)) {
         categoryObject[category] += price;
-        foundCategory= true;
+        foundCategory = true;
         break;
       }
     }
 
-    if(!foundCategory){
-      const categoryObject = {[category]: price };
+    if (!foundCategory) {
+      const categoryObject = { category: price };
       result.push(categoryObject);
-
     }
   }
+
   return result;
 }
 

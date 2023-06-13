@@ -9,23 +9,6 @@
 
 function isAnagram(str1, str2) {
 
-  if (str1.length !== str2.length) {
-    return false;
-  }
-  const arr1 = Array.from(str1.toLowerCase());
-  const arr2 = Array.from(str2.toLowerCase());
-
-  arr1.sort();
-  arr2.sort();
-
-  for (let i=0; i< arr1.length; i++){
-    if(arr1[i] !== arr2[i]){
-      return false;
-    }
-  }
-
-  return true;
 }
-
 
 module.exports = isAnagram;
