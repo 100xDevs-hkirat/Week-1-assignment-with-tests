@@ -8,7 +8,13 @@
 */
 
 function isAnagram(str1, str2) {
-
+  str1.forEach((letter) => {
+    str2.forEach((letter2) => {
+      letter !== letter2 ? return false
+    })
+    
+  })
+  return true
 }
 
 module.exports = isAnagram;
