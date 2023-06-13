@@ -8,5 +8,26 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  // Get the current timestamp before the calculation
+  const startTime = new Date().getTime();
+
+  // Perform the sum calculation
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  // Get the current timestamp after the calculation
+  const endTime = new Date().getTime();
+
+  // Calculate the time difference in seconds
+  const timeInSeconds = (endTime - startTime) / 1000;
+
+  return timeInSeconds;
 }
+
+console.log(calculateTime(100));
+console.log(calculateTime(5000));
+console.log(calculateTime(100000));
+console.log(calculateTime(1000000000));
+console.log(calculateTime(10000000));
