@@ -9,6 +9,8 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  const n = transactions.length;
+
   return [];
 }
 
