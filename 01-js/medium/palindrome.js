@@ -6,8 +6,27 @@
   - `npm run test-palindrome`
 */
 
+
 function isPalindrome(str) {
-  return true;
+  const pattern = /[^A-Za-z]/g;
+  const str1 = str.replace(pattern, "").toLowerCase()
+  
+  const rev = []
+  const act = []
+  for(var i = str1.length -1; i >= 0; i--){
+      rev.push(str1[i]); 
+  }
+  for(var i = 0; i< str1.length; i++){
+      act.push(str1[i]); 
+  }
+  
+  const array1String = JSON.stringify(act);
+  const array2String = JSON.stringify(rev);
+  const areEqual = array1String === array2String;
+  
+  // console.log(rev);
+  // console.log(act);
+  return areEqual;
 }
 
 module.exports = isPalindrome;
