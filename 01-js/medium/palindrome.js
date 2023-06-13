@@ -39,7 +39,7 @@ function isPalindrome(str) {
   str = sanitizeStrings(str);
   str = str.trimStart().trimEnd();
   str = str.toLowerCase()
-  reversedStr = reverseString(str);
+  let reversedStr = reverseString(str);
 
   console.log("Sanitzed string is " + str);
   console.log("reverses string is " + reversedStr);
