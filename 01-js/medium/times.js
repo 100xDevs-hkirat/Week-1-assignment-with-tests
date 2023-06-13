@@ -8,5 +8,7 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  const currDate = Date.now();
+  [...Array(n)].reduce((acc, val, idx) => acc + idx, 0);
+  return (Date.now() - currDate) / 1000;
 }
