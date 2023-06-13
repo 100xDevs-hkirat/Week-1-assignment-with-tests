@@ -17,6 +17,80 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    if (num === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(str) {
+    // let strArr = str.split("");
+    // strArr = strArr.filter((char) => char !== " ");
+    // this.validate(strArr);
 
+    //no need to validate as the eval meathod do these itself
+
+    const response = eval(str);
+    if (response === Infinity) throw new Error("Cannot divide by zero");
+    this.result = response;
+  }
+  validate(strArr) {
+    // console.log(strArr);
+    const allowedSigns = "+-*/(){}[].";
+    strArr.forEach((char) => {
+      if (isNaN(char) && !allowedSigns.includes(char)) {
+        console.log("Invalid character ", char, " found");
+        throw new Error("Invalid character ");
+      }
+    });
+    this.validatebrackets(strArr);
+  }
+  validatebrackets(strArr) {
+    const stack = [];
+    const openingBrackets = ["(", "[", "{"];
+    const closingBrackets = [")", "]", "}"];
+    strArr.forEach((char) => {
+      const isBracket =
+        openingBrackets.includes(char) || closingBrackets.includes(char);
+      if (!isBracket) return;
+      if (openingBrackets.includes(char)) {
+        stack.push(char);
+      } else {
+        const isEmpty = stack.length === 0;
+        if (isEmpty) {
+          throw new Error("Invalid brackets");
+        }
+        const top = stack[stack.length - 1];
+        if (openingBrackets.indexOf(top) === closingBrackets.indexOf(char)) {
+          stack.pop();
+        } else {
+          throw new Error("Invalid brackets");
+        }
+      }
+    });
+  }
+}
+
+const calc = new Calculator();
+calc.calculate("10 * (2 + 3) ");
+console.log(calc.getResult());
 module.exports = Calculator;

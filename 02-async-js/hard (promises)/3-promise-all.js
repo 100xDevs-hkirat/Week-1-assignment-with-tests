@@ -4,19 +4,32 @@
  * Print how long it took for all 3 promises to resolve.
  */
 
+const wait = require("./1-promisify-setTimeout");
 
 function waitOneSecond() {
-
+  const promise = new Promise((resolve) => wait(1).then(resolve));
+  return promise;
 }
 
 function waitTwoSecond() {
-
+  const promise = new Promise((resolve) => wait(2).then(resolve));
+  return promise;
 }
 
 function waitThreeSecond() {
-
+  const promise = new Promise((resolve) => wait(3).then(resolve));
+  return promise;
 }
 
 function calculateTime() {
-
+  const startTime = Date.now();
+  Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()]).then(
+    () => {
+      const endTime = Date.now();
+      const totalTime = (endTime - startTime) / 1000;
+      console.log(`All promises resolved after ${totalTime} seconds`);
+    }
+  );
 }
+
+calculateTime();
