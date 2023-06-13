@@ -6,8 +6,28 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
+function isAlphabet(character) {
+  return /^[A-Za-z]$/.test(character);
 }
+
+function cleanAString(str){
+  let cleanedStr="";
+  for(let char of str){
+    if(isAlphabet(char)){
+      cleanedStr+=char;
+    }
+  }
+
+  return cleanedStr.toLowerCase();
+}
+
+function isPalindrome(str) {
+  str=cleanAString(str);
+  const reversedStr = str.split("").reverse().join("");
+  return str===reversedStr;
+}
+
+// console.log(isPalindrome("hello")) ;
+
 
 module.exports = isPalindrome;
