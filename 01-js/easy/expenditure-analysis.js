@@ -8,8 +8,48 @@
   - `npm run test-expenditure-analysis`
 */
 
+
+const transactions = [
+  {
+    category: "Food",
+    itemName: "chocobar",
+    price: "19",
+    timestamp: "11/06/2023"
+  },
+  {
+    category: "Food",
+    itemName: "PS5",
+    price: "177",
+    timestamp: "12/06/2023" 
+  }
+]
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const totalCategory = {};
+
+  for (const element of transactions){
+    const category = element.category;
+    const price = Number(element.price);
+
+    if (category in totalCategory){
+      totalCategory[category] += price;
+    } else {
+      totalCategory[category] = price;
+    }
+  }
+
+  const result = [];
+  for (const category in totalCategory){
+    const total = totalCategory[category];
+    const categoryObject = {category : category,totalSpent : total};
+    result.push(categoryObject)
+  }
+
+  return result;
+  
 }
+
+const result = calculateTotalSpentByCategory(transactions); // [{Food: 19},{Game: 177}]
+console.log("This ans is - ",result);
 
 module.exports = calculateTotalSpentByCategory;
