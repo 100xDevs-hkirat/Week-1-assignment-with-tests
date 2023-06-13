@@ -8,7 +8,15 @@
 */
 
 function isAnagram(str1, str2) {
-
+  var str1 = str1.toLowerCase().split('').sort().join('');
+  var str2 = str2.toLowerCase().split('').sort().join('');
+  console.log(str1, str2)
+  if (str1 === str2 && str1.length === str2.length) {
+    return true;
+  }
+  return false;
 }
+
+isAnagram('hello', 'hello!'); // true
 
 module.exports = isAnagram;
