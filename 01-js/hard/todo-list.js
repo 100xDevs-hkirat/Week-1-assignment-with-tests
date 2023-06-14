@@ -12,6 +12,40 @@
 */
 
 class Todo {
+  constructor() {
+    this.result = []
+  }
+
+  add(todo) {
+    this.result.push(todo);
+  }
+
+  remove(indexOfTodo) {
+    this.result = this.result.filter((data, index) => (
+      index !== indexOfTodo
+    ))
+  }
+
+  getAll() {
+    return this.result
+  }
+
+  update(index, updatedTodo) {
+    this.result.map((data, i) => {
+      if (i !== index) return data
+      else return this.result[index] = updatedTodo
+    }
+    )
+  }
+
+  clear() {
+    this.result = []
+  }
+
+  get(indexOfTodo) {
+    return this.result[indexOfTodo] !== undefined ? this.result[indexOfTodo] : null
+  }
+
 
 }
 
