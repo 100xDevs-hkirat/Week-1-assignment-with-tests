@@ -17,6 +17,162 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
 
+  add(number) {
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Expected a number.');
+    }
+    this.result += number;
+  }
+
+  subtract(number) {
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Expected a number.');
+    }
+    this.result -= number;
+  }
+
+  multiply(number) {
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Expected a number.');
+    }
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Expected a number.');
+    }
+    if (number === 0) {
+      throw new Error('Cannot divide by zero.');
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    if (typeof expression !== 'string') {
+      throw new Error('Invalid input. Expected a string.');
+    }
+    expression = expression.replace(/\s+/g, ''); // Remove extra spaces from the expression
+
+    // Validate the expression
+    if (!/^[0-9+\-*/().]+$/.test(expression)) {
+      throw new Error('Invalid expression.');
+    }
+
+    const stack = [];
+    let number = '';
+    let lastOperator = '+';
+
+    for (let i = 0; i < expression.length; i++) {
+      const char = expression[i];
+
+      if (!isNaN(Number(char)) || char === '.') {
+        number += char;
+      } else if (char === '(') {
+        stack.push({ number: parseFloat(number), operator: lastOperator });
+        stack.push({ operator: '(' });
+        number = '';
+        lastOperator = '+';
+      } else if (char === ')') {
+        const prevOperator = stack.pop().operator;
+        let prevNumber = stack.pop().number || 0;
+
+        if (lastOperator === '*') {
+          this.result -= prevNumber;
+          prevNumber *= parseFloat(number);
+          this.result += prevNumber;
+        } else if (lastOperator === '/') {
+          if (parseFloat(number) === 0) {
+            throw new Error('Cannot divide by zero.');
+          }
+          this.result -= prevNumber;
+          prevNumber /= parseFloat(number);
+          this.result += prevNumber;
+        } else {
+          this.result += prevNumber;
+        }
+
+        number = '';
+        lastOperator = prevOperator;
+      } else if (char === '+' || char === '-') {
+        if (number !== '') {
+          const num = parseFloat(number);
+
+          if (lastOperator === '+') {
+            this.result += num;
+          } else if (lastOperator === '-') {
+            this.result -= num;
+          } else if (lastOperator === '*') {
+            this.result *= num;
+          } else if (lastOperator === '/') {
+            if (num === 0) {
+              throw new Error('Cannot divide by zero.');
+            }
+            this.result /= num;
+          }
+
+          number = '';
+        }
+
+        lastOperator = char;
+      } else if (char === '*' || char === '/') {
+        if (number === '') {
+          throw new Error('Invalid expression.');
+        }
+
+        const num = parseFloat(number);
+
+        if (lastOperator === '*') {
+          this.result *= num;
+        } else if (lastOperator === '/') {
+          if (num === 0) {
+            throw new Error('Cannot divide by zero.');
+          }
+          this.result /= num;
+        } else {
+          this.result += num;
+        }
+
+        number = '';
+        lastOperator = char;
+      } else {
+        throw new Error('Invalid character in expression.');
+      }
+    }
+
+    if (number !== '') {
+      const num = parseFloat(number);
+
+      if (lastOperator === '+') {
+        this.result += num;
+      } else if (lastOperator === '-') {
+        this.result -= num;
+      } else if (lastOperator === '*') {
+        this.result *= num;
+      } else if (lastOperator === '/') {
+        if (num === 0) {
+          throw new Error('Cannot divide by zero.');
+        }
+        this.result /= num;
+      }
+    }
+
+    if (stack.length !== 0) {
+      throw new Error('Invalid expression.');
+    }
+  }
+}
 module.exports = Calculator;

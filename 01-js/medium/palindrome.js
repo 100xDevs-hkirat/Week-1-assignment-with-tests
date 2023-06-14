@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.replace(/[\s.,!?]/g, '');
+  let reversedString = '';
+  for(let i=str.length-1; i>=0 ; i--) {
+    reversedString += str[i];
+  }
+  return str.toLowerCase() == reversedString.toLocaleLowerCase();
 }
-
+console.log(isPalindrome('A man a plan a canal Panama'));
 module.exports = isPalindrome;

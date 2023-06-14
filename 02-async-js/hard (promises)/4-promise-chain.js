@@ -6,17 +6,42 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, 1000)
+    })
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, 2000)
+    })
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, 3000)
+    })
 }
 
 function calculateTime() {
-
+    const startTime = new Date().getTime();
+    waitOneSecond().then(() => {
+        waitTwoSecond().then(() => {
+            waitThreeSecond().then(() => {
+                const endTime = new Date().getTime();
+                const durationInSeconds = (endTime - startTime) / 1000;
+                console.log(`All promises resolved in ${durationInSeconds} seconds.`);
+            })
+        })
+    })
 }
+
+calculateTime();
+
+// This one took more time as compared to promise all method.
