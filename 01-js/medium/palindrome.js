@@ -6,7 +6,22 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
+function isPalindrome(stra) {
+  let str = [];
+  stra.split('').forEach((s) => {
+    e=s.toLowerCase();
+    if(e>='a' && e<='z'){
+      str.push(e);
+    }
+  });
+  let n = str.length;
+  let j = n - 1;
+  
+  for (let i = 0; i < n / 2; i++) {
+    if (str[i] !== str[j])
+      return false;
+    j--;
+  }
   return true;
 }
 
