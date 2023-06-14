@@ -17,6 +17,63 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+
+  constructor(){
+    this.result = 0;
+  }
+
+  add(number){
+    this.result = this.result + number;
+  }
+
+  subtract(number){
+    this.result = this.result - number;
+  }
+
+  multiply(number){
+    this.result = this.result * number;
+  }
+
+  divide(number){
+    if(number !== 0){
+      this.result = this.result/number;
+    }
+    else{
+      throw new Error("Cannot divide by zero");
+    }
+  }
+
+  clear(){
+    this.result = 0;
+  }
+
+  getResult(){
+    return this.result;
+  }
+
+  calculate(expression){
+    // Remove continuous spaces from the expression
+    expression = expression.replace(/\s+/g, '');
+
+    // Validate the expression for non-numerical characters
+    const isValidExpression = /^[\d+*/()\-.]+$/.test(expression);
+    if (!isValidExpression) {
+      throw new Error('Invalid expression. Only numerical and arithmetic characters are allowed.');
+    }
+
+    // Check for division by zero
+    if (expression.includes('/0')) {
+      throw new Error('Division by zero is not allowed.');
+    }
+
+    try {
+      this.result = eval(expression);
+    } catch (error) {
+      throw new Error('An error occurred while evaluating the expression:', error);
+    }
+  }
+  }
+
 
 module.exports = Calculator;
