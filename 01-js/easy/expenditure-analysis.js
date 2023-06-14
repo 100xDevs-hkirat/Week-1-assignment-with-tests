@@ -9,19 +9,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  
-  for(let x in transactions){
-    var solution = []
-    for(let y in solution){
-      if (solution[y].category == transactions[x].category){
-        solution[y].totalSpent = solution.totalSpent + transactions.x.price;
-      }
+  const categoryMap = {};
+
+  // Iterate over each transaction
+  for (let i = 0; i < transactions.length; i++) {
+    const { category, price } = transactions[i];
+
+    // If the category already exists in the map, add the price to the total spent
+    if (categoryMap[category]) {
+      categoryMap[category] += price;
+    } else {
+      // If the category doesn't exist, initialize it with the price
+      categoryMap[category] = price;
     }
-        solution.category = transactions.x.category
-        solution.totalSpent =  transactions.x.price;
-    
   }
-  return solution;
+
+  // Convert the categoryMap to an array of objects
+  const result = Object.entries(categoryMap).map(([category, totalSpent]) => ({
+    category,
+    totalSpent,
+  }));
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
