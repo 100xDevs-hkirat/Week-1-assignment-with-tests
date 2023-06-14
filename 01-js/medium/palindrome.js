@@ -6,8 +6,23 @@
   - `npm run test-palindrome`
 */
 
+/**
+ * 
+ * @param {string} str 
+ */
 function isPalindrome(str) {
+  str = str.replace(/[.,'?\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+  str = str.split(" ").reduce((prev,str)=>prev + str)
+  let len = str.length;
+  console.log(str);
+  for(let i = 0;i < len/2;i++) {
+    if(str.charAt(i).toLowerCase() != str.charAt(len - 1 - i).toLowerCase()) {
+      return false;
+    }
+  }
   return true;
 }
+
+console.log(isPalindrome("Mr. Owl ate my metal worm.'"))
 
 module.exports = isPalindrome;
