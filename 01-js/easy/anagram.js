@@ -9,6 +9,19 @@
 
 function isAnagram(str1, str2) {
 
+  let string1= str1.toLowerCase().split('').sort().join('');
+  let string2 = str2.toLowerCase().split('').sort().join('');
+  
+  if(str1.length!==str2.length, string1!==string2){
+    return false
+  }else if(string1===string2){
+    return true
+  }
+
+
+
 }
+
+isAnagram('Wasif','sifaw')
 
 module.exports = isAnagram;
