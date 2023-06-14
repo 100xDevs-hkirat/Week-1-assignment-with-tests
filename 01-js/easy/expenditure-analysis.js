@@ -14,17 +14,19 @@ function calculateTotalSpentByCategory(transactions) {
   for (const transaction of transactions) {
     const { category, price } = transaction;
     if (category in categoryMap) {
-      categoryMap[category].totalSpent += price;
+      categoryMap[category] += price;
     } else {
-      categoryMap[category] = {"totalSpent": price};
+      categoryMap[category] =  price;
     }
   }
 
-  const result = Object.entries(categoryMap).map(([category, total]) => {
-    return { [category]: total };
-  });
+  
+  let arr = []
+  for(category in categoryMap){
+    arr.push({category:category,totalSpent:categoryMap[category]})
+  }
+  return arr;
 
-  return result;
 }
 
 
