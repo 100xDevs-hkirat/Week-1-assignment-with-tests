@@ -24,23 +24,23 @@ class Calculator {
   }
 
   add(num) {
-    this.#result = this.#result + num;
+    this.#result += num;
     return this.#result;
   }
 
   subtract(num) {
-    this.#result = this.#result - num;
+    this.#result -= num;
     return this.#result;
   }
 
   multiply(num) {
-    this.#result = this.#result * num;
+    this.#result *= num;
     return this.#result;
   }
 
   divide(num) {
     if (!num) throw new Error(num);
-    this.#result = this.#result / num;
+    this.#result /= num;
     return this.#result;
   }
 
