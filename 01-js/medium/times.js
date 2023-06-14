@@ -7,6 +7,29 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+
+
 function calculateTime(n) {
-    return 0.01;
+
+    const startTime = new Date();
+
+    let sum = 0;
+
+    for(var i=0;i<n;i++){
+        sum += i;
+
+    }
+
+    const endTime = new Date();
+
+    const executionTime = (endTime - startTime) / 1000;
+
+    console.log("Sum from 1 to ",n,":",sum);
+    console.log("Execution time: ",executionTime,"seconds");
+
+    // return 0.01;
 }
+
+calculateTime(100);
+calculateTime(100000);
+calculateTime(1000000000);
