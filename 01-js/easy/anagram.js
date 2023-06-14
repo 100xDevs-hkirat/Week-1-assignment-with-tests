@@ -8,7 +8,16 @@
 */
 
 function isAnagram(str1, str2) {
-
+  a=str1.toLowerCase().split("").sort().join("");
+  b=str2.toLowerCase().split("").sort().join("");
+  if (a==b){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
+var ans = isAnagram("spar","rasp");
+console.log(ans);
 
 module.exports = isAnagram;
