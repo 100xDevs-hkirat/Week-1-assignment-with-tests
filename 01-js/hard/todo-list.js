@@ -12,7 +12,36 @@
 */
 
 class Todo {
-
+  constructor() {
+    this.todo = [];
+  }
+  add(todo) {
+    this.todo.push(todo);
+  }
+  remove(index) {
+    if (index < 0 || index >= this.todo.length) {
+      throw new Error("Invalid Remove!");
+    }
+    this.todo.splice(index, 1);
+  }
+  updata(index, updatedTodo) {
+    if (index < 0 || index >= this.todo.length) {
+      throw new Error("Invalid Update!");
+    }
+    this.todo[index] = updatedTodo;
+  }
+  getAll() {
+    return this.todos;
+  }
+  get(index) {
+    if (index < 0 || index >= this.todos.length) {
+      throw new Error("Invalid index");
+    }
+    return this.todos[index];
+  }
+  clear() {
+    this.todos = [];
+  }
 }
 
 module.exports = Todo;
