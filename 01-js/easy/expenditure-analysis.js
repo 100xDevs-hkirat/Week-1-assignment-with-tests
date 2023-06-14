@@ -9,7 +9,7 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  const categoryMap = {};
+  const categoryMap = {}; 
 
   for (const transaction of transactions) {
     const { category, price } = transaction;
