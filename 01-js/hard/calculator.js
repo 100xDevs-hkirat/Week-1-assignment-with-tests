@@ -17,6 +17,57 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    if (isNaN(number)) throw new Error('Invalid input');
+    this.result += number;
+  }
+
+  subtract(number) {
+    if (isNaN(number)) throw new Error('Invalid input');
+    this.result -= number;
+  }
+
+  multiply(number) {
+    if (isNaN(number)) throw new Error('Invalid input');
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (isNaN(number)) throw new Error('Invalid input');
+    if (number === 0) throw new Error('Division by Zero is not allowed.');
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    // Remove multiple continuous spaces and trim the expression
+    expression = expression.replace(/\s+/g, ' ').trim();
+
+    // Validate the expression
+    if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
+      throw new Error('Invalid expression');
+    }
+
+    // Check for division by zero
+    if (expression.includes('/ 0')) {
+      throw new Error('Division by zero is not allowed');
+    }
+
+    // Evaluate the expression using eval
+    this.result = eval(expression);
+  }
+}
 
 module.exports = Calculator;
