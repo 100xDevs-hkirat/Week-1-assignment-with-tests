@@ -5,18 +5,39 @@
  * Compare it with the results from 3-promise-all.js
  */
 
-function waitOneSecond() {
+function resolvePromise(seconds){
+	return new Promise((resolve)=>{
+		setTimeout(resolve,seconds)
+	})
+}
 
+function waitOneSecond() {
+	return resolvePromise(1000)
 }
 
 function waitTwoSecond() {
-
+	return resolvePromise(2000)
 }
 
 function waitThreeSecond() {
-
+	return resolvePromise(3000)
 }
 
 function calculateTime() {
-
+	const start = Date.now()
+	waitOneSecond()
+	.then(()=>{
+		return waitTwoSecond()
+	})
+	.then(()=>{
+		return waitThreeSecond()
+	})
+	.then(()=>{
+		console.log("Time Taken==>"+ (Date.now()-start))
+	})
+	.catch((err)=>{
+		console.log("Error==>"+err)
+	})
 }
+
+calculateTime()
