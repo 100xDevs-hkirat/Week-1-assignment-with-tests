@@ -6,17 +6,48 @@
  */
 
 function waitOneSecond() {
+    return new Promise((resolve) => {
+     setTimeout(resolve, 1000);
+    })
+ }
+ 
+ function waitTwoSecond() {
+     return new Promise((resolve) => {
+       setTimeout(resolve, 2000);
+     })
+ }
+ 
+ function waitThreeSecond() {
+     return new Promise((resolve) => {
+         setTimeout(resolve, 3000);
+     })
+ }
 
+ async function   calculateTime () {
+    let startTime = new Date();
+    await waitOneSecond();
+    await waitTwoSecond();
+    await waitThreeSecond();
+    let endTime = new Date();
+    let diff1 = endTime.getMilliseconds() - startTime.getMilliseconds();
+    console.log("It takes "+diff1+" milliseconds");
+    startTime = new Date();
+    await Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()]);
+    endTime = new Date();
+    let diff2 = endTime.getMilliseconds() - startTime.getMilliseconds();
+    
+    if (diff1 > diff2)
+    {
+        console.log("It takes more time than promise.all fuctions");
+    }
+    else if (diff1 < diff2)
+    {
+        console.log("It takes less time than promise.all fuctions");
+    }
+    else
+    {
+        console.log("It takes equal time as promise.all fuctions");
+    }
 }
 
-function waitTwoSecond() {
-
-}
-
-function waitThreeSecond() {
-
-}
-
-function calculateTime() {
-
-}
+calculateTime();
