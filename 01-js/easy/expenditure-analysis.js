@@ -9,31 +9,6 @@
   - `npm run test-expenditure-analysis`
 */
 
-/* let categoryMap = {};
-
-  // Calculate total spent for each category
-  for (let transaction of transactions) {
-    let category = transaction.category;
-    let price = transaction.price;
-
-    // If the category is already present in the categoryMap, add the price to the existing total
-    if (categoryMap.hasOwnProperty(category)) {
-      categoryMap[category] += price;
-    } else {
-      // If the category is not present, initialize it with the price
-      categoryMap[category] = price;
-    }
-  }
-
-  // Convert the categoryMap to an array of objects in the desired format
-  let result = [];
-  for (let category in categoryMap) {
-    result.push({ category: category, totalSpent: categoryMap[category] });
-  }
-
-  return result;
-}
-*/
 
 function calculateTotalSpentByCategory(transactions) {
   let empty = {};
