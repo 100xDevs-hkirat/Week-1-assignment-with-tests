@@ -8,5 +8,23 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let startTime = new Date();
+    let startMin = startTime.getMinutes();
+    let startSec = startTime.getSeconds();
+
+    let sum = 0;
+
+    for(let i=1;i<=n;i++){
+        sum += i;
+    }
+    let endTime = new Date();
+    let endMin = endTime.getMinutes();
+    let endSec = endTime.getSeconds();
+
+    // setTimeout(3*1000);
+
+    return 60*(endMin-startMin) + (endSec-startSec);
 }
+
+let time = calculateTime(10000000000);
+console.log(time);
