@@ -7,22 +7,16 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
-  str1 = str1.toLowerCase();
-  str2 = str2.toLowerCase();
-
-  if (str1.length !== str2.length) return false;
-  for (var i = 0; i < str1.length; i++) {
-    var temp = false;
-    for (var j = 0; j < str2.length; j++) {
-      if (str1[i] === str2[j]) temp = true;
-    }
-    if (temp === false) return false;
-  }
-  return true;
+function sort(str) {
+  str = str.toLowerCase();
+  var array = str.split("");
+  var sortedString = array.sort().join("");
+  return sortedString;
 }
 
-// console.log(isAnagram("rasp","pasr"));
-
+function isAnagram(str1, str2) {
+ if(sort(str1) === sort(str2)) return true;
+ else return false;
+}
 
 module.exports = isAnagram;
