@@ -9,7 +9,27 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+
+    //empty object that will store the category-wise total amount 
+    const categoryTotal = {};
+
+    //Iterate through each transaction in the transactions list.
+    //using a for of loop to iterate over the object
+  
+    for(const transaction of transactions){
+  
+      // object destructuring is used to extract the desired fields (itemName and price) from the originalObject. 
+      const {category,price} = transaction;
+  
+      if(category in categoryTotal){
+        categoryTotal[category]+=price;
+      }else{
+        categoryTotal[category] = price;
+      }
+      
+    }
+  
+    return Object.entries(categoryTotal).map(([category, totalSpent]) => ({category,totalSpent}));
 }
 
 module.exports = calculateTotalSpentByCategory;
