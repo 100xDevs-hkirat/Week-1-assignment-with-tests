@@ -8,5 +8,22 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-   
+    var sum = 0;
+    for (var i = 1; i <= n; i++){
+        sum += i;
+    }
+    return sum;
 }
+
+function time(n) {
+    var startTime = performance.now();
+    console.log(calculateTime(n));
+    var endTime = performance.now();
+
+    var runtime = endTime - startTime;
+    return  "sum:" + calculateTime(n) + " Runtime: " + runtime + " milliseconds";
+}
+
+console.log(time(100))
+console.log(time(100000))
+console.log(time(1000000000))
