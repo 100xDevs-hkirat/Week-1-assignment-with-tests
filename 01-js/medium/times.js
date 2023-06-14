@@ -19,5 +19,3 @@ function calculateTime(n) {
   const output = (t2 - t1) / 1000;
   return output;
 }
-
-console.log(calculateTime(10000000));
