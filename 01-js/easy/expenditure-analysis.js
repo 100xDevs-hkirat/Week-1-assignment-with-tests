@@ -8,8 +8,26 @@
   - `npm run test-expenditure-analysis`
 */
 
+/**
+ * 
+ * @param {Array<{id:number,timestamp:number,price:number,category:string,itemName:string}>} transactions 
+ * @returns {Array<{category:string,totalSpent:number}>}
+ */
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categoryWise = {};
+
+  transactions.map((transaction)=>{
+    if(categoryWise[transaction.category]) {
+      categoryWise[transaction.category] += transaction.price;
+    }else {
+      categoryWise[transaction.category] = transaction.price;
+    }
+  });
+
+  return Object.keys(categoryWise).map(key => ({
+    category: key,
+    totalSpent: categoryWise[key]
+  }));
 }
 
 module.exports = calculateTotalSpentByCategory;
