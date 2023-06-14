@@ -9,4 +9,5 @@ setInterval(()=>{
     console.clear();
     console.log(counter);
     counter = counter+1;
+    
 },1000)
