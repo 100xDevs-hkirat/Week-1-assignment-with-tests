@@ -7,6 +7,20 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+
+
 function calculateTime(n) {
-    return 0.01;
+    
+    let startTime = new Date();
+    var sum = 0;
+    for (var i = 1; i<=n; i++ ){
+        sum = sum + i;
+    }
+    
+    let endTime = new Date();
+    const timeTaken = (endTime.getTime() - startTime.getTime())/10;
+    return timeTaken;
 }
+
+
+console.log(calculateTime(1000));
