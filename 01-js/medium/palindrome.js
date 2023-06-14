@@ -7,7 +7,24 @@
 */
 
 function isPalindrome(str) {
+ 
+  //new str has all the chars to lowercase and removes all the unessary symbols like ?,_ numbers etc using this regular expression([^A-Za-z0-9])
+  const newstr = str.toLowerCase().replace(/[^A-Za-z0-9]/g,'');
+  let i = 0;
+  let j = newstr.length-1;
+
+  
+  while(i<j){
+    if(newstr.charAt(i) !== newstr.charAt(j)){
+      return false;
+    }
+    i++;
+    j--;
+  }
   return true;
+
+
+
 }
 
 module.exports = isPalindrome;
