@@ -22,10 +22,10 @@
 
 //Code without Promise
 
-//   function Counter(){
-//     console.clear();
-//     console.log(time++);
-//   }
+  function Counter(){
+    console.clear();
+    console.log(time++);
+  }
 
-//   var time = 1;
-//   setInterval(Counter, 1000);
+  var time = 1;
+  setInterval(Counter, 1000);
