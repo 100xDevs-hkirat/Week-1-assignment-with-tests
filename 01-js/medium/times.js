@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let currTimeInMilliSeconds = new Date().getTime()
+    const StartTimeInSeconds = Math.floor(currTimeInMilliSeconds)
+    
+    for (var i=1 , sum = 0 ; i<n ; i++) sum += i ;
+
+    currTimeInMilliSeconds = new Date().getTime()
+    const timeElapsedInSeconds = Math.floor(currTimeInMilliSeconds) 
+    return timeElapsedInSeconds - StartTimeInSeconds
+
 }
+
+console.log(calculateTime(1000000) + " ms") 

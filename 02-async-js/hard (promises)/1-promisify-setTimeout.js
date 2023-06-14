@@ -3,4 +3,11 @@
 */
 
 function wait(n) {
+    return new Promise(resolve => {
+        setTimeout(resolve,n*1000) 
+    })
 }
+const n = 2 ;
+wait(n).then(() => console.log(`Promise resolved after ${n} seconds`)) ;
+
+  
