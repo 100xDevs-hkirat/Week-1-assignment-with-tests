@@ -59,12 +59,12 @@ class Calculator {
     
   }
 }
-// const calculator = new Calculator();
-// calculator.sub(5);
-// // calculator.mul(5)
-// // // calculator.clear()
-// // calculator.calculate('2+2*  8+hg')
+const calculator = new Calculator();
+calculator.sub(5);
+// calculator.mul(5)
+// // calculator.clear()
+// calculator.calculate('2+2*  8+hg')
 
-// console.log(calculator.getResult());
+console.log(calculator.getResult());
 
 module.exports = Calculator;
