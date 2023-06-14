@@ -11,17 +11,13 @@
 function calculateTotalSpentByCategory(transactions) {
   const amountMap = [];
   for (const transaction of transactions) {
-    const id = transaction.id;
-    const timestamp = transaction.timestamp;
-    const totalSpent = transaction.price;
-    const category = transaction.category;
-    const itemName = transaction.itemName;
+    const { category, price } = transaction;
     const ifCategoryExists = amountMap.find((obj) => obj.category === category);
 
     if (ifCategoryExists) {
-      ifCategoryExists.totalSpent += totalSpent;
+      ifCategoryExists.totalSpent += price;
     } else {
-      amountMap.push({ category, totalSpent });
+      amountMap.push({ category, totalSpent: price });
     }
   }
   return amountMap;
