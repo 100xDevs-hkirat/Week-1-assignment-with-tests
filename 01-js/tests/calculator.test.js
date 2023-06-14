@@ -83,6 +83,7 @@ describe('Calculator', () => {
 		expect(calc.getResult()).toBe(12);
 	});
 
+
 	test('calculate expression with invalid characters', () => {
 		expect(() => calc.calculate('5 + abc')).toThrow(Error);
 		expect(() =>
@@ -120,5 +121,5 @@ describe('Calculator', () => {
 			Error
 		);
 		expect(() => calc.calculate(')10 + 2(')).toThrow(Error);
-	});
+   });
 });
