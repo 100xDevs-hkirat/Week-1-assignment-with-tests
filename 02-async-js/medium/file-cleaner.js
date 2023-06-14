@@ -14,7 +14,7 @@ async function readFile() {
     return data
 }
 
-async function fileCleaned(contentToBeCleaned) {
+async function fileCleaner(contentToBeCleaned) {
     let str = contentToBeCleaned.trim()
     let newStr = ''
     let start = 0
@@ -33,7 +33,7 @@ async function fileCleaned(contentToBeCleaned) {
     return newStr
 }
 
-async function wFile(content) {
+async function writeFile(content) {
     fs.writeFile(filePath, content, (err) => {
         if (err) {
             console.log(err)
@@ -45,8 +45,8 @@ async function wFile(content) {
 
 async function main() {
     const data = await readFile()
-    const cleanedData = await fileCleaned(data)
-    wFile(cleanedData)
+    const cleanedData = await fileCleaner(data)
+    writeFile(cleanedData)
 }
 
 main()
