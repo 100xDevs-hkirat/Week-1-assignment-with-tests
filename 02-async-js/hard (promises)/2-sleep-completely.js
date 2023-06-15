@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
+
+async function callingSleep() {
+    console.log('operation before sleep');
+    await sleep(2);
+    console.log('operation to execute after halt');
+}
+
+callingSleep();
