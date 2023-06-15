@@ -8,7 +8,23 @@
 */
 
 function isAnagram(str1, str2) {
+  const firstWord = str1.toLowerCase().trim().replace(/\s/g, "").split("");
+  const secondWord = str2.toLowerCase().trim().replace(/\s/g, "").split("");
 
+  const sortedFirstWord = firstWord.sort();
+  const sortedSecondWord = secondWord.sort();
+
+  if (sortedFirstWord.length !== sortedSecondWord.length) {
+    return false;
+  }
+
+  for (let i = 0; i < firstWord.length; i++) {
+    if (sortedFirstWord[i] !== sortedSecondWord[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
-
+isAnagram("r!osy adsfsdf", "jdhs");
 module.exports = isAnagram;
