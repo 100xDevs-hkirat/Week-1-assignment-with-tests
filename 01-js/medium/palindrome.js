@@ -12,20 +12,21 @@ function isPalindrome(str) {
   var l = str.length-1;
   for(var i=0;i<l;i++,l--)
   {
-    var skip = false;
-    if(96>str.charCodeAt(i) && str.charCodeAt(i)<123){
+  //  console.log(str.charCodeAt(i));
+    
+    if(96<str.charCodeAt(i) && str.charCodeAt(i)<123){
       
     }
     else {
-      console.log(i + "  /  " + str.charCodeAt(i)+"="+str[i])
+    //  console.log(i + "  /  " + str.charCodeAt(i)+"="+str[i])
       l++
       continue
     }
-    if(96>str.charCodeAt(l) && str.charCodeAt(l)<123){
+    if(96<str.charCodeAt(l) && str.charCodeAt(l)<123){
       
     }
     else {
-      console.log(l + "  /  " +str.charCodeAt(l)+"-"+str[l])
+      //console.log(l + "  /  " +str.charCodeAt(l)+"-"+str[l])
       i--
       continue
     }
