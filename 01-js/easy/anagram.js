@@ -17,8 +17,7 @@ function createDict(str1){
       dict1.set(i,1);
     }
   }
-  console.log(dict1);
-  console.log(dict1.size)
+
   return dict1;
 }
 
