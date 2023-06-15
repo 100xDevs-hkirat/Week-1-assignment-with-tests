@@ -8,5 +8,13 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let startTime = Date.now();
+    let sum = (n*(n+1))/2;
+    let endTime = Date.now();
+
+    console.log("sum : "+sum);
+    console.log("Time taken (in milliseconds) : "+(endTime-startTime));
+    return (endTime-startTime)/1000; // to return duration in seconds
 }
+
+calculateTime(1000000000);

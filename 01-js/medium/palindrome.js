@@ -7,7 +7,27 @@
 */
 
 function isPalindrome(str) {
+  str = str.toLowerCase();
+  let i = 0;
+  let j = str.length-1;
+
+  while(i < j){
+    if(!isAlphaNumeric(str.charAt(i))) i++;
+    else if(!isAlphaNumeric(str.charAt(j))) j--;
+    else if(str.charAt(i) !== str.charAt(j)) return false;
+    else {
+      i++; j--;
+    }
+    
+  }
+
   return true;
+}
+
+let alphaNumericRegex = /^[0-9a-zA-Z]+$/
+
+function isAlphaNumeric(char){
+  return alphaNumericRegex.test(char);
 }
 
 module.exports = isPalindrome;

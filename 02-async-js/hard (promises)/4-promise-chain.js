@@ -6,17 +6,35 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve)=>{
+        setTimeout(resolve,1000);
+    });
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve)=>{
+        setTimeout(resolve,2000);
+    });
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve)=>{
+        setTimeout(resolve,3000);
+    });
 }
 
+// In the resolve body we will return the next Promise object
 function calculateTime() {
-
+    let startTime = Date.now();
+    waitOneSecond().then(() => {
+        return waitTwoSecond();
+    }).then(() => {
+        return waitThreeSecond();
+    }).then(() => {
+        let timeNow = Date.now();
+        console.log("All the three promises are resolved.");
+        console.log("Time taken in seconds : "+ (timeNow-startTime)/1000);
+    })
 }
+
+calculateTime();
