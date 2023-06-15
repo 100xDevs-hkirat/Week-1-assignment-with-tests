@@ -9,7 +9,35 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var categoryMap = {};
+
+  // Iterate over each transaction
+  transactions.forEach(function(transaction) {
+    var category = transaction.category;
+    var price = transaction.price;
+
+    // Check if the category exists in the map
+    if (categoryMap.hasOwnProperty(category)) {
+      // Increment the total price spent for the category
+      categoryMap[category] += price;
+    } else {
+      // Initialize the category with the price spent
+      categoryMap[category] = price;
+    }
+  });
+
+  // Convert the category map to an array of objects
+  var result = Object.keys(categoryMap).map(function(category) {
+    var totalSpent = categoryMap[category];
+    var categoryObject = {};
+    categoryObject["category"] = category;
+    categoryObject["totalSpent"]=totalSpent;
+    return categoryObject;
+  });
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+
