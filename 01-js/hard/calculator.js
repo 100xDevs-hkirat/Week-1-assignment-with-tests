@@ -17,6 +17,65 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+
+  constructor(){
+    this.result = 0;
+  }
+
+
+  add(n) {
+    this.result += n;
+  }
+
+  subtract(n){
+    this.result -= n;
+  }
+
+  multiply(n){
+    this.result *= n;
+  }
+
+  divide(n){
+    if(n === 0){
+      throw new Error();
+    }
+    this.result /= n;
+  }
+
+  clear(){
+    this.result = 0;
+  }
+
+  getResult(){
+    return this.result;   
+  }
+
+  calculate(expression){
+    let allowedCharacters = "0123456789+-*/().";
+    const pureExpression = expression.replace(/\s+/g, "");
+
+    for (let i = 0; i < pureExpression.length; i++) {
+      if (allowedCharacters.indexOf(pureExpression[i]) === -1) {
+      throw new Error("Invalid expression");
+      }
+    }
+
+    try {
+      this.result = eval(pureExpression);
+      if (!isFinite(this.result)) {
+        throw new Error("Invalid arithmetic operation");
+      }
+
+    } catch (error) {
+      if (error instanceof TypeError) {
+        throw new Error("Invalid arithmetic operation");
+      }
+      throw error;
+    }   
+  }
+  //  the calculate method will check if the calculated result is finite using isFinite. 
+  // If the result is not finite, it indicates a division by zero or other invalid operation, and the method will throw an Error.
+}
 
 module.exports = Calculator;
