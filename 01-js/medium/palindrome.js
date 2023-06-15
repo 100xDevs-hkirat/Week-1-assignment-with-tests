@@ -7,7 +7,27 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let str1="";
+
+ for(let i=0;i<str.length;i++){
+  if((str.charAt(i)>='a' && str.charAt(i)<='z') || (str.charAt(i)>='A' && str.charAt(i)<='Z')){
+    let ch=str.charAt(i);
+    str1+=ch;
+  }
+ }
+
+ str1=str1.toLowerCase();
+ let i=0;
+ let j=str1.length-1;
+
+ while(i<=j){
+  if(str1.charAt(i)!==str1.charAt(j)){
+    return false;
+  }
+  i++;
+  j--;
+ }
+  return true; 
 }
 
 module.exports = isPalindrome;
