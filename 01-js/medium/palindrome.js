@@ -7,7 +7,31 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let palin = false;
+  let len = str.length;
+
+  if (len <= 1) {
+    return true;
+  }
+  str = str.toLowerCase();
+  let str1 = "";
+
+  for (s of str) {
+    if (s >= "a" && s <= "z") {
+      str1 += s;
+    }
+  }
+
+  for (let i = 0, len = str1.length; i < len / 2; i++) {
+    if (str1[i] != str1[len - 1 - i]) {
+      palin = false;
+      break;
+    }
+    palin = true;
+  }
+  return palin;
 }
+
+console.log(isPalindrome("Able, was I ere I saw Elba!"));
 
 module.exports = isPalindrome;
