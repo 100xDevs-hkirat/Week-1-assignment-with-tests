@@ -4,5 +4,7 @@
  */
 
 function sleep (seconds) {
-
+    var start = Date.now();
+    while (Date.now() < start + seconds*1000);
 }
+sleep(5);
