@@ -8,7 +8,19 @@
 */
 
 function isAnagram(str1, str2) {
+	const map = new Map();
+	for (let c of str1) {
+		let lc = c.toLowerCase();
+		map.set(lc, (map.get(lc) || 0) + 1);
+	}
 
+	for (let c of str2) {
+		let lc = c.toLowerCase();
+		map.set(lc, (map.get(lc) || 0) - 1);
+	}
+
+	for (let value of map.values()) if (value !== 0) return false;
+	return true;
 }
 
 module.exports = isAnagram;
