@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+  }
+  
+  #game-container {
+    position: relative;
+  }
+  
+  #card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  
+  #game-screen {
+    display: none;
+  }
+  

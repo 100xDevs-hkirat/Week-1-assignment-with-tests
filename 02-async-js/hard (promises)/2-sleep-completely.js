@@ -5,4 +5,14 @@
 
 function sleep (seconds) {
 
+    const milliseconds=seconds * 1000;
+    const startTime = Date.now();
+    while (Date.now() - startTime < milliseconds) {
+      // Blocking the main thread
+      console.log("Thread Busy");
+    }
+
+    console.log("Thread Free");
 }
+
+sleep(2);

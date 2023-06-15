@@ -17,6 +17,129 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) throw new Error();
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+
+  getResult() {
+    return this.result;
+  }
+
+  hasOnlyDigits(str) {
+    return /^\d+$/.test(str);
+  }
+
+  isOperand(character) {
+    const operands = ["+", "-", "*", "/"];
+    return operands.includes(character);
+  }
+
+
+checkValidExpression(expression) {
+  const expressionWithoutSpaces = expression.replace(/\s/g, "");
+  const validChars = /[0-9()+\-*/.]/g;
+  const invalidChars = expressionWithoutSpaces.replace(validChars, "");
+
+  if (invalidChars.length > 0) {
+    throw new Error("Invalid character(s) found: " + invalidChars);
+  }
+}
+
+  calculate(expression) {
+    this.checkValidExpression(expression);
+
+    const operators = {
+      "+": (a, b) => a + b,
+      "-": (a, b) => a - b,
+      "*": (a, b) => a * b,
+      "/": (a, b) => {
+        if (b === 0) throw new Error();
+        return a / b;
+      }
+    };
+
+    const numbers = [];
+    const ops = [];
+
+    const precedence = {
+      "+": 1,
+      "-": 1,
+      "*": 2,
+      "/": 2,
+    };
+
+    const tokens = expression.split(/(\+|\-|\*|\/|\(|\))/);
+
+    for (let token of tokens) {
+      token = token.trim(); // Trim whitespaces
+
+      if (token === "") {
+        continue; // Skip empty tokens
+      }
+
+      if (!isNaN(token)) {
+        numbers.push(parseFloat(token));
+      } else if (token in operators) {
+        while (
+          ops.length > 0 &&
+          precedence[token] <= precedence[ops[ops.length - 1]]
+        ) {
+          const operator = ops.pop();
+          const operand2 = numbers.pop();
+          const operand1 = numbers.pop();
+          const result = operators[operator](operand1, operand2);
+          numbers.push(result);
+        }
+        ops.push(token);
+      } else if (token === "(") {
+        ops.push(token);
+      } else if (token === ")") {
+        while (ops[ops.length - 1] !== "(") {
+          const operator = ops.pop();
+          const operand2 = numbers.pop();
+          const operand1 = numbers.pop();
+          const result = operators[operator](operand1, operand2);
+          numbers.push(result);
+        }
+        ops.pop(); // Remove the "(" from the stack
+      }
+    }
+
+    while (ops.length > 0) {
+      const operator = ops.pop();
+      const operand2 = numbers.pop();
+      const operand1 = numbers.pop();
+      const result = operators[operator](operand1, operand2);
+      numbers.push(result);
+    }
+
+    const res = numbers.pop();
+    this.result = res;
+
+  }
+}
 
 module.exports = Calculator;
