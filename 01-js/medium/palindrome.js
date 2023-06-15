@@ -7,6 +7,15 @@
 */
 
 function isPalindrome(str) {
+      let string = str.toLowerCase().replace(/[\p{P}$+<=>^`|~]/gu, '').replace(/\s/g, "");
+  console.log(string)
+  let i = string.length - 1;
+  let j = 0;
+  while(i > j){
+    if(string[i] != string[j]) return false;
+    i--;
+    j++;
+  }
   return true;
 }
 
