@@ -3,6 +3,18 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+function sleep(seconds) {
 
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, seconds)
+    })
+
+}
+let seconds = 1000;
+sleep(seconds).then(() => {
+    console.log("is CPU idle");
+});
+
+for (let i = 0; i < 5; i++) {
+    console.log("understanding synchrnous nature of js");
 }
