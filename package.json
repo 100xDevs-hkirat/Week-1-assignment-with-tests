@@ -1,0 +1,21 @@
+{
+  "name": "week-1-assignment",
+  "version": "1.0.0",
+  "description": "- The project contains easy, medium and hard assigments for week 1. - 01-js contains assignments related to JavaScript, things that were covered in the first class. - 02-async-js contains assignments related to asynchronous JavaScript, things that were covered in the second class. - If you have any query then ping us on the Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-anagram": "npx jest ./tests/anagram.test.js",
+    "test-expenditure-analysis": "npx jest ./tests/expenditure-analysis.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/100xDevs-hkirat/Week-1-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/100xDevs-hkirat/Week-1-assignment/issues"
+  },
+  "homepage": "https://github.com/100xDevs-hkirat/Week-1-assignment#readme"
+}
