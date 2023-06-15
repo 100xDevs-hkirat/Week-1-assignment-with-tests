@@ -8,5 +8,11 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const startTime = Date.now();
+    var my_array = [ ...Array(n).keys() ].map( i => i+1);
+    my_array.reduce((acc, cur) => {
+        return acc + cur
+    })
+    const endTime = Date.now()
+    return endTime - startTime;
 }
