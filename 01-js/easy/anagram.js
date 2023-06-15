@@ -20,7 +20,7 @@ function isAnagram(str1, str2) {
     if(s1.split('').sort().join('') == s2.split('').sort().join('')){
       return true;
     }
-    else{
+    else{ 
       return false;
     }
 }
