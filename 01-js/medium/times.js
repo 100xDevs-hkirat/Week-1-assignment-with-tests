@@ -7,6 +7,30 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function calculateTime(n) 
+{
+    let startTime = new Date();
+  
+    // Calculate the sum from 1 to n
+    let sum = 0;
+    for (let i = 1; i <= n; i++) 
+    {
+        sum += i;
+    }
+  
+    let endTime = new Date();
+  
+    // Calculate the time difference in milliseconds
+    let timeDiff = endTime - startTime;
+  
+    // Convert milliseconds to seconds
+    let timeInSeconds = timeDiff / 1000;
+
+    return timeInSeconds;    
 }
+
+let a = [100, 100000, 1000000000]
+for (let j = 0; j < a.length; j++)
+    {
+        console.log(calculateTime(a[j]));
+    }
