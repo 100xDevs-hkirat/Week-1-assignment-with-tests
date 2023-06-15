@@ -12,10 +12,6 @@
 */
 
 class Todo {
-  constructor(){
-    this.arr = [];
-  }
-  
   add(todo){
     this.arr.push(todo);
   }
@@ -48,13 +44,7 @@ class Todo {
   }
   clear(){
     this.arr.length = 0;
-
-
-
-  
-  }
 }
-
 
 module.exports = Todo;
 
