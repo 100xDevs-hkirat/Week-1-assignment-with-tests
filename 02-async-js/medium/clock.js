@@ -56,6 +56,6 @@ function getTime24(date) {
   return `${padZero(hours)}:${padZero(minutes)}::${padZero(seconds)}`;
 }
 function padZero(number) {
-  return number.toString().padStart(2, '0');
+  return number.toString().padStart(2, '0'); //padStart method ensures it has at least two characters by adding a leading zero if necessary.
 }
 timer(currentTime);
