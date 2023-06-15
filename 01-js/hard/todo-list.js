@@ -12,39 +12,56 @@
 */
 
 class Todo {
+
+  constructor(){
+    //initialized an empty array
+    this.arr = [];
+  }
+
   add(todo){
     this.arr.push(todo);
   }
   remove(indexOfTodo){
-    //let idx = indexOfTodo;
-    // delete this.arr[indexOfTodo];
     let i = 0;
     let n = this.arr.length;
-    while(i < n && i < indexOfTodo){
+    
+    if(indexOfTodo >= n) return this.arr; //check for valid index
+
+    while(i < n && i < indexOfTodo){ //traverse to the given index
       i++;
     }
     while(i+1 < n){
-      this.arr[i] = this.arr[i+1];
+      this.arr[i] = this.arr[i+1]; //movin array left
       i++
     }
-    this.arr.pop();
-    for(let x of this.arr){
-      console.log(x);
-    }
+    this.arr.pop(); //remove last element
     return this.arr;
   }
   update(index, updatedTodo){
-    this.arr[index] = updatedTodo;
+    if(index < this.arr.length) //check valid index
+      this.arr[index] = updatedTodo; //updated value
   }
   getAll(){
     return this.arr;
   }
   get(indexOfTodo){
-    return this.arr[indexOfTodo];
+    return (indexOfTodo < this.arr.length) ? this.arr[indexOfTodo]: null 
   }
   clear(){
     this.arr.length = 0;
+  }
 }
+
+    // let todoList;
+    // todoList = new Todo();
+
+    // todoList.add('Task 1');
+		// todoList.add('Task 2');
+		// todoList.add('Task 3');
+    // todoList.remove(1);
+    // todoList.remove(0)
+    // todoList.getAll()
+
 
 module.exports = Todo;
 
