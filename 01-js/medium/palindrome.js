@@ -6,8 +6,16 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
+function isPalindrome(str)
+{
+  // Remove spaces and punctuation marks from the string
+  let alphanumericStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  // Reverse the alphanumeric string
+  let reversedStr = alphanumericStr.split('').reverse().join('');
+
+  // Check if the reversed string is equal to the original string
+  return alphanumericStr === reversedStr;
 }
 
 module.exports = isPalindrome;
