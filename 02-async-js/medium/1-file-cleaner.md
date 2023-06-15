@@ -7,7 +7,7 @@ hello     world    my    name   is       raman
 ```
 
 After the program runs, the output should be
-
+ 
 ```
 hello world my name is raman
 ```
