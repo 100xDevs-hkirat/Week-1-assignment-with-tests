@@ -1,0 +1,1 @@
+Hi this is a text sample    generated     to work     on problems      3 &      4 namely:       read-from-file &      write-to-file.
