@@ -13,6 +13,40 @@
 
 class Todo {
 
+  constructor(){
+    this.todo = [];
+  }
+
+  isValidPosition(index){
+    return index >= 0 && this.todo[index] != undefined;
+  }
+  add(todo){
+    this.todo.push(todo);
+  }
+
+  remove(index){
+    if(!this.isValidPosition(index)) return;
+    this.todo.splice(index,1);
+  }
+
+  update(index,todo){
+    if(!this.isValidPosition(index)) return;
+    this.todo[index] = todo;
+  }
+
+  getAll(){
+    return this.todo;
+  }
+
+  get(index){
+    if(!this.isValidPosition(index)) return null;
+    return this.todo[index];
+  }
+
+  clear(){
+    this.todo = [];
+  }
+
 }
 
 module.exports = Todo;
