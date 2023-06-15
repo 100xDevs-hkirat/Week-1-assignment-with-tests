@@ -7,10 +7,17 @@ function sleep (seconds) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
-async function callingSleep() {
-    console.log('operation before sleep');
-    await sleep(2);
-    console.log('operation to execute after halt');
-}
+// using promise .then()
+sleep(5)
+    .then(() => console.log('After 5 seconds'))
+    .then(() => sleep(2)) // again going for 2 second sleep
+    .then(() => console.log('Back again after 2 seconds'))
 
-callingSleep();
+// using async await
+// async function callingSleep() {
+//     console.log('operation before sleep');
+//     await sleep(2);
+//     console.log('operation to execute after halt');
+// }
+
+// callingSleep();
