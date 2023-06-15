@@ -3,6 +3,7 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(millis) {
+	let i = 0;
+	while (i < millis) i++;
 }
