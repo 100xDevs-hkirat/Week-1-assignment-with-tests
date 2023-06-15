@@ -9,20 +9,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  const categoryAll = {};
+  const objs = {};
 
-  for (let transaction of transactions) {
-    const { category, price } = transaction;
-    if (categoryAll.hasOwnProperty(category)) {
-      categoryAll[category] += price;
+  transactions.forEach((transactions) => {
+    let { category, price } = transactions;
+
+    if (objs.hasOwnProperty(category)) {
+      objs[category].totalSpent += price;
     } else {
-      categoryAll[category] = price;
+      objs[category] = {
+        category: category,
+        totalSpent: price,
+      };
     }
-  }
+  });
 
-  const result = Object.entries(categoryAll).map(([category, total]) => ({
-    [category]: total,
-  }));
+  const result = [];
+  for (let obj in objs) {
+    result.push(objs[obj]);
+  }
 
   return result;
 }
@@ -59,7 +64,7 @@ const transactions = [
   },
 ];
 
-const print = calculateTotalSpentByCategory(transactions);
-console.log(print);
+const solve = calculateTotalSpentByCategory(transactions);
+console.log(solve);
 
 module.exports = calculateTotalSpentByCategory;

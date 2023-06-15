@@ -13,34 +13,31 @@
 
 class Todo {
   constructor() {
-    this.todo = [];
+    this.todoList = [];
   }
   add(todo) {
-    this.todo.push(todo);
+    this.todoList.push(todo);
   }
-  remove(index) {
-    if (index < 0 || index >= this.todo.length) {
-      throw new Error("Invalid Remove!");
-    }
-    this.todo.splice(index, 1);
+
+  remove(indexOfTodo) {
+    this.todoList.splice(indexOfTodo, 1);
   }
-  updata(index, updatedTodo) {
-    if (index < 0 || index >= this.todo.length) {
-      throw new Error("Invalid Update!");
+
+  update(index, updatedTodo) {
+    if (index < this.todoList.length) {
+      this.todoList[index] = updatedTodo;
     }
-    this.todo[index] = updatedTodo;
   }
   getAll() {
-    return this.todos;
+    return this.todoList;
   }
-  get(index) {
-    if (index < 0 || index >= this.todos.length) {
-      throw new Error("Invalid index");
-    }
-    return this.todos[index];
+  get(indexOfTodo) {
+    if (indexOfTodo < this.todoList.length) {
+      return this.todoList[indexOfTodo];
+    } else return null;
   }
   clear() {
-    this.todos = [];
+    this.todoList = [];
   }
 }
 
