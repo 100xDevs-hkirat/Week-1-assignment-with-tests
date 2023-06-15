@@ -7,7 +7,25 @@
 */
 
 function isPalindrome(str) {
-  return true;
+
+  //From the test case we have to remove punctuation and spaces 
+  let correct = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  /**
+   /[^a-zA-Z0-9]/g this is how we remove punctuation and spaces
+   for test case like 'A man, a plan, a canal. Panama'
+   
+   */
+
+  let reverse = correct.split("").reverse().join("");
+
+  console.log(correct, ":", reverse);
+  if (correct == reverse) {
+    return true;
+  }
+  return false;
 }
+
+
+console.log(isPalindrome('A man, a plan, a canal. Panama'))
 
 module.exports = isPalindrome;

@@ -8,5 +8,20 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start = new Date();
+    let sum = 0;
+    for (let i = 0; i <= n; i++) {
+        sum += i
+    }
+    let end = new Date();
+    return end - start;
 }
+
+//1. Sum from 1-100
+console.log("Time Taken: ",calculateTime(100), " MilliSeconds.");
+
+//2. Sum from 1-100000
+console.log("Time Taken: ",calculateTime(100000), " MilliSeconds.");
+
+//3. Sum from 1-1000000000
+console.log("Time Taken: ",calculateTime(1000000000), " MilliSeconds.");
