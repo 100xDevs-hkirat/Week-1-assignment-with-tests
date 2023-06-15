@@ -12,7 +12,19 @@
 */
 
 class Todo {
-
+  listoftodos=[]
+ add=(todo)=>{this.listoftodos.push(todo)}
+ remove=(indexOftodo)=>{if(indexOftodo<this.listoftodos.length)this.listoftodos.splice(indexOftodo,1)}
+ update=(index,updatedtodo)=>{if(index<this.listoftodos.length)this.listoftodos[index]=updatedtodo}
+ getAll=()=>{return this.listoftodos}
+ get=(indexOftodo)=>{
+  var x=this.listoftodos[indexOftodo];
+  if(x)
+  return x;
+  else
+  return null;
+}
+ clear=()=>{this.listoftodos=[]}
 }
 
 module.exports = Todo;
