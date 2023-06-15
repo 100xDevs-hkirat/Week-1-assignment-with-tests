@@ -16,7 +16,7 @@ function isAnagram(str1, str2) {
        ans2.sort();
         const an1=ans1.join("");
          const an2=ans2.join("");
-      if(an1==an2){
+      if(an1===an2){
         return true;
       }
   else{
