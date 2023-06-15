@@ -28,7 +28,12 @@ class Calculator {
 
   multiply = (operand) => (this.result *= operand);
 
-  divide = (operand) => (this.result /= operand);
+  divide = (operand) => {
+    if (operand === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= operand;
+  };
 
   getResult = () => this.result;
 
@@ -47,6 +52,7 @@ class Calculator {
     const precedence = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
     const output = [];
     const operatorStack = [];
+    const parenthesisStack = [];
 
     tokens.forEach((token) => {
       if (token.match(/^\d+(\.\d+)?$/)) {
@@ -63,6 +69,7 @@ class Calculator {
         operatorStack.push(token);
       } else if (token === "(") {
         operatorStack.push(token);
+        parenthesisStack.push(token);
       } else if (token === ")") {
         while (
           operatorStack.length > 0 &&
@@ -75,9 +82,16 @@ class Calculator {
           operatorStack[operatorStack.length - 1] === "("
         ) {
           operatorStack.pop();
+          parenthesisStack.pop();
+        } else {
+          throw new SyntaxError("Mismatched parenthesis");
         }
       }
     });
+
+    if (parenthesisStack.length > 0) {
+      throw new SyntaxError("Mismatched parenthesis");
+    }
 
     while (operatorStack.length > 0) {
       output.push(operatorStack.pop());
@@ -100,6 +114,10 @@ class Calculator {
         } else if (token === "*") {
           result = operand1 * operand2;
         } else if (token === "/") {
+          if (operand2 === 0) {
+            throw new Error("Cannot divide by zero");
+          }
+
           result = operand1 / operand2;
         } else if (token === "^") {
           result = Math.pow(operand1, operand2);
