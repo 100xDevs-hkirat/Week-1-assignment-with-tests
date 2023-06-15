@@ -17,6 +17,52 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(result){
+    this.result = 0;
+  }
+
+  add(number){
+    this.result+=number;
+  }
+
+  subtract(number){
+    this.result-=number;
+  }
+
+  multiply(number){
+    this.result*=number;
+  }
+
+  divide(number){
+    if(number===0){
+      throw new Error("0 is invalid");
+    }
+    else{
+      this.result/=number; 
+    }
+  }
+  
+  clear(){
+    this.result=0;
+  }
+
+  getResult(){
+    return(this.result);
+  }
+
+  calculate(exp){
+    exp=exp.split(" ").join("");
+    if(isNaN(eval(exp))){
+      throw new Error("invalid non-numerical character");
+    }
+    console.log(eval(exp));
+    return(eval(exp));
+  }
+
+
+}
 
 module.exports = Calculator;
+const calc = new Calculator();
+console.log(calc.calculate('(2.5 + 1.5) * 3'));
