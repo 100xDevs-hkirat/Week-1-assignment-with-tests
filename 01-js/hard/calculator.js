@@ -17,6 +17,100 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add = (operand) => (this.result += operand);
+
+  subtract = (operand) => (this.result -= operand);
+
+  multiply = (operand) => (this.result *= operand);
+
+  divide = (operand) => (this.result /= operand);
+
+  getResult = () => this.result;
+
+  clear = () => (this.result = 0);
+
+  calculate = (expression) => {
+    expression = expression.replace(/\s/g, "");
+
+    if (!/^[+\-*/^()0-9.]+$/.test(expression)) {
+      throw new SyntaxError("Invalid expression");
+    }
+
+    const pattern = /([+\-*/^()])/;
+    const tokens = expression.split(pattern).filter(Boolean);
+
+    const precedence = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
+    const output = [];
+    const operatorStack = [];
+
+    tokens.forEach((token) => {
+      if (token.match(/^\d+(\.\d+)?$/)) {
+        output.push(token);
+      } else if (token.match(/^[+\-*/^]$/)) {
+        while (
+          operatorStack.length > 0 &&
+          operatorStack[operatorStack.length - 1] !== "(" &&
+          precedence[token] <=
+            (precedence[operatorStack[operatorStack.length - 1]] || 0)
+        ) {
+          output.push(operatorStack.pop());
+        }
+        operatorStack.push(token);
+      } else if (token === "(") {
+        operatorStack.push(token);
+      } else if (token === ")") {
+        while (
+          operatorStack.length > 0 &&
+          operatorStack[operatorStack.length - 1] !== "("
+        ) {
+          output.push(operatorStack.pop());
+        }
+        if (
+          operatorStack.length > 0 &&
+          operatorStack[operatorStack.length - 1] === "("
+        ) {
+          operatorStack.pop();
+        }
+      }
+    });
+
+    while (operatorStack.length > 0) {
+      output.push(operatorStack.pop());
+    }
+
+    const stack = [];
+
+    output.forEach((token) => {
+      if (token.match(/^\d+(\.\d+)?$/)) {
+        stack.push(parseFloat(token));
+      } else {
+        const operand2 = stack.pop();
+        const operand1 = stack.pop();
+
+        let result;
+        if (token === "+") {
+          result = operand1 + operand2;
+        } else if (token === "-") {
+          result = operand1 - operand2;
+        } else if (token === "*") {
+          result = operand1 * operand2;
+        } else if (token === "/") {
+          result = operand1 / operand2;
+        } else if (token === "^") {
+          result = Math.pow(operand1, operand2);
+        }
+
+        stack.push(result);
+      }
+    });
+
+    this.result = stack.pop();
+  };
+}
 
 module.exports = Calculator;
