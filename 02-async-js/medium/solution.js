@@ -22,18 +22,19 @@ function output(err, contents) {
 // const times = currentTime.split(':');
 
 function clock() {
+
+    console.clear();
     const todayDate = new Date();
     const hours = todayDate.getHours();
     const minutes = todayDate.getMinutes();
     const seconds = todayDate.getSeconds();
 
     const formattedTime = `${hours}:${minutes}:${seconds}`;
+    console.log(formattedTime)
 
-    process.stdout.write(`\r${formattedTime}`);
-    setTimeout(clock, 1000);
 }
 
-clock();
+setInterval(clock,1000);
 
 
 
