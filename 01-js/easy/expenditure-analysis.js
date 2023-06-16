@@ -21,7 +21,7 @@ function calculateTotalSpentByCategory(item) {
     let category = item.category;
 
     if (!result[category]) {
-      result[category] = 0;
+      result[category] = 0
     }
     result[category]=result[category]+(item.price);
     return result;
