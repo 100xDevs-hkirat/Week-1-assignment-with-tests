@@ -5,16 +5,36 @@
 
 function sleep(seconds) {
 
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, seconds)
-    })
+    let enteredSecond = new Date().getSeconds();
+    let counter = 0;
+
+
+    console.log(new Date().getSeconds())
+    while (counter < seconds) {
+        let currentSecond = new Date().getSeconds()
+        if (currentSecond != enteredSecond) {
+            enteredSecond = currentSecond;
+            counter++;
+        }
+
+
+    }
+    return
+
 
 }
-let seconds = 1000;
-sleep(seconds).then(() => {
-    console.log("is CPU idle");
-});
+
+
+let seconds = 10;
+
+
+
+sleep(seconds)
 
 for (let i = 0; i < 5; i++) {
-    console.log("understanding synchrnous nature of js");
+    console.log("hi");
 }
+
+//remaining code
+
+
