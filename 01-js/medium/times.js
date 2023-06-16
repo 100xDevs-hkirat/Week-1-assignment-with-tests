@@ -7,6 +7,22 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+// how to use Date class
+
+
+
 function calculateTime(n) {
-    return 0.01;
+    var start = new Date();
+    var sum = 0;
+    for (var i = 1; i <= n; i++) {
+        sum += i;
+    }
+    var end = new Date();
+    var time = end - start;
+    return time;
 }
+
+
+console.log(calculateTime(100));
+console.log(calculateTime(100000));
+console.log(calculateTime(1000000000));
