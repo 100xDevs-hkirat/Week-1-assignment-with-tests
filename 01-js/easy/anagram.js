@@ -7,8 +7,26 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
+function isAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+  s = s.toLowerCase();
+  t = t.toLowerCase();
+  let charCount = {};
 
+  for (let i = 0; i < s.length; i++) {
+    charCount[s[i]] = (charCount[s[i]] || 0) + 1;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    if (!charCount[t[i]]) {
+      return false;
+    }
+    charCount[t[i]]--;
+  }
+
+  return true;
 }
 
 module.exports = isAnagram;
