@@ -15,3 +15,10 @@ function timeCallback() {
 }
 
 setInterval(timeCallback, 1000);
+
+/**
+ * Output for the above:
+ * 
+ * 10:26:39 PM
+ * 22:26:39
+ */
