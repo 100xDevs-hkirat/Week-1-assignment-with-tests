@@ -10,9 +10,15 @@ function isAnagram(str1, str2) {
   let a = str1.toLowerCase().replace(/\s/g, "").split("").sort().join("");
   let b = str2.toLowerCase().replace(/\s/g, "").split("").sort().join("");
 
-  return a === b;
+  if (a===b){
+    return true
+  }
+  else{
+    return false
+  }
 }
 
 let answer = isAnagram("VashU", "AShuV");
 console.log(answer);
 module.exports = isAnagram;
+
