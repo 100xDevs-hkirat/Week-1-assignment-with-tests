@@ -7,7 +7,16 @@
 */
 
 function isPalindrome(str) {
-  return true;
+
+  str = str.replace(/[^a-zA-Z]+/g,"");
+  console.log(str);
+  var splitString = str.toLowerCase().split("");
+  var reverseArray = splitString.reverse();
+  var reverseString = reverseArray.join("");
+  if(str.toLowerCase() === reverseString) return true;
+  else return false;
 }
+
+console.log(isPalindrome('Able, was I ere I saw Elba!'))
 
 module.exports = isPalindrome;
