@@ -8,5 +8,16 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const firstPoint = new Date();
+    const fp = firstPoint.getTime();
+    let y = 0;
+    for(let i = 0; i < n; i++)
+    { y += i;}
+    const secondPoint = new Date();
+    const sp = secondPoint.getTime();
+    console.log(firstPoint);
+    console.log(secondPoint);
+    return (sp - fp)/1000;
 }
+
+console.log(calculateTime(10000000000));
