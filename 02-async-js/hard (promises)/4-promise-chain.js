@@ -4,19 +4,39 @@
  * Print out the time it takes to complete the entire operation.
  * Compare it with the results from 3-promise-all.js
  */
-
+function delay(ms) {
+  return new Promise((res) => {
+    setTimeout(res, ms);
+  });
+}
 function waitOneSecond() {
-
+  return delay(1000).then(() => "1 promise");
 }
 
 function waitTwoSecond() {
-
+  return delay(2000).then(() => "2 promise");
 }
 
 function waitThreeSecond() {
-
+  return delay(3000).then(() => "3 promise");
 }
 
 function calculateTime() {
-
+  let start = new Date();
+  return waitOneSecond()
+    .then((data) => {
+      console.log(data);
+      return waitTwoSecond();
+    })
+    .then((data) => {
+      console.log(data);
+      return waitThreeSecond();
+    })
+    .then((data) => {
+      let end = new Date();
+      let duration = (end - start) / 1000;
+      console.log(data);
+      console.log(`time required : ${duration}`);
+    });
 }
+calculateTime();
