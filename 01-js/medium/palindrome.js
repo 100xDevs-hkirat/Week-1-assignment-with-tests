@@ -6,8 +6,20 @@
   - `npm run test-palindrome`
 */
 
+
 function isPalindrome(str) {
+  const str1=str.toLowerCase()
+  var array = str1.split(" ")
+  var str2 = array.join("")
+  var str3=str2.replace(/[^\w\s]|_/g, '');
+  const n=str3.length;
+  for(var i in str2){
+    if(str3[i]!=str3[n-i-1]){
+      return false;
+    }
+  }
   return true;
 }
 
+//console.log(isPalindrome('Mr. Owl ate my metal worm.'));
 module.exports = isPalindrome;
