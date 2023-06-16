@@ -7,9 +7,13 @@
 */
 
 function isPalindrome(str) {
-  let r=0 ;
-  let
-  return true;
+  str= str.LowerCase();
+
+  let reverseString = reverse(Str);
+  if(reverseString === str)
+  return ture ;
+  else
+  return false;
 }
 
 module.exports = isPalindrome;
