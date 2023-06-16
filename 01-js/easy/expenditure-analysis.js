@@ -8,8 +8,30 @@
   - `npm run test-expenditure-analysis`
 */
 
-function calculateTotalSpentByCategory(transactions) {
-  return [];
+function doesCategoryExist(result, categoryToCheck){
+  return result.find(item => item.category === categoryToCheck);
+
 }
+
+function calculateTotalSpentByCategory(transactions) {
+  let result = []
+  transactions.forEach(transaction => {
+    let category = transaction.category;
+    let categoryObj = doesCategoryExist(result, category)
+    if (categoryObj==undefined) {
+      categoryObj = {
+        'category':category,
+        'totalSpent':0
+      }
+      result.push(categoryObj);
+    }
+    categoryObj.totalSpent += transaction.price;
+    
+  });
+
+  return result;
+}
+
+console.log(calculateTotalSpentByCategory([{ category: 'Food', price: 10 }, {category: 'Fruit', price: 10 }]))
 
 module.exports = calculateTotalSpentByCategory;
