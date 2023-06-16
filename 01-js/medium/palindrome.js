@@ -5,9 +5,23 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
-function isPalindrome(str) {
-  return true;
+function isPunctuation(character) {
+  console.log(character)
+  const punctuationRegex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;
+  return punctuationRegex.test(character);
 }
+function isPalindrome(str) {
+  
+  const punctuationRegex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+  str = str.toLowerCase().replace(punctuationRegex, '').split(' ').join('');
+
+  const reversedStr = str.split('').reverse().join('');
+
+  return str === reversedStr;
+  
+ 
+}
+
+
 
 module.exports = isPalindrome;
