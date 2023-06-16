@@ -9,7 +9,41 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+
+  ans = [];
+  
+
+  for(let item=0; item<transactions.length; item++){
+    console.log(transactions[item]);
+
+  }
+
   return [];
 }
+
+const transactions = [
+  {
+    id: 1,
+    timestamp: 1656076800000,
+    price: 10,
+    category: 'Food',
+    itemName: 'Pizza',
+  },
+  {
+    id: 2,
+    timestamp: 1656076800000,
+    price: 100,
+    category: 'Food',
+    itemName: 'Pizza',
+  },
+  {
+    id: 3,
+    timestamp: 1656076800000,
+    price: 210,
+    category: 'Clothes',
+    itemName: 'Pizza',
+  }]
+
+calculateTotalSpentByCategory(transactions);
 
 module.exports = calculateTotalSpentByCategory;
