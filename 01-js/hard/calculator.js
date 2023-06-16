@@ -17,6 +17,78 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    if (isNaN(number)) {
+      throw new Error('Invalid input. Expected a number.');
+    }
+
+    this.result += Number(number);
+  }
+
+  subtract(number) {
+    if (isNaN(number)) {
+      throw new Error('Invalid input. Expected a number.');
+    }
+
+    this.result -= Number(number);
+  }
+
+  multiply(number) {
+    if (isNaN(number)) {
+      throw new Error('Invalid input. Expected a number.');
+    }
+
+    this.result *= Number(number);
+  }
+
+  divide(number) {
+    if (isNaN(number)) {
+      throw new Error('Invalid input. Expected a number.');
+    }
+
+    const divisor = Number(number);
+
+    if (divisor === 0) {
+      throw new Error('Division by zero is not allowed.');
+    }
+
+    this.result /= divisor;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    if (typeof expression !== 'string') {
+      throw new Error('Invalid input. Expected a string expression.');
+    }
+
+    const trimmedExpression = expression.replace(/\s+/g, '');
+    const divisionByZeroRegex = /\/0(?![0-9.])/; // Regex to match division by zero when it is not followed by a digit or decimal point
+    const hasDivisionByZero = divisionByZeroRegex.test(trimmedExpression);
+
+    if (hasDivisionByZero) {
+      throw new Error('Division by zero is not allowed.');
+    }
+
+    const result = eval(trimmedExpression);
+
+    if (isNaN(result)) {
+      throw new Error('Invalid input. Expression evaluation failed.');
+    }
+
+    this.result = result;
+  }
+}
 
 module.exports = Calculator;

@@ -6,17 +6,41 @@
 
 
 function waitOneSecond() {
-
-}
-
-function waitTwoSecond() {
-
-}
-
-function waitThreeSecond() {
-
-}
-
-function calculateTime() {
-
-}
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('One second has passed');
+      }, 1000);
+    });
+  }
+  
+  function waitTwoSeconds() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('Two seconds have passed');
+      }, 2000);
+    });
+  }
+  
+  function waitThreeSeconds() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('Three seconds have passed');
+      }, 3000);
+    });
+  }
+  
+  function calculateTime() {
+    const startTime = Date.now();
+  
+    Promise.all([waitOneSecond(), waitTwoSeconds(), waitThreeSeconds()])
+      .then((results) => {
+        const endTime = Date.now();
+        const elapsedTime = endTime - startTime;
+        console.log('All promises resolved!');
+        console.log('Elapsed time:', elapsedTime, 'ms');
+        console.log('Results:', results);
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });
+  }
