@@ -8,5 +8,19 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  let startTime = new Date().getTime();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  let endTime = new Date().getTime();
+  console.log(
+    `Time taken to calculate sum from 1 to ${n} is ${
+      (endTime - startTime) / 1000
+    } seconds`
+  );
 }
+
+calculateTime(10000000);
+
+//command to run the file in terminal: node medium/times.js go in 01-js folder and then run the command
