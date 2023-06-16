@@ -9,7 +9,7 @@ fs.readFile('easy/counter.js', 'utf8', (err, data) => {
 });
 
 var count = 0
-for (let i = 0; i < 10033333333333303333; i++) {
+for (let i = 0; i < 100333333; i++) {
     count = count + 1
 }
 
