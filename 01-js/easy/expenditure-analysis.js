@@ -9,7 +9,49 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categoryMap = new Map();
+  let result = [];
+
+  for (transaction of transactions) {
+
+    if (categoryMap.has(transaction.category)) {
+      categoryMap.set(transaction.category, categoryMap.get(transaction.category) + transaction.price);
+    } else {
+      categoryMap.set(transaction.category, transaction.price);
+    }
+  }
+
+  // Iterate over the map and create the resultant array
+  for (let [key, value] of categoryMap.entries()) {
+    result.push({category: key, totalSpent: value});
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+const transactions = [
+  {
+    id: 1,
+    timestamp: 1656076800000,
+    price: 10,
+    category: 'Food',
+    itemName: 'Pizza',
+  },
+  {
+    id: 2,
+    timestamp: 1656105600000,
+    price: 20,
+    category: 'Food',
+    itemName: 'Burger',
+  },
+  {
+    id: 3,
+    timestamp: 1656134400000,
+    price: 30,
+    category: 'Food',
+    itemName: 'Sushi',
+  },
+];
+calculateTotalSpentByCategory(transactions);
