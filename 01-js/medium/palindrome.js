@@ -36,6 +36,5 @@ function isPalindrome(str) {
   return (str === str2)
 }
 
-console.log(isPalindrome("Eva, can I see bees in a cave?"))
 
 module.exports = isPalindrome;
