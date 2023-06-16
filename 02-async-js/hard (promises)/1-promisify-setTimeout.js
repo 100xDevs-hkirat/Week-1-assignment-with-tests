@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+  return new Promise((res) => {
+    setTimeout(res, n);
+  });
 }
+console.log("I got thread first....");
+wait(1000)
+  .then(() => {
+    console.log("I was waiting......");
+  })
+  .catch((err) => {
+    console.log("Error found...");
+  });
+console.log("I got thread...");

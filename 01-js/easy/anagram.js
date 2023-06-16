@@ -8,7 +8,18 @@
 */
 
 function isAnagram(str1, str2) {
+  // function to prepare the input strings by removing spaces and converting to lowercase
+  const prepareString = (str) => str.replace(/\s/g, "").toLowerCase();
 
+  // Prepare the input strings
+  const preparedStr1 = prepareString(str1);
+  const preparedStr2 = prepareString(str2);
+
+  // Compare the sorted and joined strings
+  return (
+    preparedStr1.split("").sort().join("") ===
+    preparedStr2.split("").sort().join("")
+  );
 }
 
 module.exports = isAnagram;
