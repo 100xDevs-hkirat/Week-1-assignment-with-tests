@@ -7,7 +7,41 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  if (str.length <= 1) {
+    return true
+  }
+  // let tempStr = str.replace(/[^\w]/g, "").toLowerCase();
+  // let strLength = Math.floor(str.length / 2)
+  // for (let i = 0; i <= strLength; i++) {
+
+  //   if (tempStr[i].toLowerCase() !== tempStr[tempStr.length - 1 - i].toLowerCase()) {
+  //     return false
+  //   }
+  // }
+  let start = 0
+  let end = str.length - 1
+  let isPal = true
+  while (start < end) {
+    if (str[start] === "!" || str[start] === "," || str[start] === " " || str[start] === "." || str[start] === "?") {
+      start += 1
+      continue
+    } else if (str[end] === "!" || str[end] === "," || str[end] === " " || str[end] === "." || str[end] === "?") {
+      end -= 1
+      continue
+    }
+    if (str[start].toLowerCase() === str[end].toLowerCase()) {
+      start += 1
+      end -= 1
+    } else {
+      isPal = false
+      break
+    }
+
+  }
+
+
+  return isPal
 }
 
+isPalindrome('Able, was I ere I saw Elba!')
 module.exports = isPalindrome;
