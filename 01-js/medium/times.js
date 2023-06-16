@@ -8,5 +8,25 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  const iterations = 10000; // Number of iterations to run the loop
+  let totalExecutionTime = 0;
+
+  for (let i = 0; i < iterations; i++) {  //difference between the start and end time is too small to be measured accurately in milliseconds. To overcome this, I am runing the loop multiple times to increase the duration and then calculating the average time.
+    const startTime = new Date();
+
+    let sum = 0;
+    for (let j = 1; j <= n; j++) {
+      sum += j;
+    }
+
+    const endTime = new Date();
+    const executionTime = endTime - startTime;
+    totalExecutionTime += executionTime;
+  }
+
+  const averageTimeInSeconds = totalExecutionTime / iterations / 1000;
+  return averageTimeInSeconds;
 }
+
+var sol = calculateTime(100);
+console.log(sol);
