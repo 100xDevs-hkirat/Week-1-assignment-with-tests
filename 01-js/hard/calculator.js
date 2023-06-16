@@ -35,6 +35,8 @@ class Calculator {
   }
 
   divide(num) {
+    if(num==0)
+      throw new Error();
     this.result /= num;
   }
 
@@ -47,36 +49,42 @@ class Calculator {
   }
 
   calculate(str) {
-    var arr = str.split(' ');
-    var result = 0;
-    var operator = '+';
-    for (var i = 0; i < arr.length; i++) {
-      var num = parseInt(arr[i]);
-      if (isNaN(num)) {
-        if (arr[i] === '+') {
-          operator = '+';
-        } else if (arr[i] === '-') {
-          operator = '-';
-        } else if (arr[i] === '*') {
-          operator = '*';
-        } else if (arr[i] === '/') {
-          operator = '/';
-        } else {
-          throw new Error('Invalid input');
-        }
-      } else {
-        if (operator === '+') {
-          result += num;
-        } else if (operator === '-') {
-          result -= num;
-        } else if (operator === '*') {
-          result *= num;
-        } else if (operator === '/') {
-          result /= num;
-        }
-      }
-    }
-    return result;
+    // var arr = str.split(' ');
+    // var result = 0;
+    // var operator = '+';
+    // for (var i = 0; i < arr.length; i++) {
+    //   var num = parseInt(arr[i]);
+    //   if (isNaN(num)) {
+    //     if (arr[i] === '+') {
+    //       operator = '+';
+    //     } else if (arr[i] === '-') {
+    //       operator = '-';
+    //     } else if (arr[i] === '*') {
+    //       operator = '*';
+    //     } else if (arr[i] === '/') {
+    //       operator = '/';
+    //     } else {
+    //       throw new Error('Invalid input');
+    //     }
+    //   } else {
+    //     if (operator === '+') {
+    //       result += num;
+    //     } else if (operator === '-') {
+    //       result -= num;
+    //     } else if (operator === '*') {
+    //       result *= num;
+    //     } else if (operator === '/') {
+    //       result /= num;
+    //     }
+    //   }
+    // }
+    // return result;
+    //  const sanitizedExpression = expression.replace(/\s/g, ''); // Remove whitespace from the expression
+    //  const isValidExpression = /^-?\d+(\.\d+)?([+\-*/]-?\d+(\.\d+)?)*$/.test(sanitizedExpression);
+    // if (!isValidExpression) {
+    //   throw new Error("Invalid expression");
+    // }
+    this.result = eval(str);
   }
 }
 
