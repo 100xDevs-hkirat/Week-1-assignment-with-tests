@@ -3,4 +3,11 @@
 */
 
 function wait(n) {
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000); 
+    })
 }
+
+wait(5).then(function (){
+    console.log("message after 5 seconds");
+});

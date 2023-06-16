@@ -16,7 +16,59 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-
-class Calculator {}
+function cleanStr(str){
+  var ans ="";
+  for(var i=0;i<str.length;i++){
+    if(str[i] != " "){
+      ans+= str[i];
+    }
+  }
+  return ans;
+}
+class Calculator {
+  constructor(result){
+    result =0;
+    this.result =result;
+  }
+  add(x){
+    this.result+=x;
+  }
+  subtract(x){
+    if(this.result != null){
+      this.result-=x;
+    }
+    else{
+      this.result = -x;
+    }
+  }
+  multiply(x){
+    this.result = this.result*x;
+  }
+  divide(x){
+    if(x != 0){
+      this.result/=x;
+    }
+    else{
+      return console.error(error);
+    }
+  }
+  clear(){
+    this.result=0;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(x){
+    // var temp =this.result ;
+    x =cleanStr(x);
+    if(eval(x) != Infinity){
+      this.result = eval(x);
+    }
+    else{
+      return console.error(error);
+    }
+    
+  }
+}
 
 module.exports = Calculator;
