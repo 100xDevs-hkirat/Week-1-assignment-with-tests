@@ -17,6 +17,102 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error('Cannot divide by zero');
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s+/g, ''); // Remove all spaces from the expression
+    const numbers = sanitizedExpression.split(/[-+*/()]/).filter(Boolean);
+    const operators = sanitizedExpression.split(/[0-9.]+/).filter(Boolean);
+
+    if (numbers.length !== operators.length + 1) {
+      throw new Error('Invalid expression');
+    }
+
+    const calculateSubExpression = (subExpression) => {
+      const sanitizedSubExpression = subExpression.replace(/\s+/g, '');
+      const subExpressionResult = this.calculate(sanitizedSubExpression);
+      return subExpressionResult;
+    };
+
+    let result = parseFloat(numbers[0]);
+
+    for (let i = 0; i < operators.length; i++) {
+      const operator = operators[i];
+      const number = parseFloat(numbers[i + 1]);
+
+      switch (operator) {
+        case '+':
+          result += number;
+          break;
+        case '-':
+          result -= number;
+          break;
+        case '*':
+          result *= number;
+          break;
+        case '/':
+          if (number === 0) {
+            throw new Error('Cannot divide by zero');
+          }
+          result /= number;
+          break;
+        case '(':
+          let closingParenthesisIndex = i + 1;
+          let parenthesisCount = 1;
+
+          while (parenthesisCount > 0) {
+            if (operators[closingParenthesisIndex] === '(') {
+              parenthesisCount++;
+            } else if (operators[closingParenthesisIndex] === ')') {
+              parenthesisCount--;
+            }
+            closingParenthesisIndex++;
+          }
+
+          const subExpression = sanitizedExpression.substring(i + 1, closingParenthesisIndex - 1);
+          const subExpressionResult = calculateSubExpression(subExpression);
+
+          result = subExpressionResult;
+          i = closingParenthesisIndex - 2;
+          break;
+        default:
+          throw new Error('Invalid operator');
+      }
+    }
+
+    return result;
+  }
+}
+
 
 module.exports = Calculator;
