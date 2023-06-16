@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+    return new  Promise(resolve=>{
+        setTimeout(resolve, n);
+    })
+    
 }
+
+console.log("Start!!");
+wait(2000)
+.then(()=>{
+    console.log("Promise resolved after 2 seconds !!!")
+})
+
+
