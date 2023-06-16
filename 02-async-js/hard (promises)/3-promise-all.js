@@ -6,17 +6,33 @@
 
 
 function waitOneSecond() {
+    return new Promise(function (resolve){
+        setTimeout(resolve,1000);
+    });
 
 }
 
 function waitTwoSecond() {
+    return new Promise(function (resolve){
+        setTimeout(resolve,2000);
+    });
 
 }
 
 function waitThreeSecond() {
+    return new Promise(function (resolve){
+        setTimeout(resolve,3000);
+    });
 
 }
+var newPromise =Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()]);
+var startTime =performance.now() ;
+newPromise.then(()=>{
+    console.log("message after all promises");
+    startTime= performance.now() - startTime;
+    console.log(calculateTime());
+});
 
 function calculateTime() {
-
+    return startTime ;
 }

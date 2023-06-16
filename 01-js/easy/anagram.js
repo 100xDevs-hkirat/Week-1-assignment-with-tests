@@ -8,7 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+      return false;
+  }
+  str1 = (str1.replace(" ","")).toLowerCase();    
+  str2 = (str2.replace(" ","")).toLowerCase(); 
 
+  const str1Sorted = str1.split('').sort().join('');
+  const str2Sorted = str2.split('').sort().join('');
+  if(str1Sorted !== str2Sorted){
+      return false;
+  }
+  return true;   
 }
-
 module.exports = isAnagram;
