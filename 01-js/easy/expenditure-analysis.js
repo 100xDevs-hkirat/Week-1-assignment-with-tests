@@ -10,8 +10,6 @@
 
 function calculateTotalSpentByCategory(transactions) {
   const categoryMap = {};
-
-  // Iterate over each transaction
   for (let i = 0; i < transactions.length; i++) {
     const { category, price } = transactions[i];
 
@@ -23,8 +21,6 @@ function calculateTotalSpentByCategory(transactions) {
       categoryMap[category] = price;
     }
   }
-
-  // Convert the categoryMap to an array of objects
   const result = Object.entries(categoryMap).map(([category, totalSpent]) => ({
     category,
     totalSpent,
