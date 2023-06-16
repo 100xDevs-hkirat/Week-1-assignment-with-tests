@@ -9,7 +9,18 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const amountMap = [];
+  for (const transaction of transactions) {
+    const { category, price } = transaction;
+    const ifCategoryExists = amountMap.find((obj) => obj.category === category);
+
+    if (ifCategoryExists) {
+      ifCategoryExists.totalSpent += price;
+    } else {
+      amountMap.push({ category, totalSpent: price });
+    }
+  }
+  return amountMap;
 }
 
 module.exports = calculateTotalSpentByCategory;
