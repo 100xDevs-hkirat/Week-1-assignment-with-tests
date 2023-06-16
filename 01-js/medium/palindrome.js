@@ -6,8 +6,27 @@
   - `npm run test-palindrome`
 */
 
+// function isPalindrome(str) {
+//   let revStr = str.split(""). reverse().join("");
+//   return revStr===str
+
+// }
+
+
 function isPalindrome(str) {
-  return true;
+  let oriStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  let revStr = oriStr.split('').reverse().join('');
+
+  if (revStr === oriStr) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
+console.log(isPalindrome('hello')); // Returns false
+
+
+
 
 module.exports = isPalindrome;
