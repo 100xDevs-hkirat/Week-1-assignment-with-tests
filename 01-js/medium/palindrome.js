@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let processedString = str.toLowerCase().replaceAll(/[^a-zA-Z0-9]/g, "");
+  let reversedString = processedString.split("").reverse().join("");
+  console.log(processedString,reversedString);
+  return (processedString === reversedString)?true:false;
 }
+
+// isPalindrome("Race? car");
 
 module.exports = isPalindrome;
