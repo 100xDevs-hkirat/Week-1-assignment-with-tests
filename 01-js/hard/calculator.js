@@ -35,8 +35,9 @@ class Calculator {
   }
 
   divide(num) {
-    if(num==0)
-      throw new Error();
+    if (num === 0) {
+      throw new Error('Division by zero is not allowed');
+    }
     this.result /= num;
   }
 
@@ -85,6 +86,10 @@ class Calculator {
     //   throw new Error("Invalid expression");
     // }
     this.result = eval(str);
+    if(this.result == 'Infinity'){
+      throw new Error('Division by zero is not allowed');
+    }
+    return this.result;
   }
 }
 
