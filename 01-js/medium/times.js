@@ -19,5 +19,3 @@ function calculateTime(n) {
     console.log(secondPoint);
     return (sp - fp)/1000;
 }
-
-console.log(calculateTime(10000000000));
