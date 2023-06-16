@@ -6,17 +6,64 @@
  */
 
 function waitOneSecond() {
+    return new Promise((resolve, reject) => {
+        const currentDate = new Date()
+        const currSecond = currentDate.getSeconds();
+        console.log(currSecond)
+
+        setTimeout(resolve, 1000)
+
+    })
 
 }
 
 function waitTwoSecond() {
+    return new Promise((resolve, reject) => {
+        const currentDate = new Date()
+        const currSecond = currentDate.getSeconds();
+        console.log(currSecond)
+
+        setTimeout(resolve, 2000)
+
+    })
 
 }
 
 function waitThreeSecond() {
+    return new Promise((resolve, reject) => {
+        const currentDate = new Date()
+        const currSecond = currentDate.getSeconds();
+        console.log(currSecond)
+
+        setTimeout(resolve, 3000)
+
+    })
 
 }
 
 function calculateTime() {
 
+    const currentDate = new Date()
+    const currSecond = currentDate.getSeconds();
+    console.log(currSecond)
+
+    waitOneSecond().then(
+        () => {
+            waitTwoSecond().then(
+                () => {
+                    waitThreeSecond().then(() => {
+                        const newDate = new Date();
+                        const newSeconds = newDate.getSeconds();
+                        console.log(currSecond)
+                        console.log(newSeconds)
+                        console.log(newSeconds - currSecond)
+
+
+                    })
+                })
+        }
+    )
+
 }
+
+calculateTime();

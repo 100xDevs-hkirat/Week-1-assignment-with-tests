@@ -17,6 +17,82 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  result = 0;
+
+  add(num) {
+    this.result += num;
+
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+
+  }
+
+  divide(num) {
+    if (num != 0) {
+      this.result /= num;
+    } else
+      throw new Error("divinding with zero is not possible");
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+    // i get a string with spaces and arithmetic ops and 
+    //if i get invalid characters needs to throw an error
+    //mission1 : need to know wether string had unwantted chars
+    // what are those ,characters except [0-9,(,),{,},[,]]
+    //const regex = /^[ \d+\*-(){}/\s]+$/
+    const regex = /^[ \d+\*\-.(){}\/\s]+$/;
+
+
+    if (!regex.test(str)) {
+      throw new Error("string contain invalid characters");
+    }
+
+    //now we assure that string has no unwnted characters:
+    //mission 2; needs remove spaces from string;
+
+    const newString = str.replace(/[ ]/g, '');
+    console.log(newString);
+
+    //now our string is free of spaces 
+    //now string basically in this form 22+(23*2)/5(+3
+    //mission 3:divide the string into array of numbers and signs ex:[22,+,(,23,*,2,),/,5,(,+,3]
+    //using regex we can do this
+
+    let arr = newString.match(/(\d+|\+|\-|\*|\/|\(|\))/g
+    );
+    console.log(arr);
+
+    //now we need to calculate the expression;
+    try {
+      // Evaluate the expression using eval()
+      if (newString.includes('/0')) {
+        throw new Error('Division by zero is not allowed');
+      }
+      this.result = eval(newString);
+
+    } catch (error) {
+      throw new Error('Error calculating expression');
+    }
+
+
+  }
+}
+
+
+
 
 module.exports = Calculator;
