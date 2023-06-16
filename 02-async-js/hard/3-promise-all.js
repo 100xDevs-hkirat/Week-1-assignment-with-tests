@@ -23,11 +23,11 @@ function calculateTime() {
     Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
     .then((results)=>{
     const end = performance.now();
-    const elapsed = end - start;
-    console.log(
-        `All promises resolved in ${elapsed} milliseconds`
-    );
+    const elapsed = (end - start)/1000;
     console.log('Results:', results);
+    console.log(
+        `All promises resolved in ${elapsed}seconds`
+    );
     })
     .catch((error)=>{
         console.error(error);
