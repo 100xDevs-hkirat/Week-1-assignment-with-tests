@@ -4,5 +4,18 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve) => {
+        setTimeout(resolve, seconds*1000);
+    })
+}
+async function haltJs(){
+    console.log("start");
+    await sleep(2)
+    console.log("end")
+}
+haltJs();
+console.log("check execution")
+for(let i=0; i<10; i++){
+    i=i+1;
+    console.log(i)
 }
