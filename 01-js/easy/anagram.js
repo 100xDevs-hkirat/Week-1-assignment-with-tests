@@ -12,8 +12,8 @@ function isAnagram(str1, str2) {
     return false;
   }
 
-  stringArray1 = str1.split("");
-  stringArray2 = str2.split("");
+  stringArray1 = str1.toLowerCase().split("");
+  stringArray2 = str2.toLowerCase().split("");
 
   for (let i = 0; i < stringArray1.length; i++) {
     isfinded = false;
