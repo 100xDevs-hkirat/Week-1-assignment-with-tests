@@ -6,17 +6,40 @@
  */
 
 function waitOneSecond() {
-
-}
-
-function waitTwoSecond() {
-
-}
-
-function waitThreeSecond() {
-
-}
+    return new Promise((resolve)=>{
+      setTimeout(resolve,1000)
+    })
+     
+    }
+    
+    function waitTwoSeconds() {
+      
+      return new Promise((resolve)=>{
+        setTimeout(resolve,2000)
+      })
+      
+    }
+    
+    function waitThreeSeconds() {
+      return new Promise((resolve)=>{
+        setTimeout(resolve,3000)
+      })
+    
+    }
 
 function calculateTime() {
+    let start = new Date();
+    let startsecond = start.getSeconds()
+    waitOneSecond().then(()=>{
+        waitTwoSeconds().then(()=>{
+          waitThreeSeconds().then(()=>{
+                let end = new Date();
+                let endsecond =  end.getSeconds()
+            console.log(endsecond-startsecond)
+          })
+        })
+      })
 
 }
+calculateTime()
+//Here as the functions are called one after antoher it takes total of 6 seconds.
