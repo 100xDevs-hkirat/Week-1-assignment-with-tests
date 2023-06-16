@@ -12,7 +12,40 @@
 */
 
 class Todo {
+  constructor(){
+    this.todolist = []
+  }
+  add(task){
+    this.todolist.push(task)
 
+  }
+  remove(index){
+    if(index<this.todolist.length){
+      const toberemoved = this.todolist[index]
+      this.todolist = this.todolist.filter((items)=>items!==toberemoved)
+    }
+
+  }
+  update(index,updatedTodo){
+    if(index<this.todolist.length){
+      this.todolist[index] =updatedTodo
+    }
+
+  }
+  getAll(){
+    return this.todolist;
+  }
+  get(index){
+    if(index<this.todolist.length){
+      return this.todolist[index]
+    }
+    return null
+
+  }
+  clear(){
+    this.todolist = []
+    return this.todolist
+  }
 }
 
 module.exports = Todo;
