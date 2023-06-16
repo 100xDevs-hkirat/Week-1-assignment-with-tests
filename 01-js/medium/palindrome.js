@@ -7,7 +7,20 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  // Convert the string to lowercase for case-insensitive comparison
+  const lowercaseStr = str.toLowerCase();
+
+  // Remove any non-alphanumeric characters from the string
+  const alphanumericStr = lowercaseStr.replace(/[^a-z0-9]/g, '');
+
+  // Reverse the string
+  const reversedStr = alphanumericStr.split('').reverse().join('');
+
+  // Compare the original string with the reversed string
+  return alphanumericStr === reversedStr;
 }
+
+var sol= isPalindrome('maadam');
+console.log(sol);
 
 module.exports = isPalindrome;
