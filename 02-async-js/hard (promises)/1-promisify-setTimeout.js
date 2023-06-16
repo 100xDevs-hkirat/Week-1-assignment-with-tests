@@ -3,4 +3,15 @@
 */
 
 function wait(n) {
+    var pro = new Promise(solve => {
+        setTimeout(solve, n*1000);
+    });
+
 }
+
+wait(4).then(()=>{
+    console.log("4 seconds have passed");
+})
+.catch(error => {
+    console.error("error occured: ",error);
+})

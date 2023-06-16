@@ -12,6 +12,41 @@
 */
 
 class Todo {
+  constructor(){
+    this.Todo_list = [];
+  }
+  add(task){
+      this.Todo_list.push(task);
+  }
+  remove(indexOfTodo){
+      console.log(" Removed Task : "+this.Todo_list.splice(indexOfTodo,1));
+  }
+  update(index, task){
+      var len = this.Todo_list.length;
+
+      for(var i=0; i<len; i++){
+          if(i==index){
+              this.Todo_list[i] = task;
+          }
+      }
+  }
+  getAll(){
+      return this.Todo_list;
+  }
+  get(index){
+      var len = this.Todo_list.length;
+      if(index >= len) throw console.error("NO task with that index");
+
+      for(var i=0; i<len; i++){
+          if(i==index){
+              return this.Todo_list[i];
+          }
+      }
+  }
+  clear(){
+      this.Todo_list = [];
+  }
+
 
 }
 
