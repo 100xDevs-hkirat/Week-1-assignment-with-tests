@@ -7,6 +7,27 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+
+function calculateSumTime(n) {
+    const startTime = performance.now();
+  
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+  
+    const endTime = performance.now();
+    const timeInSeconds = (endTime - startTime) / 1000;
+  
+    return timeInSeconds;
 }
+
+// Example usage
+const time1 = calculateSumTime(100);
+console.log(`time for sum from 1 to 100: ${time1} seconds`);
+
+const time2 = calculateSumTime(100000);
+console.log(`Time for sum from 1 to 100000: ${time2} seconds`);
+
+const time3 = calculateSumTime(1000000000);
+console.log(`Time for sum from 1 to 1000000000: ${time3} seconds`);
