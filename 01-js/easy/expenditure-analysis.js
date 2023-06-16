@@ -9,7 +9,29 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let spentByCateogry = [];
+  for (let i = 0; i < transactions.length; i++) {
+    let transaction = transactions[i];
+
+    console.log(transaction.category); // jsut to see every category
+    // if category already exisiting in the spentByCategoryArray we just update the price int he exisitng array
+
+    let existingCategory = spentByCateogry.find((item) => {
+      return item.category === transaction.category;
+    });
+    if (existingCategory) {
+      existingCategory.totalSpent += transaction.price;
+    }
+    //else add a new category to array with the initial value
+    else {
+      let newCategory = {
+        category: transaction.category,
+        totalSpent: transaction.price,
+      };
+      spentByCateogry.push(newCategory);
+    }
+  }
+  return spentByCateogry;
 }
 
 module.exports = calculateTotalSpentByCategory;
