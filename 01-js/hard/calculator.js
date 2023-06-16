@@ -61,6 +61,3 @@ class Calculator {
 }
 
 module.exports = Calculator;
-// let cal = new Calculator();
-// cal.add(10);
-// cal.divide(0);
