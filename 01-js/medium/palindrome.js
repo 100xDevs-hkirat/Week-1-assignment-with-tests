@@ -6,8 +6,16 @@
   - `npm run test-palindrome`
 */
 
+function reverse(str){
+  return str.split(' ').join('').toLowerCase().split('').reverse().join('');
+}
+
 function isPalindrome(str) {
-  return true;
+  // Remove special characters using regular expression and replace
+  let cleanedStr = str.replace(/[^\w\s]/gi, '');
+  let reversed = reverse(cleanedStr);
+  let compareStr = cleanedStr.split(' ').join('').toLowerCase();
+  return reversed === compareStr;
 }
 
 module.exports = isPalindrome;
