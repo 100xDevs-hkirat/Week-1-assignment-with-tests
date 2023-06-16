@@ -7,6 +7,8 @@
 */
 
 function isPalindrome(str) {
+  let r=0 ;
+  let
   return true;
 }
 
