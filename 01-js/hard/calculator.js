@@ -16,7 +16,59 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
+class Calculator {
+  result = 0;
 
-class Calculator {}
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num != 0) {
+      this.result /= num;
+    } else throw new Error('divinding with zero is not possible');
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+ //checking for valid string-> [ not contain characters, and empty spaces]
+    const regex = /^[ \d+\*\-.(){}\/\s]+$/; //$ marks the end of string, we've use \ before"-" because in regex it represents range
+
+    if (!regex.test(str)) {
+      throw new Error('string contain invalid characters');
+    }
+    const newString = str.replace(/[ ]/g, ''); //removing space
+    console.log(newString);
+    
+//  Tokenize the expression by splitting it into operators, parentheses, and numbers
+    let arr = newString.match(/(\d+|\+|\-|\*|\/|\(|\))/g);
+    console.log(arr);
+
+    //now we need to calculate the expression;
+    try {
+      // Evaluate the expression using eval()
+      if (newString.includes('/0')) {
+        throw new Error('Division by zero is not allowed');
+      }
+      this.result = eval(newString);
+    } catch (error) {
+      throw new Error('Error calculating expression');
+    }
+  }
+}
 
 module.exports = Calculator;
