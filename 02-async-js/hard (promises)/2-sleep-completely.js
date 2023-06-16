@@ -3,6 +3,10 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+async function sleep(seconds) {
+  const startTime = Date.now();
+  while (Date.now() - startTime <= seconds * 1000) {}
 }
+
+sleep(10);
+console.log("Hey!");
