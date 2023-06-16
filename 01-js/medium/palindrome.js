@@ -20,5 +20,5 @@ function isPalindrome(str) {
     return false;
   }
 }
-console.log(isPalindrome("Nam/? yufu hvhj"));
+
 module.exports = isPalindrome;

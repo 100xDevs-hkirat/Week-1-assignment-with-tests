@@ -16,7 +16,3 @@ function calculateTime(n) {
     const after=new Date().getTime();
     return (after-before)/1000;
 }
-
-console.log(calculateTime(100));
-console.log(calculateTime(100000));
-console.log(calculateTime(1000000000));

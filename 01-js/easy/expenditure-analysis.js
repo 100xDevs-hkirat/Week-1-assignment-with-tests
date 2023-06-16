@@ -29,8 +29,5 @@ function calculateTotalSpentByCategory(transactions) {
   }
   return arr;
 }
-const transaction=[
-  {category: "food",price: 30}
-]
-console.log(calculateTotalSpentByCategory(transaction));
+
 module.exports = calculateTotalSpentByCategory;

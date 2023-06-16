@@ -59,10 +59,6 @@ class Calculator {
     console.log(eval(exp));
     return(eval(exp));
   }
-
-
 }
 
 module.exports = Calculator;
-const calc = new Calculator();
-console.log(calc.calculate('(2.5 + 1.5) * 3'));
