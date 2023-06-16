@@ -1,0 +1,22 @@
+// Asynchronous - 
+
+// Async function - don't need JS thread, they can be offloaded to other CPUs and JS thread can get back to them 
+
+// It is a long running takes (It might be HTTP request, feeding data in DB etc...)
+
+function printToScreen(){
+    console.log("Hello World")
+}
+setTimeout(printToScreen, 3*1000)
+
+// JS thread is free to do whatever so it performs the synchronous tasks
+
+let count = 0
+for(let i = 0; i < 10000000; i++){
+    count++
+} 
+console.log(count)
+
+O/P =>
+count
+Hello World
