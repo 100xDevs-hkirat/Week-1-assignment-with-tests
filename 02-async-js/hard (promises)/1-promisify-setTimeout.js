@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+    return new Promise((res)=>{
+        setTimeout(res,n)
+    })
 }
+console.log('i got thread first')
+wait(2000).then(()=>{
+    console.log('i was waiting')
+}).catch((err)=>{
+    console.log("oops error found")
+})
+console.log('i got thread second')
