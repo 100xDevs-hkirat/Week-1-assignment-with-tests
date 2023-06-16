@@ -3,6 +3,15 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(delay) {
+  return new Promise((resolve) => setTimeout(resolve, delay));
 }
+
+async function delayedExecution() {
+  console.log("Start");
+  await sleep(5000);
+  console.log("This message came after 5 seconds");
+  console.log("End");
+}
+
+delayedExecution();
