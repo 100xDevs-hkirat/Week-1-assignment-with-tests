@@ -5,9 +5,37 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
+function isAlphabet(character) {
+  return character.match(/[a-zA-Z]/) !== null;
+}
+
+function filterAlpha(str){
+  str1 = "";
+  for(let j of str){
+    if(!isAlphabet(j)){
+      continue;
+    }
+    else{
+      str1 += j;
+    }
+  }
+  return str1;
+}
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  arr = str.split(" ");
+  str = arr.join("");
+  str = filterAlpha(str);
+  let str2 = "";
+  let n = str.length - 1;
+  while(n > -1){
+    str2 = str2 + str[n]
+    n -= 1;
+  }
+  return (str === str2)
 }
+
+console.log(isPalindrome("Eva, can I see bees in a cave?"))
 
 module.exports = isPalindrome;
