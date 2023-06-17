@@ -7,7 +7,31 @@
 */
 
 function isPalindrome(str) {
-  return true;
+	str = str.toLowerCase();
+	let i = 0, j = str.length - 1;
+	while (i < j) {
+		if (str[i] == ' ') {
+			++i;
+		} else if (str[j] == ' ') {
+			--j;
+		} else if (!isAlphabet(str, i)) {
+			++i;
+		} else if (!isAlphabet(str, j)) {
+			--j;
+		} else if(str[i++] != str[j--]) {
+			return false;
+		}
+	}
+	return true;
+}
+function isBetween(charCode) {
+	return charCode >= 'a'.charCodeAt(0) && charCode <= 'z'.charCodeAt(0);
+}
+function isAlphabet(str,k) {
+	if (isBetween(str.charCodeAt(k))) {
+		return true;
+	}
+	return false
 }
 
 module.exports = isPalindrome;
