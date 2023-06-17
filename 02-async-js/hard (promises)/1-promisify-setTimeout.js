@@ -3,4 +3,9 @@
 */
 
 function wait(n) {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{resolve("hello")},n*1000);
+    })
 }
+
+wait(10).then((data)=>{console.log(data);});
