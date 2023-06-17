@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, n * 1000);
+    });
 }
+
+function hello() {
+    console.log("hello");
+    wait(10).then(() => {
+        console.log("world")
+    });
+}
+
+hello();

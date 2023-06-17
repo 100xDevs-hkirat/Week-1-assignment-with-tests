@@ -4,5 +4,10 @@
  */
 
 function sleep (seconds) {
-
+    const start = Date.now();
+    while (Date.now() - start < seconds) {}
 }
+
+console.log("hwllo");
+sleep(10000);
+console.log("world");
