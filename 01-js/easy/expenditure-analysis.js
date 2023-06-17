@@ -9,7 +9,26 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const spendEstimates = {};
+
+  for (const transaction of transactions) {
+    if (spendEstimates[transaction["category"]]) {
+      spendEstimates[transaction["category"]] += transaction["price"];
+    } else {
+      spendEstimates[transaction["category"]] = transaction["price"];
+    }
+  }
+
+  const ans = [];
+
+  for (const category in spendEstimates) {
+    const categoryExpenditure = {};
+    categoryExpenditure["category"] = category;
+    categoryExpenditure["totalSpent"] = spendEstimates[category];
+    ans.push(categoryExpenditure);
+  }
+
+  return ans;
 }
 
 module.exports = calculateTotalSpentByCategory;
