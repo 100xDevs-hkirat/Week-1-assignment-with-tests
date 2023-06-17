@@ -1,11 +1,16 @@
 const isAnagram = require('../easy/anagram');
 
 describe('isAnagram', () => {
+
+	test('returns false if either of the anagrams is an empty string', () => {
+		expect(isAnagram('', 'carat')).toBe(false);
+		expect(isAnagram('csn', '')).toBe(false);
+	});
+
+
 	test('returns true for anagrams', () => {
 		expect(isAnagram('listen', 'silent')).toBe(true);
-		expect(isAnagram('rail safety', 'fairy tales')).toBe(
-			true
-		);
+		expect(isAnagram('rail safety', 'fairy tales')).toBe(true);
 		expect(isAnagram('openai', 'aiopen')).toBe(true);
 		expect(isAnagram('', '')).toBe(true);
 	});
@@ -18,12 +23,8 @@ describe('isAnagram', () => {
 	});
 
 	test('returns true for anagrams with different casing', () => {
-		expect(isAnagram('Debit Card', 'Bad Credit')).toBe(
-			true
-		);
-		expect(
-			isAnagram('School MASTER', 'The ClassROOM')
-		).toBe(true);
+		expect(isAnagram('Debit Card', 'Bad Credit')).toBe(true);
+		expect(isAnagram('School MASTER', 'The ClassROOM')).toBe(true);
 	});
 
 	test('returns true for anagrams with special characters', () => {
