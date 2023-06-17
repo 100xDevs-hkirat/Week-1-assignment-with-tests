@@ -5,7 +5,7 @@ let counter = 0;
 setTimeout(() => {
     console.log(counter++);
 }, 1000)
-
+ 
 
 
 
