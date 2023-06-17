@@ -57,7 +57,7 @@ describe('Todo', () => {
 
 		expect(todoList.get(0)).toBe('Task 1');
 		expect(todoList.get(2)).toBe('Task 3');
-		expect(todoList.get(3)).toBeNull();
+		expect(todoList.get(3)).toBeUndefined();
 	});
 
 	test('clear', () => {
