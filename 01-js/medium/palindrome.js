@@ -6,8 +6,29 @@
   - `npm run test-palindrome`
 */
 
+function getCleanString(str) {
+	let length = str.length;
+	let text = "";
+	for (let i = 0; i < length; i++) {
+		if (str[i] <= "z" && str[i] >= "a") {
+			text += str[i];
+		}
+	}
+	return text;
+}
+
+function checkForPalindrome(text) {
+	let length = text.length;
+	for (i = 0; i < length; i++) {
+		if (text[i] != text[length - 1 - i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 function isPalindrome(str) {
-  return true;
+	return checkForPalindrome(getCleanString(str.toLowerCase()));
 }
 
 module.exports = isPalindrome;

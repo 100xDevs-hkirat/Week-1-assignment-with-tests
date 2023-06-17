@@ -9,7 +9,27 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categoryList = [];
+  const obj = new Object();
+  const uniqueCategories = new Set();
+
+  transactions.forEach(element => {
+       let categ = element.category;
+       if(isNaN(obj[categ])) {
+          obj[categ] = 0;
+        }
+        obj[categ] += element.price;
+        uniqueCategories.add(categ);
+  });
+ 
+ uniqueCategories.forEach(element => {
+    const categoryObject = new Object();
+    categoryObject['category'] = element;
+    categoryObject['totalSpent'] = obj[element];
+    categoryList.push(categoryObject);
+ });
+
+ return categoryList;
 }
 
 module.exports = calculateTotalSpentByCategory;
