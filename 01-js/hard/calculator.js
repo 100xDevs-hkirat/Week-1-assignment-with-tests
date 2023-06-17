@@ -17,6 +17,53 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+// used eval function to calculate answer. The entire process in detail TBD later.
+
+class Calculator {
+  constructor(){
+    this.result = 0
+  }
+
+  add(x){
+    this.result += x
+    return this.result
+  }
+
+  subtract(x){
+    this.result -= x
+    return this.result
+  }
+
+  multiply(x){
+    this.result *= x
+    return this.result
+  }
+
+  divide(x){
+    if(x === 0) throw new Errow("Divide by 0 not allowed")
+    this.result /= x
+    return this.result
+  }
+
+  clear(){
+    this.result = 0
+    return this.result
+  }
+
+  getResult(){
+    return this.result
+  }
+
+  calculate(strData){
+    let str = strData.split('').filter(x => x != " ").join('')
+
+    if(str.includes('/0')){
+      throw new Error("Divide by 0 not allowed")
+    }
+
+    this.result = eval(str)
+    return this.result
+  }
+}
 
 module.exports = Calculator;
