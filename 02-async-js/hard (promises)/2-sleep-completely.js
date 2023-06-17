@@ -3,6 +3,10 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+  let currTime = new Date().getSeconds();
+  while (currTime + seconds > new Date().getSeconds());
 }
+
+sleep(10);
+console.log("sleep-over");
