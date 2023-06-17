@@ -8,7 +8,15 @@
 */
 
 function isAnagram(str1, str2) {
-
+  str1 = str1.toLowerCase().replace(/[^a-z0-9]/g, '');
+  str2 = str2.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const a = str1.split('')
+  const b = str2.split('')
+  const a1 = a.sort()
+  const b1 = b.sort()
+  const a2 = a1.join();
+  const b2 = b1.join();
+  return str1 === str2
 }
 
 module.exports = isAnagram;
