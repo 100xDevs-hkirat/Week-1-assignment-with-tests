@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    var start=performance.now();
+
+     var sum=0;
+     for(var i=0;i<=n;i++)
+     sum+=i;
+
+     var end=performance.now();
+
+     console.log(end-start);
 }
+
+calculateTime(10000);
