@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-anagram": "npx jest ./tests/anagram.test.js",
     "test-expenditure-analysis": "npx jest ./tests/expenditure-analysis.test.js",
-    "test-palindrome":"npx jest ./tests/palindrome.test.js"
+    "test-palindrome":"npx jest ./tests/palindrome.test.js",
+    "test-calculator":"npx jest ./tests/calculator.test.js"
   },
   "repository": {
     "type": "git",
