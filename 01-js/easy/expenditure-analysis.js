@@ -9,7 +9,22 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let expenditureObject={}
+  transactions.map((item) => {
+    if(item["category"] in expenditureObject){
+      expenditureObject[item["category"]] += item.price
+    }else{
+      expenditureObject[item["category"]] = item.price
+    }
+  })
+  let ans=[]
+  Object.keys(expenditureObject).map(item =>{
+    let newObject={}
+    newObject["category"]=item;
+    newObject["totalSpent"]=expenditureObject[item]
+    ans.push(newObject)
+  })
+  return ans
 }
 
 module.exports = calculateTotalSpentByCategory;
