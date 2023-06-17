@@ -1,1 +1,1 @@
-just to check if it can read.
+write to the file man!
