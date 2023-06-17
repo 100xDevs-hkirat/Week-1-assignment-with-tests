@@ -19,10 +19,7 @@ function calculateTotalSpentByCategory(transactions) {
   })
   let ans=[]
   Object.keys(expenditureObject).map(item =>{
-    let newObject={}
-    newObject["category"]=item;
-    newObject["totalSpent"]=expenditureObject[item]
-    ans.push(newObject)
+    ans.push({"category":item, "totalSpent":expenditureObject[item]})
   })
   return ans
 }
