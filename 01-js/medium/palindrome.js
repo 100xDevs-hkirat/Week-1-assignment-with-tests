@@ -7,7 +7,16 @@
 */
 
 function isPalindrome(str) {
+  str=str.replace(/\s+|[.,:!?]/g, '') // pattern match to remove spaces and punctuation marks
+  arr=str.toLowerCase().split("")  // to convert to one type of case, lowe case here and string conversion to arr
+  if(arr.length >1){              // Handels border line cases of empty string or only one character
+    console.log(arr)
+    for (var i =0; i<=(Math.trunc(arr.length/2)-1); i++){
+      if (arr[i] != arr[(arr.length)-i-1]){
+        return false
+      }
+    }
+  }
   return true;
 }
-
 module.exports = isPalindrome;

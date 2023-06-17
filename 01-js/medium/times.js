@@ -7,6 +7,12 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function calculateTime(n){
+    var startTime=(Date.now())/1000
+    var sum =0
+    if (n>0){
+        sum =n*(n+1)/2
+    }
+    var endTime=(Date.now())/1000
+    return(endTime-startTime)
 }

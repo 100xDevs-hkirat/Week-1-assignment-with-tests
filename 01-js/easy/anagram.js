@@ -8,6 +8,12 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.toUpperCase().split("").sort().join()==str2.toUpperCase().split("").sort().join()){
+    return true
+  }
+  else{
+    return false
+  }
 
 }
 
