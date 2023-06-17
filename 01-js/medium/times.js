@@ -9,12 +9,12 @@ Hint - use Date class exposed in JS
 
 function calculateTime(n) {
     var sum = 0;
-    var time1 = Date.now()
+    let time1 = new Date().getTime()
     for(let i = 0; i<n; i++){
         sum+=i
     }
-    var time2 = Date.now()
-    return time2-time1;
+    var time2 = new Date().getTime()
+    return (time2-time1)/1000;
 }
 console.log(calculateTime(100))
 console.log(calculateTime(100000))
