@@ -9,7 +9,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let trans=[]
+  const transTrack = {}
+  transactions.forEach((e)=>{
+    if (e.category in transTrack){
+      transTrack[e.category] += e.price
+    }else{
+      transTrack[e.category] = e.price
+    }
+  })
+
+  const allCategories = Object.keys(transTrack)
+  allCategories.forEach(e=>{
+    const temp = {}
+    temp['category']=e
+    temp["totalSpent"]=transTrack[e]
+    trans.push(temp)
+  })
+  return trans;
 }
 
 module.exports = calculateTotalSpentByCategory;
