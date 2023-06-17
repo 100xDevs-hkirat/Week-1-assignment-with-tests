@@ -48,23 +48,87 @@ class Calculator {
     return this.result
   }
 
-  calculate(str){
-    str +=")"
-    let len = str.length
-    let first = 0
-
-    while(first < len){
-      if(str[first]== " "){
-        first +=1
-        continue
-      }
-      if(!isNaN(str[first])){
-        this.stack.push(parseInt(str[first]))
+  tokenize(str){
+    let tokenized = []
+    let i = 0
+    const len = str.length
+    while(i<len){
+      if(!isNaN(str[i])){
+        let num = str[i]
+        i++
+        while(i<len && !isNaN(str[i])){
+          num += str[i]
+          i++
+        }
+        i--
+        tokenized.push(parseInt(num))
       }else{
-        this.performOper(str[first])
+        if(str[i]=="+" || str[i]=="-" || str[i]=="/" || str[i]=="*" || str[i]=="(" || str[i]==")"){
+          tokenized.push(str[i])
+        }else{
+          return -1
+        }
       }
-      first += 1
+      i +=1
     }
+    return tokenized
+  }
+
+  precedence(str){
+    switch(str){
+      case "(":
+        return 1;
+        break;
+      case "+":
+      case "-":
+        return 2;
+        break
+      case "*":
+      case "/":
+        return 3
+        break;
+    }
+  }
+
+  calculate(str){
+
+    const tokenized = this.tokenize(str)
+    if(tokenized == -1){
+      throw "error"
+    }
+    tokenized.push(")")
+
+    let out=[]
+    let operators =["("]
+    
+    for(let i = 0; i< tokenized.length ; i++){
+      if(!isNaN(tokenized[i])){
+        let last = operators.pop()
+        if(this.precedence(last)>= this.precedence(tokenized[i])){
+          while(this.precedence(last)>= this.precedence(tokenized[i])){
+            out.push(last)
+            last = operators.pop()
+          }
+          operators.push(last)
+        }
+          operators.push(tokenized[i])
+        
+        
+      }else if(tokenized[i]=="("){
+        operators.push("(")
+      }else if(tokenized[i]==")"){
+        let item = operators.pop()
+        while(item != "("){
+          out.push(item)
+          item = operators.pop()
+        }
+
+      }else{
+        out.push(tokenized[i])
+      }
+    }
+    console.log(out)
+    
   }
 
   performOper(oper){
@@ -82,5 +146,8 @@ class Calculator {
     }
   }
 }
+
+const c1 = new Calculator()
+c1.calculate("3 * 4 + 1")
 
 module.exports = Calculator;
