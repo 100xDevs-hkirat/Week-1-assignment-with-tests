@@ -14,6 +14,11 @@ function updateTime() {
     console.log(formattedTime12)
 }
 
-setInterval(updateTime, 1000);
+function printTime(){
+    console.clear()
+    updateTime()
+}
+
+setInterval(printTime, 1000);
 
 
