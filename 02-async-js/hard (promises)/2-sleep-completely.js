@@ -4,5 +4,10 @@
  */
 
 function sleep (seconds) {
-
+    const date = new Date();
+    while(Date.now() - date < seconds) {}
 }
+
+console.log("Waiting for timer...");
+sleep(2000);
+console.log("Timer complete!");
