@@ -7,7 +7,9 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  
+  return (str.replace(/[^\w]|_/g, '').toLowerCase().split('').reverse().join('')==str.replace(/[^\w]|_/g, '').toLowerCase().trim());
 }
 
+console.log(isPalindrome("Nan"));
 module.exports = isPalindrome;
