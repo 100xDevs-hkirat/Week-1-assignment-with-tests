@@ -5,18 +5,31 @@
  */
 
 
-function waitOneSecond() {
+function createPromiseResolver(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
+}
 
+function waitOneSecond() {
+    return createPromiseResolver(1000);
 }
 
 function waitTwoSecond() {
-
+    return createPromiseResolver(2000);
 }
 
 function waitThreeSecond() {
-
+    return createPromiseResolver(3000);
 }
 
 function calculateTime() {
-
+    var startTime = new Date();
+    Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()]).then(() => {
+        var currentTime = new Date();
+        console.log(`Time elapsed ${(currentTime - startTime) / 1000}`);
+    })
 }
+calculateTime();

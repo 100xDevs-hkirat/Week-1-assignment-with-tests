@@ -9,7 +9,17 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var output = [];
+  const jsonObject = {};
+
+  for (var i = 0; i < transactions.length; ++i)
+    if (jsonObject.hasOwnProperty(transactions[i].category))
+      jsonObject[transactions[i].category] += transactions[i].price;
+    else jsonObject[transactions[i].category] = transactions[i].price;
+
+  for (var key in jsonObject) output.push({ 'category': key,'totalSpent':jsonObject[key] });
+  console.log(output);
+  return output;
 }
 
 module.exports = calculateTotalSpentByCategory;
