@@ -6,8 +6,13 @@
   - `npm run test-palindrome`
 */
 
+
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  var nStr = "";
+  for (var i = 0; i < str.length; ++i) if (str[i] >= 'a' && str[i] <= 'z') nStr += str[i];
+  var reversedStr = nStr.split('').reverse().join('');
+  return nStr === reversedStr;
 }
 
 module.exports = isPalindrome;
