@@ -17,6 +17,70 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+   constructor(){
+    this.result = 0
+    this.stack = []
+    // this.top = -1
+  }
+
+  add(num){
+    this.result +=num
+  }
+
+  subtract(num){
+    this.result -= num
+  }
+
+  divide(num){
+    this.result /= num
+  }
+
+  multiply(num){
+    this.result *= num
+  }
+
+  clear(){
+    this.result = 0
+  }
+
+  getResult(){
+    return this.result
+  }
+
+  calculate(str){
+    str +=")"
+    let len = str.length
+    let first = 0
+
+    while(first < len){
+      if(str[first]== " "){
+        first +=1
+        continue
+      }
+      if(!isNaN(str[first])){
+        this.stack.push(parseInt(str[first]))
+      }else{
+        this.performOper(str[first])
+      }
+      first += 1
+    }
+  }
+
+  performOper(oper){
+    switch(oper){
+      case "+":
+        break;
+      case "-":
+        break;
+      case "/":
+        break;
+      case "*":
+        break;
+      default:
+        throw "wrong"
+    }
+  }
+}
 
 module.exports = Calculator;
