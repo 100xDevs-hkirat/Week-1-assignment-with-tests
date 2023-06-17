@@ -9,6 +9,13 @@
 
 function isAnagram(str1, str2) {
 
-}
+    str1=str1.split(" ").join("").toLowerCase().split("").sort().join("")
+    str2=str2.split(" ").join("").toLowerCase().split("").sort().join("")
+    console.log(str1)
+    console.log(str2)
 
+    return str1===str2
+
+}
+isAnagram("h e l lo","leloh")
 module.exports = isAnagram;
