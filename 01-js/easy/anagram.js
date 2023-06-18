@@ -8,6 +8,24 @@
 */
 
 function isAnagram(str1, str2) {
+  var lowstr1 = str1.toLowerCase();
+  var lowstr2 = str2.toLowerCase();
+
+  var a = lowstr1.split('');
+  var b = lowstr2.split('');
+
+  a.sort();
+  b.sort();
+
+  var x = a.join('');
+  var y = b.join('');
+
+  if(x.trim()===y.trim()){
+    return true;
+  }else{
+    return false;
+  }
+
 
 }
 
