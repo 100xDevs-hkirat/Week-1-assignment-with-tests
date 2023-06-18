@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
+    let start = Date.now();
 
+    while(Date.now() - start < seconds*1000){}
 }
+
+
+let n = 5
+sleep(n);
+
+console.log(`was printed after ${n} seconds`)
