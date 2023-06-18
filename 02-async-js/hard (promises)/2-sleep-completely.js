@@ -4,5 +4,9 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, seconds * 1000)
+    })
 }
+sleep(2);
+console.log('jello')
