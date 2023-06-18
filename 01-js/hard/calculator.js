@@ -17,6 +17,120 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    // Remove all whitespace characters from the expression
+    expression = expression.replace(/\s/g, "");
+
+    // Use regular expression to match and extract valid numbers and operators
+    const pattern = /(\d+|\+|\-|\*|\/|\(|\))/g;
+    const tokens = expression.match(pattern);
+
+    // If the expression contains invalid characters, throw an error
+    if (!tokens || tokens.join("") !== expression) {
+      throw new Error("Invalid expression");
+    }
+
+    const stack = [];
+    const operators = [];
+
+    // Helper function to perform the calculation for two numbers and an operator
+    const calculateOperation = () => {
+      const b = stack.pop();
+      const a = stack.pop();
+      const operator = operators.pop();
+
+      switch (operator) {
+        case "+":
+          stack.push(a + b);
+          break;
+        case "-":
+          stack.push(a - b);
+          break;
+        case "*":
+          stack.push(a * b);
+          break;
+        case "/":
+          stack.push(a / b);
+          break;
+      }
+    };
+
+    // Process each token in the expression
+    for (const token of tokens) {
+      if (/\d+/.test(token)) {
+        // If the token is a number, convert it to a float and add it to the stack
+        stack.push(parseFloat(token));
+      } else if (/[+\-*/]/.test(token)) {
+        // If the token is an operator, perform calculations if necessary and add the operator to the stack
+        while (
+          operators.length > 0 &&
+          operators[operators.length - 1] !== "("
+        ) {
+          calculateOperation();
+        }
+        operators.push(token);
+      } else if (token === "(") {
+        // If the token is an opening parenthesis, add it to the operator stack
+        operators.push(token);
+      } else if (token === ")") {
+        // If the token is a closing parenthesis, perform calculations until an opening parenthesis is encountered
+        while (
+          operators.length > 0 &&
+          operators[operators.length - 1] !== "("
+        ) {
+          calculateOperation();
+        }
+        if (operators.length === 0 || operators[operators.length - 1] !== "(") {
+          throw new Error("Invalid expression");
+        }
+        operators.pop(); // Remove the opening parenthesis from the stack
+      }
+    }
+
+    // Perform any remaining calculations
+    while (operators.length > 0) {
+      if (operators[operators.length - 1] === "(") {
+        throw new Error("Invalid expression");
+      }
+      calculateOperation();
+    }
+
+    // The final result is the only value remaining in the stack
+    if (stack.length !== 1) {
+      throw new Error("Invalid expression");
+    }
+
+    this.result = stack[0];
+  }
+}
 
 module.exports = Calculator;
