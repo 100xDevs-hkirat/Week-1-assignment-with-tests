@@ -17,6 +17,79 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number == 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    // Remove continuous spaces and parse the expression
+    const parsedExpression = expression.replace(/\s+/g, '');
+    
+    // Check for invalid non-numerical characters
+    if (!/^[0-9+\-*/(). ]+$/.test(parsedExpression)) {
+      throw new Error("Invalid expression");
+    }
+
+    // Check for invalid parentheses
+    if (!this.checkParenthesesValidity(parsedExpression)) {
+      throw new Error("Invalid parentheses in expression");
+    }
+
+    if (parsedExpression.includes('/0')) {
+      throw new Error("Cannot divide by zero");
+    }  
+
+    // Evaluate the expression using eval() - Note: eval() should be used with caution in real-world scenarios
+    this.result = eval(parsedExpression);
+  }
+
+  checkParenthesesValidity(expression) {
+    const parenthesesStack = [];
+
+    for (const char of expression) {
+      if (char === "(") {
+        parenthesesStack.push(char);
+      } else if (char === ")") {
+        if (parenthesesStack.length === 0) {
+          return false;
+        }
+        parenthesesStack.pop();
+      }
+    }
+
+    return parenthesesStack.length === 0;
+  }
+}
+
+module.exports = Calculator;
+
 
 module.exports = Calculator;

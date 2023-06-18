@@ -8,5 +8,14 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start = new Date();
+    let count = 0;
+    for(let i = 1; i <= n; i++){
+        count += i;
+    }
+    let end = new Date();
+    let timeSpan = (end - start)/1000;
+    // console.log(date1 - date2);
+    return timeSpan;
 }
+console.log(calculateTime(100000000));
