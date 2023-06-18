@@ -1,0 +1,5 @@
+Sure, I can help you get random text. Here are a few ways to do it:
+
+    Using a random number generator: A random number generator can be used to generate random numbers. You can then use these numbers to select random words from a dictionary or text corpus.
+    Using a Markov chain: A Markov chain is a statistical model that can be used to generate random text. A Markov chain works by looking at the previous few words in a sentence and then selecting the next word based on its probability of occurring after the previous few words.
+Using a neural network: A neural network is a type of machine learning model that can be used to generate random text. A neural network is trained on a large corpus of text and then can be used to generate new text that is similar to the text it was trained on.
