@@ -7,7 +7,7 @@ let cnt = 0;
 setTimeout(counter, 1000);
 
 
-// M-2
+// M-2 this will print only till 100
 
 // let cnt = 0;
 //     function counter(){
