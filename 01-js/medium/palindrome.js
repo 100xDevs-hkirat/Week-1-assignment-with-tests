@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let cleanString = '';
+  if (typeof str !== 'string'){
+    return false;
+  }
+  for (let char of str){
+    if ( char.match(/[a-z]/i)){
+      cleanString += char;
+    }
+  }
+  cleanString = cleanString.toLowerCase();
+  return cleanString === cleanString.split('').reverse().join('');
 }
 
 module.exports = isPalindrome;
