@@ -53,7 +53,7 @@ describe('Todo', () => {
 	test('get', () => {
 		todoList.add('Task 1');
 		todoList.add('Task 2');
-		todoList.add('Task 3');
+		todoList.add('Task 3';
 
 		expect(todoList.get(0)).toBe('Task 1');
 		expect(todoList.get(2)).toBe('Task 3');
