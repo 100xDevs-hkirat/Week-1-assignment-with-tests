@@ -6,7 +6,15 @@
   - `npm run test-palindrome`
 */
 
+let str = "Able, was I ere I saw Elba!";
 function isPalindrome(str) {
+  str = str.replace(/[^a-z]/gi, '').toLowerCase();
+  strLen = str.length;
+  for (let i = 0; i < strLen / 2; i++) {
+    if (str[i] === str[strLen - i - 1]) {
+      continue;
+    } else return false;
+  }
   return true;
 }
 
