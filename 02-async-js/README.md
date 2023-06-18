@@ -5,6 +5,7 @@ This folder contains assignments related to asynchronous JavaScript.
 ### Assignments
 
 Recommended order below but feel free to make a mess in any order you like.
+
 1. Easy
    1. Counter
    2. Counter (no setInterval)
@@ -20,5 +21,6 @@ Recommended order below but feel free to make a mess in any order you like.
    4. Promise chain
 
 #### Development Setup
+
 1. If you have Node.js locally, you should run these on your machine
 2. If you don't, you can copy these over to repl.it and run it there.

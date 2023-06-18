@@ -8,8 +8,28 @@
   - `npm run test-expenditure-analysis`
 */
 
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let dic= {}
+  for(let i=0;i<transactions.length;i++){
+    if(transactions[i].category in dic){
+      dic[transactions[i].category]+=transactions[i].price
+    }
+    else{
+      dic[transactions[i].category]=transactions[i].price
+    }
+  }
+  var result=[]
+  for(var key in dic){
+    result.push(
+      {
+        category:key,
+        totalSpent:dic[key]
+      }
+    )
+  } 
+  return result;
 }
+
 
 module.exports = calculateTotalSpentByCategory;
