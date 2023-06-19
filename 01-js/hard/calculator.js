@@ -66,14 +66,8 @@ class Calculator {
 
     return s;
   }
+
   calculate(str){
-    // let s=this.cleaning(str);
-    // if(s.includes('/0')){
-    //   throw new Error('division by zero');
-    // }
-    // let ans=eval(s);
-    // //if(ans===Infinity) throw new Error('division by zero');
-    // this.result=ans;
     let s=this.cleaning(str);
     try{
       let ans=eval(s);
@@ -82,22 +76,9 @@ class Calculator {
       }
       this.result=ans;
     }catch(error){
-      return error;
+      throw error;
     }
   }
 }
-
-const myCal=new Calculator();
-myCal.calculate('10/0');
-console.log(myCal.getResult());
-// myCal.check(0)
-// myCal.add(-5);
-// myCal.multiply(-3);
-// console.log(myCal.getResult());
-// myCal.clear();
-// myCal.add(7);
-// console.log(myCal.getResult());
-// console.log(myCal.divide(0))
-// console.log(myCal.getResult());
 
 module.exports = Calculator;
