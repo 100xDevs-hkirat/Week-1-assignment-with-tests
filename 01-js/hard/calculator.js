@@ -33,6 +33,9 @@ class Calculator {
   }
 
   divide(num){
+    if(num ==0){
+      throw new Error()
+    }
     this.result /= num
   }
 
@@ -49,27 +52,44 @@ class Calculator {
   }
 
   tokenize(str){
+    let para = 0
     let tokenized = []
     let i = 0
     const len = str.length
     while(i<len){
-      if(!isNaN(str[i])){
+      if(str[i]==" "){
+        i++
+        continue 
+      }else if(!isNaN(str[i])){
+        // console.log(str[i])
         let num = str[i]
         i++
-        while(i<len && !isNaN(str[i])){
+        while(i<len && (!isNaN(str[i]) || str[i]==".")){
           num += str[i]
           i++
         }
         i--
-        tokenized.push(parseInt(num))
-      }else{
-        if(str[i]=="+" || str[i]=="-" || str[i]=="/" || str[i]=="*" || str[i]=="(" || str[i]==")"){
+        tokenized.push(parseFloat(num))
+      }
+      else{
+        if(str[i]=="+" || str[i]=="-" || str[i]=="/" || str[i]=="*"|| str[i]=="(" || str[i]==")"){
+          if(str[i]=="("){
+            para +=1}
+          else if(str[i]==")"){
+            if(para == 0){
+              throw new Error()
+            }
+            para -=1
+          }
           tokenized.push(str[i])
         }else{
           return -1
         }
       }
       i +=1
+    }
+    if( para !=0){
+      return -1
     }
     return tokenized
   }
@@ -78,40 +98,48 @@ class Calculator {
     switch(str){
       case "(":
         return 1;
-        break;
       case "+":
       case "-":
         return 2;
-        break
       case "*":
       case "/":
         return 3
-        break;
     }
   }
 
-  calculate(str){
+  evaluate(out){
+    let operand = []
+    let i =0;
+    while(i<out.length){
+      if(!isNaN(out[i])){
+        operand.push(out[i])
+      }else{
+        const num2 = operand.pop()
+        const num1 = operand.pop()
+        if(out[i]=="/" && num2 == 0){
+          throw new Error()
+        }
+        operand.push(this.performOper(out[i], num1, num2))
+      }
+      i++
+    }
+    return operand.pop()
+  }
 
-    const tokenized = this.tokenize(str)
+  calculate(str){
+    let tokenized = this.tokenize(str)
+    console.log(tokenized)
     if(tokenized == -1){
-      throw "error"
+      throw new Error()
     }
     tokenized.push(")")
 
     let out=[]
     let operators =["("]
-    
+
     for(let i = 0; i< tokenized.length ; i++){
       if(!isNaN(tokenized[i])){
-        let last = operators.pop()
-        if(this.precedence(last)>= this.precedence(tokenized[i])){
-          while(this.precedence(last)>= this.precedence(tokenized[i])){
-            out.push(last)
-            last = operators.pop()
-          }
-          operators.push(last)
-        }
-          operators.push(tokenized[i])
+        out.push(tokenized[i])
         
         
       }else if(tokenized[i]=="("){
@@ -124,30 +152,40 @@ class Calculator {
         }
 
       }else{
-        out.push(tokenized[i])
+        let last = operators.pop()
+        if(this.precedence(last)>= this.precedence(tokenized[i])){
+          while(this.precedence(last)>= this.precedence(tokenized[i])){
+            out.push(last)
+            last = operators.pop()
+          }
+          
+        }
+          operators.push(last)
+          operators.push(tokenized[i])
+        
       }
     }
-    console.log(out)
+    this.result =  this.evaluate(out)
+    console.log(this.result)
+    return this.result
     
   }
 
-  performOper(oper){
+  performOper(oper,num1, num2){
     switch(oper){
       case "+":
-        break;
+        return num1 + num2
       case "-":
-        break;
+        return num1 - num2
       case "/":
-        break;
+        return num1 / num2
       case "*":
-        break;
-      default:
-        throw "wrong"
+        return num1 * num2
     }
   }
 }
 
 const c1 = new Calculator()
-c1.calculate("3 * 4 + 1")
+c1.calculate("(2.5 + 1.5) * 3")
 
 module.exports = Calculator;
