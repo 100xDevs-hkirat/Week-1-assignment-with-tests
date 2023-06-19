@@ -9,7 +9,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  // map is used to map object category and index of the object containing the category in the result array
+  const mp = {};
+
+  const res = [];
+  let idx = 0;
+
+  for (const obj of transactions) {
+    if (obj.category in mp) {
+      res[mp[obj.category]].totalSpent += obj.price;
+    } else {
+      const newObj = {
+        category: obj.category,
+        totalSpent: obj.price
+      };
+      mp[obj.category] = idx;
+      res.push(newObj);
+      idx++;
+    }
+  }
+
+
+  return res;
 }
 
 module.exports = calculateTotalSpentByCategory;
