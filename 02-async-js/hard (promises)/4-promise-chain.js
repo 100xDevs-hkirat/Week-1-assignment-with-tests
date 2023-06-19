@@ -32,7 +32,9 @@ function calculateTime() {
     }).then(()=>{
         const end = new Date().getTime()
         console.log((end-start)/1000)
-    }).catch()
+    }).catch((err)=>{
+        console.log(err)
+    })
 }
 
 
