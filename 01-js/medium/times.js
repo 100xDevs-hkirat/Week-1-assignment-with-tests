@@ -8,5 +8,13 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  let start = Date.now();
+  var sum = 0;
+  for (var i = 1; i < n; i++) {
+    sum += i;
+  }
+  console.log(sum);
+  return Date.now() - start;
 }
+
+console.log(calculateTime(10000) + " ms");
