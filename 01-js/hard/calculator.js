@@ -33,7 +33,7 @@ class Calculator {
       }
     
       multiply (val){
-        this.result*=va;
+        this.result*=val;
         return this;
         }
     
