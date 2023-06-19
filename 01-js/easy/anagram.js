@@ -27,5 +27,5 @@ function isAnagram(str1, str2) {
     return true
   }
 }
-console.log(isAnagram("vamsi","ismav"));
+
 module.exports = isAnagram;
