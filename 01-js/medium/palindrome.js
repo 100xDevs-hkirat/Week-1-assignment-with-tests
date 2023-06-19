@@ -7,6 +7,26 @@
 */
 
 function isPalindrome(str) {
+  let len = str.length
+
+  if (len <= 1) return true
+
+  str = str.replace(/[^a-zA-Z]/g, '');
+  str = str.toLowerCase();
+
+  len = str.length;
+
+  let lo = 0, hi = len - 1;
+
+  while (lo < hi) {
+    if (str[lo] != str[hi]) {
+      return false;
+    }
+    lo++;
+    hi--;
+  }
+
+
   return true;
 }
 
