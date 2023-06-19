@@ -35,4 +35,5 @@ function calculateTime() {
     }).catch()
 }
 
+
 calculateTime()
