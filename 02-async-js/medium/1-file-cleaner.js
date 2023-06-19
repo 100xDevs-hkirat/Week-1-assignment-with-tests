@@ -1,4 +1,4 @@
-const {readFile} = require("fs")
+const {readFile, writeFile} = require("fs")
 
 function cleanFile(file){
     readFile("./medium/"+file,(err,cnt)=>{
@@ -19,7 +19,12 @@ function cleanFile(file){
             }
             prevChar = cnt[i]
         }
-        console.log(cleanedCnt)
+        // console.log(cleanedCnt)
+        writeFile("./medium/"+file,cleanedCnt,"utf8",(err)=>{
+            if(err)
+                throw err
+            console.log('successfully writed to file')
+        })
     })
 }
 
