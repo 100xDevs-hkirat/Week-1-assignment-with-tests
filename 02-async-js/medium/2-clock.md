@@ -6,3 +6,11 @@ Can you make it so that it updates every second, and shows time in the following
  - HH:MM::SS (Eg. 13:45:23)
 
  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+function Time(){
+    console.clear()
+    let clock = new Date();
+    console.log(clock.getHours() + ":" +clock.getMinutes()+":"+clock.getSeconds())
+}
+
+setInterval(Time,1000)
