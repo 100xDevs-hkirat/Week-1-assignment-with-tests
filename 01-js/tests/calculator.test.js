@@ -71,6 +71,7 @@ describe('Calculator', () => {
 		calc.calculate('(2 + 3) * (6 - (4 + 1) / 2) + 7');
 		expect(calc.getResult()).toBe(24.5);
 	});
+
 	test('calculate complex expression with spaces', () => {
 		calc.calculate(
 			'10 +   2 *    (   6 - (4 + 1) / 2) + 7'
