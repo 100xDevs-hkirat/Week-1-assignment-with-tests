@@ -46,7 +46,7 @@ describe('Todo', () => {
 		expect(todoList.getAll()).toEqual([
 			'Task 1',
 			'Updated Task 2',
-			'Task 3',
+			'Invalid Task',
 		]);
 	});
 
