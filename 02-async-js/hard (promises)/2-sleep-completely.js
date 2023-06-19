@@ -3,6 +3,23 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+const { resolve } = require("path")
 
+ function sleep (seconds) {
+       return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve("pause finished"),seconds*1000);
+       })
 }
+
+ async function testSleep(seconds){
+    console.log("Pausing the execution");
+    await sleep(3).then((result)=>console.log(result));
+    console.log("Execution ended");
+ }
+
+
+ testSleep(3);
+
+
+
+

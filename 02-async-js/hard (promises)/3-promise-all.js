@@ -6,17 +6,37 @@
 
 
 function waitOneSecond() {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve("Resolved after 1 second"),1000);
+    });
 
 }
 
 function waitTwoSecond() {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve("Resolved after 2 seconds"),2000);
+    });
 
 }
 
 function waitThreeSecond() {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve("Resolved after 3 seconds"),3000);
+    });
 
 }
 
 function calculateTime() {
+    let start=Date.now();
+
+    Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
+    .then((values)=>{
+        let ans=Date.now()-start;
+        console.log(values);
+        console.log("Resolved in "+ans/1000+" seconds");
+    })
 
 }
+
+
+calculateTime()
