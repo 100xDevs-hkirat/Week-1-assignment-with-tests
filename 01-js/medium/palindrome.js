@@ -7,6 +7,24 @@
 */
 
 function isPalindrome(str) {
+  const punctuation = /[\.,?!]/g;
+
+  str = str.replaceAll(punctuation, '');
+  str = str.replaceAll(' ', '');
+  str = str.toLowerCase();
+
+  const charArray = str.split('');
+  const size = charArray.length;
+  const half_length = Math.round(size / 2);
+
+  for (let index = 0; index < half_length; index++) {
+    if (charArray[index] === charArray[size - index - 1]) {
+      continue;
+    } else {
+      return false;
+    }
+  }
+
   return true;
 }
 
