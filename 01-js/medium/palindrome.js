@@ -5,9 +5,19 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
+// abccbaa
 function isPalindrome(str) {
-  return true;
+  const org = str.toLowerCase().split('').filter(char=>char !=' ').join();
+  const spc = str.toLowerCase().split('').filter(char=>char !=' ').reverse().join()
+  console.log(org)
+  console.log(spc)
+  if(org.replace(/[^\w\s]|_/g, '')==spc.replace(/[^\w\s]|_/g, '')){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
+console.log(isPalindrome("Nan"));
