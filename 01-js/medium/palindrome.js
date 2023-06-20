@@ -7,7 +7,15 @@
 */
 
 function isPalindrome(str) {
-  return true;
-}
+  if(str.length == 0){
+    return true
+  }
+  str = str.replace(/[.,\/#!$?%\^&\*;:{}=\-_`~()]/g, "").toLowerCase().split(" ").join("");
+  var temp = str.split("");
+  var reversed = temp.reverse().join("");
+  console.log(reversed);
+  // str = str.join("");
+  console.log(str);
+  return reversed === str}
 
 module.exports = isPalindrome;
