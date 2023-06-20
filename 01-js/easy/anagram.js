@@ -5,7 +5,7 @@
 
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
-*/
+rasendra is here */
 function isAnagram(str1, str2) {
   let a = str1.toLowerCase().replace(/\s/g, "").split("").sort().join("");
   let b = str2.toLowerCase().replace(/\s/g, "").split("").sort().join("");
