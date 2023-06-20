@@ -16,7 +16,65 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
+class Calculator {
+  constructor()
+  {
+    this.result = 0;
+  }
+  add(number){
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Please provide a number.');
+    }
+    this.result += number;
+  }
+  subtract(number){
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Please provide a number.');
+    }
+    this.result -= number;
+  }
+  multiply(number){
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Please provide a number.');
+    }
+    this.result *= number;
+  }
+  divide(number) {
+    if (typeof number !== 'number') {
+      throw new Error('Invalid input. Please provide a number.');
+    }
+    if (number === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= number;
+  }
+  clear(){
+    this.result = 0;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(expression){
+    const newExpression = expression.replace(" ","");
+    try{
+      this.result = eval(newExpression);
+      if (this.result === Infinity){
+        throw new Error("cannot divide by zero");
+      }
+    }  
+    catch(error){
+      throw new Error("Invalid Expression");
+    }
+  }
+}
 
-class Calculator {}
-
+const calc = new Calculator();
+calc.add(20);
+calc.subtract(7);
+calc.multiply(3);
+calc.divide(2);
+console.log(calc.getResult());
+calc.clear();
+calc.calculate(" 23 +   5 * ( 6 - (4    + 1)/2  + 7) ");
+console.log(calc.getResult());
 module.exports = Calculator;
