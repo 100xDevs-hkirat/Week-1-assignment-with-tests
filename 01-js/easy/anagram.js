@@ -10,8 +10,6 @@
 function isAnagram(str1, str2) {
   if(str1.length !=str2.length) return false;
     var freq = new Array(26).fill(0);
-    str1 = str1.toLowerCase();
-    str2 = str2.toLowerCase();
     for(let i = 0;i<str1.length;i++){
       freq[str1.charCodeAt(i)-97]++;
       //console.log(freq);
