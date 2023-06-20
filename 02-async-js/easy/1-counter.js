@@ -1,7 +1,8 @@
 var count = 1;
 
 function counter(){
-    console.log(count)
+    console.clear();
+    console.log(count);
     count++;
 }
 
