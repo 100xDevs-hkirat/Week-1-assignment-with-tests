@@ -4,5 +4,20 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((res, rej) => {
+        setTimeout(res, seconds * 1000);
+    })
 }
+
+const testFunction = () => {
+    let promiseChain = Promise.resolve();
+
+    promiseChain.then(() => {
+        console.log(new Date().getSeconds());
+        return sleep(5);
+    }).then(() => {
+        console.log(new Date().getSeconds());
+    })
+}
+
+testFunction();
