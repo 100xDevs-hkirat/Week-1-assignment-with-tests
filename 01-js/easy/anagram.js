@@ -6,7 +6,7 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
 */
-
+//the function starts here
 function isAnagram(str1, str2) {
 
 }
