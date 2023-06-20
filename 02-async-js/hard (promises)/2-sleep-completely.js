@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve)=>{
+        setTimeout(resolve,seconds*1000)
+    })
 }
+
+async function Main(){
+    await sleep(2)
+    console.log("hiii")
+}
+Main()

@@ -7,7 +7,28 @@
 */
 
 function isPalindrome(str) {
+  console.log(str)
+  let first = 0
+  let last = str.length - 1
+  while(first<last){
+    // console.log(str.charCodeAt(last))
+    if(str.charCodeAt(first)<65 || str.charCodeAt(first)>122){
+      first +=1
+      continue
+    }
+    if(str.charCodeAt(last)<65 || str.charCodeAt(last)>122){
+      last -=1
+      continue
+    }
+    if(str[first].toLowerCase()!=str[last].toLowerCase()){
+      console.log(str[first],str[last])
+      return false
+    }
+    first +=1
+    last -=1
+  }
   return true;
 }
+
 
 module.exports = isPalindrome;
