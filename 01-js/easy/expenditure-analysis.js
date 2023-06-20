@@ -23,7 +23,7 @@ function calculateTotalSpentByCategory(transactions) {
   for(let i=0;i<keys.length;i++){
     let obj = {
       category:keys[i],
-      amountSpend:spends[keys[i]]
+      totalSpent:spends[keys[i]]
     }
     output.push(obj)
   }
