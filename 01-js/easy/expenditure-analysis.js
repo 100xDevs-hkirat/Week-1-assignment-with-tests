@@ -22,7 +22,7 @@ function calculateTotalSpentByCategory(transactions) {
     console.log(spendEstimates)
     console.log(key)
   
-    let ans = []
+    let answer = []
     for (i = 0; i < key.length; i++) {
       category = key[i]
       let obj = {
@@ -62,9 +62,7 @@ function calculateTotalSpentByCategory(transactions) {
     },
   ]
   
-function calculateTotalSpentByCategory(transactions) {
-  (transactions)
-  return [];
-}
+return answer()
+
 
 module.exports = calculateTotalSpentByCategory;
