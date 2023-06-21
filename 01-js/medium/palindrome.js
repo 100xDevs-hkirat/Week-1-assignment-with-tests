@@ -22,8 +22,6 @@ function isPalindrome(str) {
   let i = 0;
   let j = str.length - 1;  
 
-  console.log(str);
-
   while(i < j){
     if(str[i] !== str[j]) return false;
     i++;
@@ -32,5 +30,4 @@ function isPalindrome(str) {
   return true;
 }
 
-console.log(isPalindrome("A man a plan a canal Panama"));
 module.exports = isPalindrome;
