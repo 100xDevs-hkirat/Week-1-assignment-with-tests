@@ -24,7 +24,6 @@ function isAnagram(str1, str2) {
     obj1[a] = a;
   })
   
-  console.log(obj1);
   for (let i = 0; i < wordTwo.length; i++) {
     if (!obj1[wordTwo[i]]) {
       return false;
