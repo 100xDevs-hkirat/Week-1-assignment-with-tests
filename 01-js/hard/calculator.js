@@ -204,6 +204,4 @@ class Calculator {
     }
   }
 }
-poip = new Calculator();
-console.log(poip.calculate("(2.5 + 1.5) * 3"));
 module.exports = Calculator;

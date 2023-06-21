@@ -9,13 +9,12 @@ function isAlphabet(character) {
   return character.match(/[a-zA-Z]/) !== null;
 }
 
-function filterAlpha(str){
+function filterAlpha(str) {
   str1 = "";
-  for(let j of str){
-    if(!isAlphabet(j)){
+  for (let j of str) {
+    if (!isAlphabet(j)) {
       continue;
-    }
-    else{
+    } else {
       str1 += j;
     }
   }
@@ -29,12 +28,11 @@ function isPalindrome(str) {
   str = filterAlpha(str);
   let str2 = "";
   let n = str.length - 1;
-  while(n > -1){
-    str2 = str2 + str[n]
+  while (n > -1) {
+    str2 = str2 + str[n];
     n -= 1;
   }
-  return (str === str2)
+  return str === str2;
 }
-
 
 module.exports = isPalindrome;
