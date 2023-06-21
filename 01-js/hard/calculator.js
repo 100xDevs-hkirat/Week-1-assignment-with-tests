@@ -16,14 +16,14 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-op = new Set()
+op = new Set();
 op.add("+");
 op.add("-");
 op.add("*");
-op.add("/")
+op.add("/");
 br = new Set();
-br.add('(');
-br.add(')');
+br.add("(");
+br.add(")");
 function add(x, y) {
   x = Number(x);
   y = Number(y);
@@ -49,25 +49,22 @@ function divide(x, y) {
 }
 function Split(exp) {
   let i = 0;
-  res = []
+  res = [];
   while (i < exp.length) {
-    if((!isNaN(exp[i]) && exp[i] != " ") || exp[i] == '.'){
+    if ((!isNaN(exp[i]) && exp[i] != " ") || exp[i] == ".") {
       let q = "";
-      while((!isNaN(exp[i]) && exp[i] != " ") || exp[i] == '.'){
-        q = q + exp[i]
-        i = i + 1
+      while ((!isNaN(exp[i]) && exp[i] != " ") || exp[i] == ".") {
+        q = q + exp[i];
+        i = i + 1;
       }
-      res.push(q)
-    }
-    else if (op.has(exp[i]) || br.has(exp[i])) {
-      res.push(exp[i])
+      res.push(q);
+    } else if (op.has(exp[i]) || br.has(exp[i])) {
+      res.push(exp[i]);
       i = i + 1;
-    }
-    else if (exp[i] == " ") {
+    } else if (exp[i] == " ") {
       i = i + 1;
-    }
-    else {
-      res.push(exp[i])
+    } else {
+      res.push(exp[i]);
       i = i + 1;
     }
   }
@@ -76,20 +73,19 @@ function Split(exp) {
 function verify(exp) {
   for (let o of exp) {
     if (isNaN(o) && !op.has(o) && !br.has(o)) {
-      console.log(o)
+      console.log(o);
       return false;
     }
   }
   return true;
 }
 function cleanElseThrow(exp) {
-  arr = Split(exp)
+  arr = Split(exp);
   if (verify(arr)) {
-    arr.unshift('(');
-    arr.push(')');
+    arr.unshift("(");
+    arr.push(")");
     return arr;
-  }
-  else {
+  } else {
     throw new Error();
   }
 }
@@ -137,9 +133,9 @@ function calExp(exp) {
 function resExp(exp) {
   let res = [];
   for (let i = 0; i < exp.length; i++) {
-    if (exp[i] === ')') {
+    if (exp[i] === ")") {
       let a = [];
-      while (res[res.length - 1] !== '(') {
+      while (res[res.length - 1] !== "(") {
         a.push(res[res.length - 1]);
         res.pop();
       }
@@ -154,8 +150,8 @@ function resExp(exp) {
 
 function areParenthesesBalanced(str) {
   const stack = [];
-  const openingBrackets = ['(', '[', '{'];
-  const closingBrackets = [')', ']', '}'];
+  const openingBrackets = ["(", "[", "{"];
+  const closingBrackets = [")", "]", "}"];
 
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
@@ -163,7 +159,8 @@ function areParenthesesBalanced(str) {
     if (openingBrackets.includes(char)) {
       stack.push(char);
     } else if (closingBrackets.includes(char)) {
-      const matchingOpeningBracket = openingBrackets[closingBrackets.indexOf(char)];
+      const matchingOpeningBracket =
+        openingBrackets[closingBrackets.indexOf(char)];
 
       if (stack.length === 0 || stack.pop() !== matchingOpeningBracket) {
         return false;
@@ -171,44 +168,40 @@ function areParenthesesBalanced(str) {
     }
   }
 
-  return stack.length === 0; 
+  return stack.length === 0;
 }
 
-
-
 class Calculator {
-  constructor(){
+  constructor() {
     this.result = 0;
   }
-  add(n){
-    this.result += n; 
+  add(n) {
+    this.result += n;
   }
-  subtract(n){
+  subtract(n) {
     this.result -= n;
   }
-  multiply(n){
+  multiply(n) {
     this.result *= n;
   }
-  divide(n){
-    if(n == 0){
+  divide(n) {
+    if (n == 0) {
       throw new Error();
     }
     this.result /= n;
   }
-  clear(){
+  clear() {
     this.result = 0;
   }
-  getResult(){
+  getResult() {
     return this.result;
   }
-  calculate(str){
-    if(areParenthesesBalanced(str)){
-    this.result = resExp(cleanElseThrow(str));
-    }else{
+  calculate(str) {
+    if (areParenthesesBalanced(str)) {
+      this.result = resExp(cleanElseThrow(str));
+    } else {
       throw new Error();
     }
   }
 }
-poip = new Calculator();
-console.log(poip.calculate('(2.5 + 1.5) * 3'));
 module.exports = Calculator;
