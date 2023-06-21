@@ -8,7 +8,32 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  if (str1 === "" && str2 == "") {
+    return true
+  }
+  let a = str1.toLowerCase()
+  let b = str2.toLowerCase()
 
+  let obj1 = {};
+  let wordOne = [...a]
+  let wordTwo = [...b]
+  wordOne.map((a) => {
+    obj1[a] = a;
+  })
+  
+  console.log(obj1);
+  for (let i = 0; i < wordTwo.length; i++) {
+    if (!obj1[wordTwo[i]]) {
+      return false;
+    } else {
+      return true;
+    }  
+  }
 }
+
+isAnagram("si!","!is")
 
 module.exports = isAnagram;
