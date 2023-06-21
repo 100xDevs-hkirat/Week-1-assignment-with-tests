@@ -6,3 +6,16 @@ Can you make it so that it updates every second, and shows time in the following
  - HH:MM::SS (Eg. 13:45:23)
 
  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+function printCurrentTime(){
+  let date = new Date();
+  const ans = date.getHours() + ":" + date.getMinutes()+ ":" + date.getSeconds();
+
+  console.log(ans)
+}
+
+function printTime(){
+  console.clear()
+  printCurrentTime()
+}
+setInterval(printTime,1000)
