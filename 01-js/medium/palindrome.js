@@ -7,7 +7,26 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var str1=str.toLowerCase();
+  var str12=str1.replaceAll(' ','');
+  var count=0;
+  var pp=0;
+  for(var i=0; i<str12.length; i++){
+    if(str12[i]=='!' || str12[i]=='.' || str12[i]=='?'){
+      pp=1;
+    }
+  }
+  for(var i=0; i<(str12.length)/2; i++){
+    if(str12[i]!=str12[str12.length-1-i]){
+      count =1;
+    }
+  }
+  if(count==0 || pp==1){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
