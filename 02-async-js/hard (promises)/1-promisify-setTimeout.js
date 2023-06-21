@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+  const a = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, n * 1000);
+  });
+  a.then(() => {
+    console.log(`${n} seconds have elapsed`);
+  });
 }
+
+wait(10);
