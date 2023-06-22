@@ -3,6 +3,11 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep (milliseconds) {
+    const time = new Date();
+    while(Date.now()-time<milliseconds){
+        //Busy wait
+    }
 }
+sleep(10000);
+console.log("Hoo")
