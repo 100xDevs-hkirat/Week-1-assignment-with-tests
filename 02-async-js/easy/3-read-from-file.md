@@ -15,3 +15,9 @@ return;
 console.log(data);
 }
 })
+
+let counter = 0
+for (let i=0; i<100000000; i++){
+counter += 1
+}
+console.log(counter)
