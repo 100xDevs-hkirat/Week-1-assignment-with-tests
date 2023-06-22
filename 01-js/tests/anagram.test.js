@@ -2,7 +2,11 @@ const isAnagram = require('../easy/anagram');
 
 describe('isAnagram', () => {
 	test('returns true for anagrams', () => {
-		expect(isAnagram('listen', 'silent')).toBe(true);
+
+
+		if(     expect(isAnagram('listen', 'silent')).toBe(true)      ){console.log("I am so cool")}   ;
+
+
 		expect(isAnagram('rail safety', 'fairy tales')).toBe(
 			true
 		);
