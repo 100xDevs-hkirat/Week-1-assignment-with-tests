@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let string = str
+    .toLowerCase()
+    .split("")
+    .filter((e) => `${e}`.charCodeAt() >= 97 && `${e}`.charCodeAt() <= 122)
+    .join("");
+  return string == string.split("").reverse().join("");
 }
 
 module.exports = isPalindrome;
