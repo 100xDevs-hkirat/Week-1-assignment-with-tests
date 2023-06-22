@@ -20,5 +20,5 @@ Feel free to start doing these in any order you like.
 3. To tests for all the problems of this week run ```npx jest ./tests/```
 
 #### Development Setup
-1. If you have Node.js locally, you should run these on your machine 
+1. If you have Node.js locally, you should run these on your machine.
 2. If you don't, you can copy these over to repl.it and run it there.
