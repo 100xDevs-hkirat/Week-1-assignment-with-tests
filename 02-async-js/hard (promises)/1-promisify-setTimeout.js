@@ -3,4 +3,17 @@
 */
 
 function wait(n) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, n * 1000);
+    });
 }
+
+wait(5)
+  .then(() => {
+    console.log('Resolved after 5 seconds');
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
