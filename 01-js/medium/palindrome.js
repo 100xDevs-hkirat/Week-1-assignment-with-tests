@@ -5,9 +5,17 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
 function isPalindrome(str) {
+  let str1 = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  let str2 = str.toLowerCase().replace(/[^a-z0-9]/g, '').split('').reverse().join('');
+  for( var i = 0 ; i< str.length ; i++){
+    if(str1[i] !== str2[i]){
+      return false;
+    }
+  }
   return true;
 }
+
+console.log(isPalindrome('Vashu'));
 
 module.exports = isPalindrome;
