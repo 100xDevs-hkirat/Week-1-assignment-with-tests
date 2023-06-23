@@ -8,6 +8,7 @@ let count = 0;
 function counter() {
     
         setInterval(() => {
+            console.clear();
             console.log(count += 1);
         }, 1000);
     
