@@ -8,13 +8,13 @@
 */
 function isAnagram(str1, str2) {
   // convert it into array then apply sorting
-  var arrayStr1 = str1.split('').sort();
-  var arrayStr2 = str2.split('').sort();
+  var arrayStr1 = str1.toLowerCase().split('').sort();
+  var arrayStr2 = str2.toLowerCase().split('').sort();
 
-  var sortStr1 = str1.join('');
-  var sortStr2 = str2.join('');
+  var sortStr1 = arrayStr1.join('');
+  var sortStr2 = arrayStr2.join('');
 
-  return sortStr1 == sortStr2;
+  return sortStr1 === sortStr2;
 
 
 }
