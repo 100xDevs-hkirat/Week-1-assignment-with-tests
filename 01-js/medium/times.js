@@ -8,5 +8,21 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let sum = 0;
+
+    const startDate = new Date().getTime();
+    for (let i=1; i<=n; ++i) {
+        sum = sum + i;
+    }
+    const endDate = new Date().getTime();
+
+    console.log("Sum to " + n + ": " + sum);
+
+    let difference = endDate - startDate;
+    console.log("Time for Sum to " +n+ "(in ms): " +difference);
+    // return difference;
 }
+
+calculateTime(100);
+calculateTime(100000);
+calculateTime(1000000000);
