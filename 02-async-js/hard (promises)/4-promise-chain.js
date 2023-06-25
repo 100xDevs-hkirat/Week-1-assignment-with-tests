@@ -5,18 +5,46 @@
  * Compare it with the results from 3-promise-all.js
  */
 
+
 function waitOneSecond() {
+    return new Promise((resolve, reject) => { 
+          setTimeout(resolve , 1000)
+     })
+ }
+ 
+ function waitTwoSecond() {
+     return new Promise((resolve, reject) => { 
+         setTimeout(resolve , 2000)
+    })
+ }
+ 
+ function waitThreeSecond() {
+     return new Promise((resolve, reject) => { 
+         setTimeout(resolve , 3000)
+    })
+ }
+ 
+ function calculateTime() {
+ 
+    let startTime = Date.now()
+    waitOneSecond().then(result => {
+        let time1 = Date.now() - startTime
+        console.log("Wait for One Second " + time1)
+        waitTwoSecond().then(result => {
+            let time1 = Date.now() - startTime
+            console.log("Wait for two Second " + time1)
+            waitThreeSecond().then(result => {
+                let time1 = Date.now() - startTime
+                console.log("Wait for three Second " + time1)
+            })
+        })
+    })
+    
+    
+    let time = Date.now() - startTime
 
-}
-
-function waitTwoSecond() {
-
-}
-
-function waitThreeSecond() {
-
-}
-
-function calculateTime() {
-
-}
+    console.log(time)
+    return Date.now() - startTime
+ }
+ 
+ console.log(calculateTime())

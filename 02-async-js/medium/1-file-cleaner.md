@@ -11,3 +11,14 @@ After the program runs, the output should be
 ```
 hello world my name is raman
 ```
+
+
+const fs = require('fs');
+
+fs.readFile('test.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  data = data.replace(/\s+/g, ' ').trim()
+});
