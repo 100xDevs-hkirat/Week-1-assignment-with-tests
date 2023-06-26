@@ -7,8 +7,18 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
-
+// Sort the string by removing spaces and converting to lowercase
+function sort(str){
+  return str.split(' ').join('').toLowerCase().split('').sort().join('');
 }
+
+
+function isAnagram(str1, str2) {
+  let str1LowerCase = sort(str1);
+  let str2LowerCase = sort(str2);
+  return str1LowerCase === str2LowerCase;
+}
+
+isAnagram('Debit Card', 'Bad Credit');
 
 module.exports = isAnagram;
