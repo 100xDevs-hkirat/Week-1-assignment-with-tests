@@ -4,5 +4,8 @@
  */
 
 function sleep (seconds) {
-
+    let start = new Date();
+    while(new Date() - start < seconds*1000);
 }
+
+sleep(15);
