@@ -17,6 +17,48 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result=0
+  }
+
+   add(number) {
+    this.result+=number  
+  }
+
+  subtract(number) {
+    this.result-=number  
+  }
+  multiply(number) {
+    this.result*=number  
+  }
+  divide(number) {
+    if(number!=0){
+      this.result/=number  
+    }else{
+      throw new Error()
+    }
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(exp){
+    const evaluation= eval(exp)
+    if(isNaN(evaluation)){
+      throw new Error("Invalid expression")
+    }else if(!isFinite(evaluation)){
+      throw new Error("Please provide valid input")
+    }
+    else{
+      this.result=evaluation;
+    }
+  }
+}
 
 module.exports = Calculator;
