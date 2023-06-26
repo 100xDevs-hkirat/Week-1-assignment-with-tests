@@ -17,6 +17,9 @@ function calculateTime(n) {
     return (endTime - startTime) / 1000;
 }
 
+// nearly 0 secs
 console.log(calculateTime(100));
+// 0.001 seconds
 console.log(calculateTime(100000));
+// 1.051 seconds
 console.log(calculateTime(1000000000));
