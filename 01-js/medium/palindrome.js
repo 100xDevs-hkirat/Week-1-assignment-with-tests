@@ -5,8 +5,30 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
+function isCharacter(char) {
+  return char.toUpperCase() != char.toLowerCase();
+}
+
 
 function isPalindrome(str) {
+  let start = 0, end = str.length - 1;
+
+  if (str.length <= 0) return true;
+  while (start < end) {
+    while (!isCharacter(str[start])) {
+      start++;
+    }
+    while (!isCharacter(str[end])) {
+      end--;
+    }
+    if (str[start].toUpperCase() !== str[end].toUpperCase()) {
+
+      return false;
+    } else {
+      start++;
+      end--;
+    }
+  }
   return true;
 }
 
