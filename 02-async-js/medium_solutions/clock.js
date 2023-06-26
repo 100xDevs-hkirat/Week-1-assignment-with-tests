@@ -9,5 +9,14 @@ function clock() {
     console.log(time);
 }
 
-setInterval(clock, 1000);
+// setInterval(clock, 1000);
+
+function check(){
+    for(let i=0;i<3;i++){
+        console.log(i);
+    }
+    console.log(i);
+}
+
+check();
 

@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            resolve();
+        },n*1000);
+    })
 }
+
+let x = wait(5);
+x.then(function(){
+    console.log("resolved after 5 seconds");
+})

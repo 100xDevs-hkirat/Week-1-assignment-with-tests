@@ -22,7 +22,9 @@ function fileCleaner(filePath) {
         if (err) {
         console.log('Error: ', err);
         } else {
+            console.log(data);
         var newStr = data.replace(/\s+/g, ' ');
+        console.log(newStr); 
         fs.writeFile(filePath, newStr, function(err) {
             if (err) {
             console.log('Error: ', err);
