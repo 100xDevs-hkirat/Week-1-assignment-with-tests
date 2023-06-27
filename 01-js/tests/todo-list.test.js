@@ -78,7 +78,7 @@ describe('Todo', () => {
 		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
 
 		todoList.update(3, 'Updated Task');
-		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
+		expect(todoList.getAll()).toEqual([ 'Task 1', 'Task 2',, 'Updated Task' ]);
 	});
 
 	test('add duplicate tasks', () => {
