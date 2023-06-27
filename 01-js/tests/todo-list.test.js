@@ -47,6 +47,7 @@ describe('Todo', () => {
 			'Task 1',
 			'Updated Task 2',
 			'Task 3',
+			'Invalid Task'
 		]);
 	});
 
