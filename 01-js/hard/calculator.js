@@ -17,6 +17,51 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+    result = 0;
+
+    add(number) {
+        this.result = this.result + number;
+    }
+
+    subtract(number) {
+        this.result = this.result - number;
+    }
+
+    multiply(number) {
+        this.result = this.result * number;
+    }
+
+    divide(number) {
+        if (number == 0) {
+            throw new Error();
+        }
+        this.result = this.result / number;
+    }
+
+    clear() {
+        this.result = 0;
+    }
+
+    getResult() {
+        return this.result;
+    }
+
+    calculate(expression) {
+        expression = expression.replace(/ /g, '');
+        // console.log("Expression after removing spaces: ", expression);
+        let flag = /[^.0-9+*()/-]/.test(expression);
+        if (flag) {
+            throw new Error();
+        }
+        let tempRes = eval(expression);
+        if (tempRes == Infinity) {
+            throw new Error();
+        }
+        this.result = tempRes;
+    }
+}
+
+// new Calculator().calculate('10 +   2 *    (   6 - (4 + 1) / 2) + 7');
 
 module.exports = Calculator;

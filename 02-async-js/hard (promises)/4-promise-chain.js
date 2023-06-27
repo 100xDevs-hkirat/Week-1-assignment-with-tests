@@ -6,17 +6,44 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, 1000);
+    });
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    });
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, 3000);
+    });
 }
 
 function calculateTime() {
-
+    let startTime = new Date().getTime();
+    waitOneSecond().then(() => {
+        console.log("Resolved One Second");
+        return waitTwoSecond();
+    })
+    .then(() => {
+        console.log("Resolved Two Second");
+        return waitThreeSecond();
+    })
+    .then(() => {
+        console.log("Resolved Three Second");
+        let endTime = new Date().getTime();
+        console.log("Total Time Taken:", endTime - startTime, "Milliseconds");
+    })
 }
+
+calculateTime();

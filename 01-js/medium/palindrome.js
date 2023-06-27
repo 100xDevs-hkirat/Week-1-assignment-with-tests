@@ -7,7 +7,23 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  if (str.length == 0) {
+    return true;
+  }
+
+  let refinedString = str.toLowerCase();
+  refinedString = refinedString.replace(/[^a-zA-z]/g, '');
+
+  // console.log("Refined String: ", refinedString);
+
+  let reverseString = refinedString.split('').reverse().join('');
+
+  // console.log("Original Refined String: ", refinedString);
+  // console.log("Reversed String: ", reverseString);
+  
+  if (reverseString === refinedString)
+    return true;
+  return false;
 }
 
 module.exports = isPalindrome;

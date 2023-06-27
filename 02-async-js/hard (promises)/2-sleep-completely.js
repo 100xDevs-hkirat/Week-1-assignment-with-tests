@@ -4,5 +4,18 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, seconds * 1000);
+    });
 }
+
+async function totalSleep(seconds) {
+    await sleep(seconds).then(() => {
+        console.log("Resolved after complete sleep");
+    });
+    console.log("Printing after complete sleep wake-up");
+}
+
+totalSleep(5);

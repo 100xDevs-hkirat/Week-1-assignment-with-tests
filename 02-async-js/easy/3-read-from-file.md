@@ -5,3 +5,23 @@ You can use the fs library to as a black box, the goal is to understand async ta
 Try to do an expensive operation below the file read and see how it affects the output. 
 Make the expensive operation more and more expensive and see how it affects the output. 
 
+### Solution
+```js
+const fs = require('fs');
+
+function readFromFile() {
+  fs.readFile('a.txt', 'utf-8', (err, data) => {
+    if (err) throw err;
+    console.log("Data from File: ", data);
+  });
+
+  let sum = 0;
+  let n = 1000000;
+  for (let i=1; i<=n; ++i) {
+    sum = sum + i;
+  }
+  console.log("Sum until " + n + ": " + sum);
+}
+
+readFromFile();
+```
