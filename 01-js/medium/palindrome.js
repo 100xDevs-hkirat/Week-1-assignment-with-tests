@@ -6,8 +6,25 @@
   - `npm run test-palindrome`
 */
 
+// function isPalindrome(str) {
+//   str = str.replace(/[^\w\s]|_/g, "");
+//   let len = str.length;
+//   for (let x = 0; x < len/2; x++) {
+//     if (str[x].toLowerCase() !== str[len - x - 1].toLowerCase()) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+
 function isPalindrome(str) {
-  return true;
+  // Remove spaces and punctuation marks using regular expression
+  const cleanStr = str.replace(/[^\w]|_/g, "").toLowerCase();
+
+  // Check if the cleaned string is a palindrome
+  const reversedStr = cleanStr.split("").reverse().join("");
+  return cleanStr === reversedStr;
 }
 
 module.exports = isPalindrome;

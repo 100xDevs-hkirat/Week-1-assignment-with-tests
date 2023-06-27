@@ -8,8 +8,25 @@
   - `npm run test-expenditure-analysis`
 */
 
+
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const temp_dict = {};
+
+  for (const { category, price } of transactions) {
+    if (temp_dict.hasOwnProperty(category)) {
+      temp_dict[category] += price;
+    } else {
+      temp_dict[category] = price;
+    }
+  }
+
+  const convertedArray = Object.entries(temp_dict).map(([category, totalSpent]) => ({
+    category,
+    totalSpent,
+  }));
+
+  return convertedArray;
 }
 
 module.exports = calculateTotalSpentByCategory;
