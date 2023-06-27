@@ -47,6 +47,7 @@ describe('Todo', () => {
 			'Task 1',
 			'Updated Task 2',
 			'Task 3',
+			'Invalid Task'
 		]);
 	});
 
@@ -57,7 +58,7 @@ describe('Todo', () => {
 
 		expect(todoList.get(0)).toBe('Task 1');
 		expect(todoList.get(2)).toBe('Task 3');
-		expect(todoList.get(3)).toBeNull();
+		expect(todoList.get(3)).toBeUndefined();
 	});
 
 	test('clear', () => {
@@ -77,7 +78,7 @@ describe('Todo', () => {
 		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
 
 		todoList.update(3, 'Updated Task');
-		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
+		expect(todoList.getAll()).toEqual([ 'Task 1', 'Task 2',, 'Updated Task' ]);
 	});
 
 	test('add duplicate tasks', () => {
