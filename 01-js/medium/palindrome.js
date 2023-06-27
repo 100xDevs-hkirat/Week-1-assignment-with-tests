@@ -7,7 +7,15 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var lowerstring = str.toLowerCase();
+  var reverseStr = lowerstring.split('').reverse().join('');
+  if(reverseStr===lowerstring){
+    return true;
+  }
+  return false;
+
 }
 
+
+var result = isPalindrome("abac");
 module.exports = isPalindrome;
