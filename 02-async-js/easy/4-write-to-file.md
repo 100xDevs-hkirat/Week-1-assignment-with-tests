@@ -7,11 +7,10 @@ const fs = require('fs')
 
 let data = "This is sample text to write in the file"
 
-fs.writeFile('index.txt', data, 'utf8', (err,data) => {
+fs.writeFile('index.txt', data, 'utf8', (err) => {
 if (err){
 console.error(err);
 return;
-} else {
-console.log("File has been written");
 }
+console.log("File has been written");
 })
