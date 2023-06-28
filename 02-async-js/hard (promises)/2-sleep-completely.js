@@ -4,5 +4,17 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve) => {
+        console.log(`Thread is blocked for next ${seconds} seconds`);
+        setTimeout(() => {
+            resolve();
+        }, seconds * 1000);
+    });
 }
+
+async function runSleep(){
+    await sleep(5);
+    console.log("Contnuing execution after sleep");
+}
+
+runSleep();
