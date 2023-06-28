@@ -6,8 +6,13 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
 */
-
+//the function starts here
 function isAnagram(str1, str2) {
+
+  str1 = str1.toLowerCase().split("").sort().join();
+  str2 = str2.toLowerCase().split("").sort().join();
+
+  return str1 == str2;
 
 }
 

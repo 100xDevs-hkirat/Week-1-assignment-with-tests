@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "scripts": {
+    "test": "jasmine" ,
     "test-anagram": "npx jest ./tests/anagram.test.js",
     "test-calculator": "npx jest ./tests/calculator.test.js",
     "test-duplicate-transactions": "npx jest ./tests/duplicate-transactions.test.js",

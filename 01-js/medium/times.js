@@ -8,5 +8,28 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    
+    const start = Date.now();
+    console.log(start);
+
+    function sum() {
+      let total = 0;
+      for (let i = 1; i <= n; i++) {
+        total += i;
+      }
+      return total;
+    }
+  
+    sum();
+  
+    const end = Date.now();
+  
+    return (end - start) / 1000;
+
 }
+
+
+
+for (let i = 10; i <= 10_000_000_000; i *= 10) {
+    console.log(`${calculateTime(i).toFixed(2)} secs for sum from 1 to ${i}`);
+  }

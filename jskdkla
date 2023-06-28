@@ -1,0 +1,47 @@
+[33mcommit 58b1de3ebd26a26884ff817aaae4c6970d46cbc1[m[33m ([m[1;36mHEAD -> [m[1;32mhkirat/with-tests[m[33m, [m[1;31morigin/hkirat/with-tests[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Abhinandan Singh Baghel <abhinandansinghbaghel2001@gmail.com>
+Date:   Thu Jun 22 16:53:30 2023 +0530
+
+    Anagram completed
+
+[33mcommit a3e74a328a27dc3c920cfb01f2a4377433ff16e6[m
+Author: Abhinandan Singh Baghel <abhinandansinghbaghel2001@gmail.com>
+Date:   Tue Jun 20 21:34:05 2023 +0530
+
+    Added a comment
+
+[33mcommit 9618c5d61c8c5e0ea6d51309aeabbf289850d8d7[m
+Author: Dhruv Sharma <dhruvsharma@cult>
+Date:   Mon Jun 12 15:31:43 2023 +0530
+
+    fixed bugs in calculator tests
+
+[33mcommit 9236d46f448f5727b675bc24bf46aa47ce086e1b[m
+Author: Dhruv Sharma <dhruvsharma@cult>
+Date:   Mon Jun 12 15:19:16 2023 +0530
+
+    fixing bugs in anagram tests
+
+[33mcommit e8fb18bc60359e614cc24f2ef0d24a786e80cd37[m
+Author: Dhruv Sharma <dhruvsharma@cult>
+Date:   Mon Jun 12 14:17:31 2023 +0530
+
+    added additional tests for medium and hard problems
+
+[33mcommit 31dae4e159262adfe615ac19bcb7fc1df5ee1150[m
+Author: Dhruv Sharma <dhruvsharma@cult>
+Date:   Mon Jun 12 13:53:22 2023 +0530
+
+    added more test cases for easy problems
+
+[33mcommit 08af9c41eacec3160a2feab320a44e8ef28124dd[m
+Author: Dhruv Sharma <dhruvsharma@cult>
+Date:   Mon Jun 12 13:10:17 2023 +0530
+
+    [week1] added tests, package.json, updated readme
+
+[33mcommit 38147713973a696a5369a88f5153429fb07d84a5[m
+Author: kirat <100xdevs@gmail.com>
+Date:   Mon Jun 12 05:08:26 2023 +0530
+
+    Assignments added
