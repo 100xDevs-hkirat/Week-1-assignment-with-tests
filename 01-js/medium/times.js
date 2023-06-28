@@ -7,6 +7,20 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+/*
+Used Date class
+Variable timeInSeconds gives the diff in how much time it took to calculate the sum 
+Used getTime() rather than getSeconds() because getSeconds() is only used to retrieve the seconds component within the current minute, 
+since for larger value of n time might take more than a minute, hence getTime() is used.
+*/
+
 function calculateTime(n) {
-    return 0.01;
+    const startTime = new Date();
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    const endTime = new Date();
+    const timeInSeconds = (endTime.getTime() - startTime.getTime()) / 1000;
+    return timeInSeconds;
 }
