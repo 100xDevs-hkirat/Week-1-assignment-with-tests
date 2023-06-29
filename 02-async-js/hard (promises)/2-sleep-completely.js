@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    let start = new Date();
+    for(let i=0; i>=0; i++){
+        if((new Date() - start) > seconds){
+            break;
+        }
+    }
 }
+
+sleep(5000)
+console.log("Hi Hello!!");
