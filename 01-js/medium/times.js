@@ -9,11 +9,11 @@ Hint - use Date class exposed in JS
 
 function calculateTime(n) {
   let start = Date.now();
-  let sum;
+  let sum = 0;
   for (let i = 0; i <= n; i++) {
-    total += i;
+    sum += i;
   }
-  console.log(total);
+  console.log(sum);
   let time = Date.now() - start;
   return console.log(`Time taken to execute is: ${time / 1000}`);
 }

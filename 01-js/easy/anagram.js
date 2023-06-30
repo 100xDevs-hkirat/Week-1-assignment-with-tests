@@ -20,3 +20,7 @@ function isAnagram(str1, str2) {
 isAnagram('toDd', 'DDOt')
 
 module.exports = isAnagram;
+
+
+
+
