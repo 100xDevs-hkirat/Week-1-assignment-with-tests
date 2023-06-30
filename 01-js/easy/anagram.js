@@ -8,7 +8,18 @@
 */
 
 function isAnagram(str1, str2) {
+      str1Lowercase = str1.toLowerCase()
+      str2Lowercase = str2.toLowerCase()
 
+      str1Lowercase = str1Lowercase.split("").sort();
+      str2Lowercase = str2Lowercase.split("").sort()
+
+
+      for( i = 0; i < str1Lowercase.length; i++ ){
+        if(str1Lowercase[i] !== str2Lowercase[i]){
+          return false;
+        }
+      }return true;
 }
 
 module.exports = isAnagram;
