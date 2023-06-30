@@ -16,7 +16,6 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-
 class Calculator {
   constructor() {
     this.result = 0;
