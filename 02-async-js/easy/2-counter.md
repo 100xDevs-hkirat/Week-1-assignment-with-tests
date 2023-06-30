@@ -1,76 +1,13 @@
 ## Counter without setInterval
 
-Without using setInterval, try to code a counter in Javascript. There is a hint at the bottom of the file if you get stuck.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(Hint: setTimeout)
+<!-- creating a counter without using setInterval -->
+
+var num = 1;
+function counter() {
+console.clear();
+console.log(num);
+num += 1;
+setTimeout(counter, 1000);
+}
+
+setTimeout(counter, 1000);
