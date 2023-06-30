@@ -9,7 +9,7 @@
     - getResult: returns the value of `result` variable
     - calculate: takes a string expression which can take multi-arithmetic operations and give its result
       example input: `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
-      Points to Note: 
+      Points to Note:
         1. the input can have multiple continuous spaces, you're supposed to avoid them and parse the expression correctly
         2. the input can have invalid non-numerical characters like `5 + abc`, you're supposed to throw error for such inputs
 
@@ -17,6 +17,58 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0,
+    this.add = add,
+    this.subtract = subtract,
+    this.multiply = multiply,
+    this.divide = divide,
+    this.calculate = calculate,
+    this.getResult = getResult,
+    this.clear = clear
+  }
+}
+
+function add(number) {
+  let answer = this.result + number;
+  updateResult(this, answer);
+}
+
+function subtract(number) {
+  let answer = this.result - number;
+  updateResult(this, answer);
+}
+
+function multiply(number) {
+  let answer = this.result * number;
+  updateResult(this, answer);
+}
+
+function divide(number) {
+  let answer
+  try{
+   answer = this.result / number;
+  }catch(e){
+    console.error(e)
+  }
+  updateResult(this, answer);
+}
+
+function calculate() {
+
+}
+
+function getResult() {
+  return this.result;
+}
+
+function clear() {
+  console.log("Calculator Clear");
+}
+
+function updateResult(thisOfCalculator, answer){
+  thisOfCalculator.result = answer;
+}
 
 module.exports = Calculator;
