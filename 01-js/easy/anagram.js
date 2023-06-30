@@ -19,5 +19,5 @@ function isAnagram(str1, str2) {
     return false
   }
 }
-
+// added solution and tested all 5 test cases
 module.exports = isAnagram;
