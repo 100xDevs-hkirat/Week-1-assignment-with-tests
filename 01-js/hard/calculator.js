@@ -17,6 +17,45 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(n) {
+    this.result += n;
+  }
+  subtract(n) {
+    this.result -= n;
+  }
+  multiply(n) {
+    this.result *= n;
+  }
+  divide(n) {
+    if (n == 0) throw new Error("Divide by zero error");
+    else this.result /= n;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(str) {
+    str = str.toLowerCase().replace(/\s/g, "");
+    let open = 0;
+    let close = 0;
+    if (str.includes("/0")) throw new Error("Divide by zero error");
+    for (let i = 0; i < str.length; i++) {
+      let ch = str.charAt(i);
+      if (ch >= "a" && ch <= "z")
+        throw new Error("invalid non-numerical characters");
+      if (ch == "(") open++;
+      if (ch == ")") close++;
+      if (close > open) throw new Error("invalid input");
+    }
+    if (close == open) this.result = eval(str);
+    else throw new Error("invalid input");
+  }
+}
 
 module.exports = Calculator;
