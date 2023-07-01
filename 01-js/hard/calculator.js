@@ -17,6 +17,48 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(number) {
+    this.result = number || 0;
+  }
+  add = function (number) {
+    this.result += number;
+  };
+
+  subtract = function (number) {
+    this.result -= number;
+  };
+
+  multiply = function (number) {
+    this.result *= number;
+  };
+
+  divide = function (number) {
+    if (number === 0) {
+      throw new Error("Can't perform invalid operations");
+    }
+    this.result /= number;
+  };
+
+  getResult = function () {
+    return this.result;
+  };
+
+  clear = function () {
+    this.result = 0;
+  };
+
+  calculate = function (str) {
+    const strTrimmed = str.replace(/\s+/g, "");
+    if (/[a-zA-Z]/.test(strTrimmed)) {
+      throw new Error("The input have invalid non-numeric charecters");
+    }
+    this.result = eval(strTrimmed);
+    if (this.result === Infinity) {
+      throw new Error("Invalid Operations");
+    }
+    return this.result;
+  };
+}
 
 module.exports = Calculator;
