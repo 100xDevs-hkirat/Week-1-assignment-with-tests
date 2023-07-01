@@ -32,10 +32,11 @@ class Calculator {
     return this.result *= num;
   }
   divide(num) {
-    if(number === 0){
+    if (num === 0) {
       throw new Error("Divide by Zero");
     }
-    return this.result /= num;
+    this.result /= num;
+    this.result.toFixed(2);
   }
   clear() {
     return this.result = 0;
@@ -45,17 +46,12 @@ class Calculator {
   }
 
   calculate(expression) {
-    expression = expression.split(" ").join("");
-    let isvalid = expression.split("").some((ele) => {
-      if ((ele >= 'A' && ele <= 'Z') || (ele >= 'a' && ele <= 'z'))
-        return false;
-    })
 
-    if (!isvalid) {
-      throw  Error('Invalid expression')
-    }
+    let res = eval(expression);
+    if (res == 1 / 0 || res == -1 / 0)
+      throw new Error("Divide by Zero");
 
-    this.result = eval(expression);
+    this.result = res;
 
   }
 
