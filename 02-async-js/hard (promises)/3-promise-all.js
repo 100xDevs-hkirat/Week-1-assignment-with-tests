@@ -6,15 +6,24 @@
 
 
 function waitOneSecond() {
-
+    let promise = new Promise(function (resolve) {
+        setTimeout(resolve, 1000);
+    })
+    return promise;
 }
 
 function waitTwoSecond() {
-
+    let promise = new Promise(function (resolve) {
+        setTimeout(resolve, 2000);
+    })
+    return promise;
 }
 
 function waitThreeSecond() {
-
+    let promise = new Promise(function (resolve) {
+        setTimeout(resolve, 3000);
+    })
+    return promise;
 }
 
 function calculateTime() {
