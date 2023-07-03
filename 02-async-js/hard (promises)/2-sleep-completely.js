@@ -4,5 +4,12 @@
  */
 
 function sleep (seconds) {
+    delay(seconds);
+}
 
+function delay(duration) {
+    const start = Date.now();
+    while (Date.now() - start < duration) {
+       
+    }
 }

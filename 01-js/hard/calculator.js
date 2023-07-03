@@ -17,6 +17,42 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(res){
+      this.result=res || 0;
+  };
+  add=(num)=>{
+     this.result+=num;
+  };
+  subtract=(num)=>{
+    this.result-=num;
+  };
+  multiply=(num)=>{
+    this.result*=num;
+  };
+  divide=function(num){
+    if(num == 0) {
+      throw new Error("Divide by 0, Arithmetic exception");
+    }
+    this.result /= num;
+  };
+  clear=()=>{
+    this.result=0;
+  };
+  getResult(){
+     return this.result;
+  };
+  calculate(str){
+    if(/[a-zA-Z]/.exec(str)!==null)throw new Error("Alphabetic character found");
+    //arr=str.split(" ").filter(Boolean);
+    const expressionString = str.split(" ").filter(Boolean).join('');
+    this.result= eval(expressionString);
+    if (this.result === Infinity) {
+      throw new Error("");
+    }
+    return this.result;
+
+  };
+}
 
 module.exports = Calculator;
