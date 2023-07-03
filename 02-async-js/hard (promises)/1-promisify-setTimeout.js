@@ -3,4 +3,10 @@
 */
 
 function wait(n) {
+    return new Promise((resolve)=>{
+           setTimeout(()=>{
+               resolve('promise resolved');
+           },n*1000)
+    })
 }
+wait(10).then(data=>console.log(data));//promise will be resolved after 10 secs
