@@ -8,5 +8,25 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  const start = new Date();
+  let ans;
+  for (let i = 1; i <= n; i++) {
+    ans = ans + i;
+  }
+  const end = new Date();
+  return Timer(start, end);
 }
+function Timer(start, end) {
+  const startTime = start;
+  const endTime = end;
+
+  const timeDifference = endTime.getTime() - startTime.getTime();
+
+  // Converting to different units
+  const seconds = Math.floor(timeDifference / 1000); // Difference in seconds
+
+  return `${timeDifference} milliseconds and ${seconds} seconds`;
+}
+
+console.log(calculateTime(100000000));
+console.log(calculateT(1000000000));
