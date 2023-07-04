@@ -3,4 +3,12 @@
 */
 
 function wait(n) {
+    let time = new Promise((resolve) => {
+        setInterval(resolve, n * 1000);
+    })
+    return time;
 }
+
+wait(5).then(() => {
+    console.log(`Promise resolving after 5 sec`)
+})
