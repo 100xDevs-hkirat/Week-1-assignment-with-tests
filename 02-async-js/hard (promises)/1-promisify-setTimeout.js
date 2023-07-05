@@ -3,4 +3,15 @@
 */
 
 function wait(n) {
+ function promisebody(resolve){
+     setTimeout(resolve,1000*n);
+ }
+ function returnPromise(){
+     var ans = new Promise(promisebody);
+     return ans;
+ }
+ var result = returnPromise();
+ console.log(result);
 }
+
+wait(5);
