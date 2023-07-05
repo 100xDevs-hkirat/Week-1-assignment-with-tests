@@ -4,5 +4,7 @@
  */
 
 function sleep (seconds) {
-
+setTimeout(function(){console.log("Thread running after "+ seconds + " seconds")},1000*seconds);
 }
+
+sleep(5);
