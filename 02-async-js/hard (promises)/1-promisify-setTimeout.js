@@ -7,3 +7,18 @@ function wait(n) {
         setTimeout(res, n * 1000);
     })
 }
+
+wait(2).then(() => {
+    console.log("Wait over for 2s");
+})
+
+wait(5).then(() => {
+    console.log("Wait over for 5s");
+})
+
+wait(10).then(() => {
+    console.log("Wait over for 10s");
+})
+wait(15).then(() => {
+    console.log("Wait over for 15s");
+})
