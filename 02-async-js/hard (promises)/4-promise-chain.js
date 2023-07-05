@@ -6,17 +6,40 @@
  */
 
 function waitOneSecond() {
-
+    function promiseBody(resolve){
+        setTimeout(function(){resolve("Promise 1 resolved")},1000);
+    }
+    return new Promise(promiseBody);
 }
 
 function waitTwoSecond() {
-
+    function promiseBody(resolve){
+        setTimeout(function(){resolve("Promise 2 resolved");},2000);
+    }
+    return new Promise(promiseBody);
 }
 
 function waitThreeSecond() {
-
+    function promiseBody(resolve){
+        setTimeout(function(){resolve("Promise 3 resolved");},3000);
+    }
+    return new Promise(promiseBody);
 }
 
 function calculateTime() {
-
+    let startTime = Date.now();
+    waitOneSecond().then(function(value){
+        console.log(value);
+        return waitTwoSecond().then(function (value){
+            console.log(value);
+            return waitThreeSecond().then(function(value){
+                console.log(value);
+                let endTime = Date.now();
+                let timeElapsed = endTime - startTime;
+                console.log(timeElapsed+" milliseconds");
+            });
+        });
+    });
 }
+
+calculateTime();
