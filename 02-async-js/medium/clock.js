@@ -1,8 +1,15 @@
 var meridian = "AM";
 
-var SS = 1;
-var HH = 12;
-var MM =59;
+let currentDate = new Date();
+
+var SS = currentDate.getSeconds();
+var HH = currentDate.getHours();
+var MM = currentDate.getMinutes();
+
+if(HH>12){
+    merdian = "PM";
+    HH-=12;
+}
 
 function clock(){
     console.clear();
