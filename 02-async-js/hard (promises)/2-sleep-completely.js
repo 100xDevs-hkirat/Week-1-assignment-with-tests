@@ -3,6 +3,10 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+    const ts = Date.now();
+    while (Date.now() - ts < (seconds * 1000));
 }
+console.log("Before Sleep")
+sleep(5);
+console.log("After 5s Sleep")
