@@ -6,17 +6,36 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 1000, "Data after 1 second.")
+    })
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 2000, "Data after 2 second.")
+    })
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 3000, "Data after 3 second.")
+    })
 }
 
 function calculateTime() {
-
+    const now = Date.now()
+    waitOneSecond().then(v => {
+        console.log(v);
+        waitTwoSecond().then(v => {
+            console.log(v);
+            waitThreeSecond().then(v => {
+                console.log(v);
+                console.log(`Time elapsed: ${(Date.now() - now) / 1000} seconds`);
+            })
+        })
+    })
+    // how to return values?
 }
+
+calculateTime()

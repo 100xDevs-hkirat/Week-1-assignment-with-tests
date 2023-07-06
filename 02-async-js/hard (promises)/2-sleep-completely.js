@@ -3,6 +3,13 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep (milliSeconds) {
+    const now = Date.now()
+    while (Date.now() <= (now + milliSeconds)) {}
 }
+
+let a = new Date()
+sleep(10000)
+console.log((new Date() - a) / 1000);
+
+console.log("Hey there!");
