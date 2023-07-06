@@ -3,4 +3,11 @@
 */
 
 function wait(n) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, n, "hello world")
+    })
 }
+
+wait(5000).then(data => console.log(data))
+
+console.log("This is test");
