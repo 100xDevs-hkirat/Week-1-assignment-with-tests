@@ -3,6 +3,15 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+function sleep(seconds) {
+  const startTime = Date.now();
 
+  while (Date.now() - startTime < seconds * 1000) {}
 }
+
+console.log('hi');
+
+const seconds = 2;
+
+sleep(seconds);
+console.log(`After ${seconds} seconds`);
