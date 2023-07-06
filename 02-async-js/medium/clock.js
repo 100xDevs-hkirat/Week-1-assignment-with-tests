@@ -7,7 +7,7 @@ var HH = currentDate.getHours();
 var MM = currentDate.getMinutes();
 
 if(HH>12){
-    merdian = "PM";
+    meridian = "PM";
     HH-=12;
 }
 
