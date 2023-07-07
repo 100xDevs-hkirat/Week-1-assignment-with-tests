@@ -4,6 +4,16 @@ Without using setInterval, try to code a counter in Javascript. There is a hint 
 
 
 
+var counter = 1;
+function counterf(){
+
+    console.clear();
+    console.log(counter++);
+    setTimeout(counterf,1000);
+
+}
+
+counterf();
 
 
 
