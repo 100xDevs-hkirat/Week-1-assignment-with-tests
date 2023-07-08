@@ -7,8 +7,14 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
-
-}
+function sort(str){
+  return str.split("").sort().join("");
+ }
+ function isAnagram(str1, str2) {
+  if(sort(str1.toLowerCase())==sort(str2.toLowerCase())){
+   return true
+  }
+  return false
+ }
 
 module.exports = isAnagram;
