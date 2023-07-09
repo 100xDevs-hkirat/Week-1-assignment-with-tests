@@ -17,6 +17,93 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Division by zero is not allowed.");
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s/g, ""); // Remove all whitespace characters
+    const tokens = sanitizedExpression.match(/(\d+\.?\d*|\+|\-|\*|\/|\(|\))/g); // Tokenize the expression
+
+    if (!tokens) {
+      throw new Error("Invalid expression.");
+    }
+
+    const stack = [];
+    let currentOperator = "+";
+    let currentNumber = 0;
+
+    for (const token of tokens) {
+      if (/[0-9]+/.test(token)) {
+        // If the token is a number
+        currentNumber = parseFloat(token);
+      } else if (token === "(") {
+        // If the token is an opening parenthesis
+        stack.push({ currentNumber, currentOperator });
+        currentOperator = "+";
+        currentNumber = 0;
+      } else if (token === ")") {
+        // If the token is a closing parenthesis
+        const { currentNumber: prevNumber, currentOperator: prevOperator } = stack.pop();
+
+        if (prevOperator === "+") {
+          this.add(currentNumber);
+        } else {
+          this.subtract(currentNumber);
+        }
+        currentNumber = prevNumber;
+      } else {
+        // If the token is an operator
+        if (token === "+" || token === "-") {
+          // Evaluate the previous operator
+          if (currentOperator === "+") {
+            this.add(currentNumber);
+          } else {
+            this.subtract(currentNumber);
+          }
+        } else if (token === "*" || token === "/") {
+          // Update the current operator for multiplication and division
+          currentOperator = token;
+        }
+        currentNumber = 0;
+      }
+    }
+
+    // Evaluate the last operator
+    if (currentOperator === "+") {
+      this.add(currentNumber);
+    } else {
+      this.subtract(currentNumber);
+    }
+  }
+}
 
 module.exports = Calculator;
