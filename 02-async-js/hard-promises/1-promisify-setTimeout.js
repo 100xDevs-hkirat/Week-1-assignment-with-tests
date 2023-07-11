@@ -3,4 +3,9 @@
 */
 
 function wait(n) {
+    return setTimeout(()=>{
+        console.log("resolved after n seconds");
+    },n*1000);
 }
+
+wait(3);
