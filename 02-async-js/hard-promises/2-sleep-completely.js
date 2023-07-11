@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise(resolve=>{
+        setTimeout(resolve,seconds);
+    })
 }
+async function check(){
+    console.log("check1");
+    await sleep(3000);
+    console.log("check2");
+}
+check();

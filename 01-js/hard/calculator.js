@@ -17,6 +17,68 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result=0;
+  }
+  add(n){
+    this.result+=n;
+  }
+  subtract(n){
+    this.result-=n;
+  }
+  multiply(n){
+    this.result*=n;
+  }
+  divide(n){
+    if(n==0) throw new Error('Division by zero is not allowed');
+    else this.result/=n;
+  }
+  clear(){
+    this.result=0;
+  }
+  getResult(){
+    return this.result;
+  }
+  cleaning(str){
+    let s="";
+    let openParenthesisCount=0;
+
+    for(let i=0;i<str.length;i++){
+      let asciiValue=str.charCodeAt(i);
+      //check for valid parentheses.
+      if(asciiValue===40) openParenthesisCount++;
+      if(asciiValue===41 && openParenthesisCount===0) throw new Error("invalid parenthesis");
+      if(asciiValue===41 && openParenthesisCount>0) openParenthesisCount--;
+
+      //removing whitespaces
+      if((asciiValue>=40&&asciiValue<=43)||(asciiValue>=45&&asciiValue<=57)){
+        s+=str[i];
+      }
+      //expression validation
+      else{
+        if(asciiValue!=32) throw new Error('Invalid expression');
+      }
+
+    }
+    //validating equal number of opening and closing parentheses.
+    if(openParenthesisCount!=0) throw new Error('Invalid parenthesis count');
+
+    return s;
+  }
+
+  calculate(str){
+    let s=this.cleaning(str);
+    try{
+      let ans=eval(s);
+      if(ans===Infinity){
+        throw new Error('division by zero');
+      }
+      this.result=ans;
+    }catch(error){
+      throw error;
+    }
+  }
+}
 
 module.exports = Calculator;

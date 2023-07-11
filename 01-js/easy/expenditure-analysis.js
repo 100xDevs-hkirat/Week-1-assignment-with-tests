@@ -9,7 +9,19 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const hash=new Map();
+  for(let i=0;i<transactions.length;i++){
+    if(hash.get(transactions[i].category)===undefined){
+      hash.set(transactions[i].category,transactions[i].price);
+    }
+    else{
+      hash.set(transactions[i].category,hash.get(transactions[i].category)+transactions[i].price);
+    }
+  }
+  const expenditure=[];
+  for(const[key,value] of hash){
+    expenditure.push({category:key, totalSpent:value});
+  }
+  return expenditure;
 }
-
 module.exports = calculateTotalSpentByCategory;
