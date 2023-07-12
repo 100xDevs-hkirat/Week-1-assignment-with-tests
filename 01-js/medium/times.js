@@ -7,6 +7,16 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+
+
+// await functionToBeMeasured();
 function calculateTime(n) {
-    return 0.01;
+    let a = 0
+    for(let i=1; i<=n; i++){
+        a+=i
+    }
 }
+const start = new Date().getTime();
+calculateTime(10000000)
+const end = new Date().getTime();
+console.log((end-start)/1000)
