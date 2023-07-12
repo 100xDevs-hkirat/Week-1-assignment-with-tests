@@ -3,4 +3,15 @@
 */
 
 function wait(n) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        },5000);
+      });
 }
+
+wait(5).then(()=>{
+    console.log("5 seconds have passed");
+}).catch((error)=>{
+    console.error(error)
+})
