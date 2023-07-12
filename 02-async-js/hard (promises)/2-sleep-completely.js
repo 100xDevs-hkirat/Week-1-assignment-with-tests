@@ -4,5 +4,10 @@
  */
 
 function sleep (seconds) {
-
+    var counter=0
+    for(var i=0;i<seconds;i++){
+        counter+=1
+    }
 }
+
+sleep(1000000000000)
