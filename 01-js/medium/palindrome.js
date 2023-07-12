@@ -7,6 +7,14 @@
 */
 
 function isPalindrome(str) {
+  var str1 = str.toLowerCase()
+  str1 = str1.split(" ").join("")
+  str1 = str1.replace(/[\.,?!]/g,"")
+  for(let i=0; i<str.length/2; i++ ){
+    if(str1.at(i)!=str1.at(str1.length-i-1)){
+      return false;
+    }
+  }
   return true;
 }
 
