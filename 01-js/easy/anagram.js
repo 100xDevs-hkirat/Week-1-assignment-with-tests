@@ -8,6 +8,20 @@
 */
 
 function isAnagram(str1, str2) {
+for(let p = 0; p< str1.length ;p++){
+  
+      for(let i = 0 ; i< str2.length; i++){
+        if(str1[p]=== str2[i]){
+          a.push(str2[i])
+          break ;
+        }
+      }
+      
+      }
+      
+      if(JSON.stringify(Array.from(str1)) === JSON.stringify(a)){
+        console.log("function is anagram")
+      }
 
 }
 
