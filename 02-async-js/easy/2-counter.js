@@ -3,9 +3,9 @@ const counter2 = () => {
 	const counter_increment = () => {
 		console.log(cnt);
 		cnt += 1;
-		setTimeout(counter_increment, 100);
+		setTimeout(counter_increment, 1000);
 	};
-	setTimeout(counter_increment, 3000);
+	setTimeout(counter_increment, 1000);
 };
 
 counter2();
