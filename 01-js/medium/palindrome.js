@@ -6,8 +6,34 @@
   - `npm run test-palindrome`
 */
 
+function removeWhiteSpace(str) {
+  var formattedString = '';
+
+  for(i=0; i<str.length; i++) {
+    if(str[i] == " " || str[i] == "!" || str[i] == "," || str[i] == "?" || str[i] == ".") {
+    } else {
+      formattedString += str[i];
+    }
+  }
+
+  return formattedString;
+}
+
+function reverse(str) {
+  str = str.split("");
+  str = str.reverse();
+  str = str.join("");
+  return str;
+}
+
 function isPalindrome(str) {
-  return true;
+  str = removeWhiteSpace(str.toLowerCase());
+
+  if(str == reverse(str)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
