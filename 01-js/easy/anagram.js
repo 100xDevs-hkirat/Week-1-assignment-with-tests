@@ -7,8 +7,18 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
 
+function isAnagram(str1, str2) {
+  let str1_arr = str1.toLowerCase().split('').sort();
+  let str2_arr = str2.toLowerCase().split('').sort();
+
+  if (str1_arr.join() === str2_arr.join())
+    return true;
+  else
+    return false;
 }
 
 module.exports = isAnagram;
+
+let ans = isAnagram('abc!', '!bac');
+console.log(ans);
