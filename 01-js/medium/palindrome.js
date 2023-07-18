@@ -7,7 +7,31 @@
 */
 
 function isPalindrome(str) {
-  return true;
+
+  str_lowercase = str.toLowerCase();
+  str3= str_lowercase.split("");
+  new_str=[];
+  for(var i=0;i<str3.length;i++)
+  {
+    if((str3[i]===" ")||(str3[i]===",")||(str3[i]==="?")||(str3[i]==".")||(str3[i]==="!")||(str3[i]==="@")||(str3[i]==="#")||(str3[i]==="$")||(str3[i]==="%")||(str3[i]==="^")||(str3[i]==="&")||(str3[i]==="*")||(str3[i]==="+"))
+    {
+
+    }
+    else 
+    {
+      new_str.push(str3[i]);
+    }
+  }
+  str2 ="";
+  for(var i=new_str.length-1;i>=0;i--)
+  {
+    str2 =str2+new_str[i];
+  }
+  if (str2=== (new_str.join(""))) return true;
+  else return false;
 }
 
+
+// var answer = isPalindrome("level");
+// console.log(answer);
 module.exports = isPalindrome;
