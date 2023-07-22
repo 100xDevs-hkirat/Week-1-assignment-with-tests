@@ -9,6 +9,17 @@
 
 function isAnagram(str1, str2) {
 
+  //convert the strings into rearranged words
+let cleanStr1 = str1.toUpperCase().split('').sort().join('');
+let cleanStr2 = str2.toUpperCase().split('').sort().join('');
+
+//check if same or not
+
+if(cleanStr1 == cleanStr2){
+  return true;
+} else {
+  return false;
+}
 }
 
 module.exports = isAnagram;
