@@ -9,6 +9,14 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  let listOfCategory = [];
+  for (i = 0; i < transactions.length; i++){
+    if (!transactions[i].category in Object.values(listOfCategory)){
+      listOfCategory.push({"category":transactions[i].category,"totalAmountSpent":transactions[i].price})
+    } else {
+      
+    }
+  }
   return [];
 }
 
