@@ -7,6 +7,20 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function calculateTime(n) 
+{
+    var ans = 0;
+    for(let i = 0; i <= n; i++)
+    {
+        ans += i;
+    }
+    return ans;
 }
+let start = performance.now();
+
+var result = calculateTime(1000000000)
+
+let end = performance.now();
+
+let timeTaken = end - start;
+console.log("Time Taken By a Function To Calculate is : " + timeTaken)
