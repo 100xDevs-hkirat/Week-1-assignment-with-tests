@@ -1,0 +1,1 @@
+Hi there I need this data to be written in the write.txt file
