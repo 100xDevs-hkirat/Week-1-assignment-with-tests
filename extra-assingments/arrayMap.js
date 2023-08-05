@@ -1,0 +1,3 @@
+function mapArray(arr, callback) {
+    
+}
