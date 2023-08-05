@@ -1,0 +1,3 @@
+function higherOrder(callback) {
+    callback();
+}
