@@ -17,6 +17,49 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  add(val){
+    this.result = this.result + val;
+  }
+  subtract(val){
+    this.result = this.result - val;
+  }
+  divide(val){
+    try{
+      if(val!==0){
+        this.result = this.result / val;
+      }else{
+        throw new ArithmeticErrorError("Divisior Can't be Zero");
+      }
+    }
+    catch(err){
+      throw err;
+    }
+  }
+  multiply(val){
+    this.result = this.result * val;
+  }
+  clear(){
+    this.result = 0;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(givenExp){
+    try{
+      this.result = eval(givenExp);
+      if(this.result == Infinity){
+        throw new ArithmeticError("Divisior Can't be Zero")
+      }
+    }catch(err){
+      throw err;
+    }
+  }
+}
+
+console.log(10/3);
 
 module.exports = Calculator;
