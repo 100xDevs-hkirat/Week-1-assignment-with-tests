@@ -8,7 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
-
+  if (str1.length != str2.length) {
+    return false;
+  }
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  var as = [...str1];
+  var at = [...str2];
+  var ass = as.sort();
+  var ats = at.sort();
+  var areEqual = ass.every((element, index) => element === ats[index]);
+  return areEqual;
 }
 
 module.exports = isAnagram;

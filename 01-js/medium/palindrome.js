@@ -7,7 +7,10 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const filteredString = str.replace(/[\W_]/g, "").toLowerCase();
+  const newArray = [...filteredString];
+  // replace() method is used with the regular expression /[\W_]/g. This regular expression matches any non-alphanumeric character (\W) or underscore (_). The g flag is added to perform a global search and replace, ensuring that all occurrences are removed.
+  return newArray.every((char, index) => char === newArray[(newArray.length) - 1 - index]);
 }
 
-module.exports = isPalindrome;
+  module.exports = isPalindrome;
