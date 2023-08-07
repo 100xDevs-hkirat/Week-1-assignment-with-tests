@@ -7,7 +7,9 @@
 */
 
 function isPalindrome(str) {
+  if(str.toLowerCase() == str.toLowerCase().split("").reverse().join(""))
   return true;
+  else return false;
 }
 
 module.exports = isPalindrome;
