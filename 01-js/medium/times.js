@@ -8,5 +8,22 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let initialDate = new Date();
+
+    let sum = 0;
+    for(let i=1; i<=n ;i++){
+        sum+=i
+    }
+    let finalDate = new Date();
+
+    let time = (finalDate.getTime() - initialDate.getTime()) / 1000;
+
+    console.log("Sum is : " + sum);
+    console.log("Calculation time : " + time + " s");
+
+    return time;
 }
+
+calculateTime(100)
+calculateTime(100000)
+calculateTime(3000000000)
