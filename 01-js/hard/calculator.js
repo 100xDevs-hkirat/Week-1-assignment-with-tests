@@ -17,6 +17,71 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
 
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+  add(number) {
+    if (typeof number !== "number")
+      throw new Error("Invalid Input please enter a number");
+    else this.result += number;
+  }
+
+  subtract(number) {
+    if (typeof number !== "number")
+      throw new Error("Invalid Input please enter a number");
+    else this.result -= number;
+  }
+
+  multiply(number) {
+    if (typeof number !== "number")
+      throw new Error("Invalid Input please enter a number");
+    else this.result *= number;
+  }
+
+  divide(number) {
+    if (typeof number !== "number")
+      throw new Error("Invalid Input please enter a number");
+    else if (number === 0) throw new Error("DIVISION BY ZERO");
+    else this.result /= number;
+  }
+
+  calculate(expression) {
+    if (typeof expression !== "string") {
+      return new Error("invalid input, string expected");
+    }
+    expression = expression.replace(/\s+/g, "");
+
+    if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
+      throw new Error("Invalid expression");
+    }
+    try {
+      this.result = eval(expression);
+      if (!isFinite(this.result)) throw new Error();
+    } catch (error) {
+      throw new Error("Error occurred while evaluating the expression.");
+    }
+  }
+}
+const calc = new Calculator();
+calc.add(5);
+console.log(calc.getResult());
+calc.multiply(3);
+console.log(calc.getResult());
+calc.subtract(7);
+console.log(calc.getResult());
+calc.divide(2);
+console.log(calc.getResult());
+calc.clear();
+console.log(calc.getResult());
+calc.calculate("10 + 2 * (6 - (4 + 1) / 2) + 7");
+console.log(calc.getResult());
 module.exports = Calculator;
