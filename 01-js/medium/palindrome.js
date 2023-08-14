@@ -7,7 +7,21 @@
 */
 
 function isPalindrome(str) {
-  return true;
+         str = str.toLowerCase() ;
+         let temp = "" ;
+         for(var i = 0 ; i < str.length ; ++i){
+            if(str[i] == ' ') continue ;
+            if(str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 122) temp += str[i] ;
+         }
+         //console.log(temp);
+         str = temp ;
+         var l = 0 , r = str.length - 1 ;
+         while(l <= r){
+           if(str[l] !== str[r]) return false ;
+           l++;
+           r--;
+         }
+         return true ;
 }
-
+isPalindrome("paras!!!!!     hshshshhsh");
 module.exports = isPalindrome;
