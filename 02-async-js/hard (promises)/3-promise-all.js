@@ -7,16 +7,36 @@
 
 function waitOneSecond() {
 
+   return new Promise(function(resolve){
+        setTimeout(resolve,1000);
+    });
+
 }
 
 function waitTwoSecond() {
+    return new Promise(function(resolve){
+        setTimeout(resolve,2000);
+
+    });
 
 }
 
 function waitThreeSecond() {
 
+    return new Promise(function(resolve){
+        setTimeout(resolve,3000);
+
+    });
+
 }
 
 function calculateTime() {
+    var startTime=Date.now()
+    Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()]).then(()=>{
+        var endTime= Date.now()
+        console.log("It took" ,endTime-startTime, "to resolve")
+    })
 
 }
+
+calculateTime()

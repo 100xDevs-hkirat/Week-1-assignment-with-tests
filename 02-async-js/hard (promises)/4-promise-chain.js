@@ -7,16 +7,42 @@
 
 function waitOneSecond() {
 
-}
-
-function waitTwoSecond() {
-
-}
-
-function waitThreeSecond() {
-
-}
+    return new Promise(function(resolve){
+         setTimeout(resolve,1000);
+     });
+ 
+ }
+ 
+ function waitTwoSecond() {
+     return new Promise(function(resolve){
+         setTimeout(resolve,2000);
+ 
+     });
+ 
+ }
+ 
+ function waitThreeSecond() {
+ 
+     return new Promise(function(resolve){
+         setTimeout(resolve,3000);
+ 
+     });
+ 
+ }
 
 function calculateTime() {
 
+    
+    var startTime=  Date.now()
+        waitOneSecond().then(function(){
+            waitTwoSecond().then(function(){
+                waitThreeSecond().then(function(){
+                    var endTime=Date.now()
+                    var totalTime= endTime-startTime
+                    console.log('total time to complete the operation',totalTime)
+                })
+            })
+        })
 }
+
+calculateTime()

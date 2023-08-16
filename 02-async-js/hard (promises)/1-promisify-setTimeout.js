@@ -3,4 +3,17 @@
 */
 
 function wait(n) {
+    return new Promise(function(myResolve) {
+        setTimeout(function() {
+            myResolve("3 seconds after!!");
+        }, n * 1000);
+    });
+    
 }
+
+wait(3).then(function(result) {
+    console.log("result",result);
+});
+
+
+
