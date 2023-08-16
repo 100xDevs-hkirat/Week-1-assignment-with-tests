@@ -5,4 +5,10 @@
 
 function sleep (seconds) {
 
+    var startTime= Date.now()
+    while(Date.now()-startTime>seconds){}
+
 }
+
+sleep(3)
+
