@@ -6,17 +6,37 @@
  */
 
 function waitOneSecond() {
-
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 1000)
+  })
 }
 
 function waitTwoSecond() {
-
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 2000)
+  })
 }
 
 function waitThreeSecond() {
-
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 3000)
+  })
 }
 
-function calculateTime() {
+async function calculateTime() {
+  const startTime = new Date()
+  await waitOneSecond()
+  await waitTwoSecond()
+  await waitThreeSecond()
 
+  const endTime = new Date().getTime()
+  console.log(`Time taken: ${(endTime - startTime) / 1000}s`)
 }
+
+calculateTime()
