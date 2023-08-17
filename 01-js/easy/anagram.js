@@ -6,9 +6,14 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
 */
+const getSortedString = str => str.toLowerCase().split('').sort().join('')
 
 function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false
+  }
 
+  return getSortedString(str1) === getSortedString(str2)
 }
 
-module.exports = isAnagram;
+module.exports = isAnagram
