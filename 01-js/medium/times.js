@@ -8,5 +8,16 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+
+    const date1 = new Date();
+
+    var sum = 0;
+    for(var i = 1; i <= 100; i++) {
+        sum += i;
+    }
+
+    const date2 = new Date();
+
+    return (date2 - date1) / 1000;
 }
+
