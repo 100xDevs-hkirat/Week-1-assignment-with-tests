@@ -9,7 +9,27 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var dict = {};
+
+  for (let x in transactions) {
+    if (transactions[x].category in dict) {
+      dict[transactions[x].category] += transactions[x].price;
+    } else {
+      dict[transactions[x].category] = transactions[x].price;
+    }
+  }
+
+  let result = [];
+
+  for (let category in dict) {
+    let obj = {
+      category: category,
+      totalSpent: dict[category],
+    };
+    result.push(obj);
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
