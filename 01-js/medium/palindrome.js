@@ -7,7 +7,20 @@
 */
 
 function isPalindrome(str) {
+  str = str.replace(/[^\w\s\']|_/g, "").replace(/\s+/g, "");
+  str = str.toLowerCase()
+  let i=0
+  let j=str.length-1
+  while(i<j) {
+    if(str[i]!=str[j])
+      return false
+    i=i+1
+    j=j-1;
+  }
+  console.log(str)
   return true;
 }
+
+console.log(isPalindrome("Able, was I ere I saw Elba!"))
 
 module.exports = isPalindrome;
