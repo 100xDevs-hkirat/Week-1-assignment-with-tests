@@ -3,6 +3,12 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+  let e = new Date().getTime() + seconds * 1000;
+  while (new Date().getTime() <= e) {}
 }
+
+console.log("hello");
+sleep(5);
+console.log("after 5 sec");
+console.log("world");
