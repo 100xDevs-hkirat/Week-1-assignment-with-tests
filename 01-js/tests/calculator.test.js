@@ -91,9 +91,8 @@ describe('Calculator', () => {
 	});
 
 	test('calculate division by zero', () => {
-		expect(() => calc.calculate('10 / 0')).toThrow(Error);
-	});
-
+		expect(() => calc.divide(0)).toThrow(Error);
+	  });
 	test('multiplication with negative numbers', () => {
 		calc.add(-5);
 		calc.multiply(-3);

@@ -17,6 +17,81 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+
+  constructor(){
+    this.result = 0;
+  }
+
+//Addition
+  add(number){
+    if(typeof number !== "number" || isNaN(number)) {
+      throw new Error("invalid input, only numbers are allowed")
+    }
+    this.result += number;
+  
+  }
+
+//Subtraction
+subtract(number){
+  if(typeof number !== "number" || isNaN(number)) {
+    throw new Error("invalid input, only numbers are allowed")
+  }
+  this.result -= number;
+
+}
+
+
+//Multiplication
+multiply(number){
+  if(typeof number !== "number" || isNaN(number)) {
+    throw new Error("invalid input, only numbers are allowed")
+  }
+  this.result *= number;
+
+}
+
+//Division
+divide(number){
+  if(typeof number !== "number" || isNaN(number)) {
+    throw new Error("invalid input, only numbers are allowed")
+  }
+
+  if(number == 0){
+    throw new Error("division by zero is not allowed")
+  }
+  this.result /= number;
+
+}
+
+
+//Delete all
+
+clear(){
+  this.result = 0;
+
+}
+
+
+//GetResult
+
+getResult(){
+  return this.result;
+}
+
+
+//calculate
+calculate(expression){
+  const cleanExpression = expression.replace(/\s+/g, '');
+  if(!/^[0-9+\-*/().\s]+$/.test(cleanExpression)){
+    throw new Error("Invalid input")
+  }
+  try{
+    this.result = eval(cleanExpression)
+  }catch(error){
+    throw new Error("Invalid input")
+  }
+}
+}
 
 module.exports = Calculator;
