@@ -1,8 +1,8 @@
 const fs = require('fs')
 
 
-async function readingFile() { 
-    await fs.readFile('./02-async-js/easy/file.txt', (err, data) => {
+function readingFile() { 
+    fs.readFile('./02-async-js/easy/file.txt', (err, data) => {
         if (err) throw err;
 
         console.log(data.toString());
