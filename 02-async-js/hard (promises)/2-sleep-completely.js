@@ -3,6 +3,15 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
-}
+function delayWithPromise(milliseconds) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, milliseconds);
+    });
+  }
+  
+  console.log("Start");
+  delayWithPromise(3000).then(() => {
+    console.log("End after 3000 milliseconds");
+  });
