@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+    console.log("in promise block")
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve()
+        }, n * 1000)
+    })
 }
+
+var n = 3
+
+wait(n).then((resolve) => console.log(`promise returned after ${n} seconds!!`))
