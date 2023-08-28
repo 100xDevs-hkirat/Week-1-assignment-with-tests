@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+    return new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve();
+        },n);
+    });
 }
+
+let n=2000;
+wait(2000).then(()=>{
+    console.log(`resolve after ${n}`)
+}).catch((err)=>{
+    console.log(err)
+})
