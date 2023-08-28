@@ -4,5 +4,12 @@
  */
 
 function sleep (seconds) {
-
+    let start = Date.now();
+    while(Date.now()-start<seconds){
+        //wait for n sce
+    }
 }
+
+console.log("Starts");
+sleep(3000);
+console.log("end");
