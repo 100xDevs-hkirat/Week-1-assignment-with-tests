@@ -1,0 +1,8 @@
+This is a sample text file for checking file reading using fs and other javaScript library .
+
+## License
+Suman Mandal (B.tech(I.T))
+Age - 26
+Address- Banglore, India
+Hobbies: Reading Books , Coding , Playing Cricket etc..
+Skills : Java Script , C++ , Python , HTML5 , CSS3 , Bootstrap4 , AngularJS , ReactJs , Nodejs , ExpressJs
