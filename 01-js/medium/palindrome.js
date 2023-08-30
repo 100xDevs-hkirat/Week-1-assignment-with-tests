@@ -6,7 +6,24 @@
   - `npm run test-palindrome`
 */
 
+function removeSpacesAndPunctuation(inputString) {
+  // Replace spaces and punctuation with an empty string
+  const cleanedString = inputString.replace(/[ \p{P}]+/gu, "");
+
+  return cleanedString;
+}
+
 function isPalindrome(str) {
+  let newStr2 = str.toLowerCase().split(" ").join();
+  let newStr = removeSpacesAndPunctuation(newStr2);
+
+  for (let i = 0; i < newStr.length / 2; i++) {
+    if (newStr[i] == newStr[newStr.length - 1 - i]) {
+      continue;
+    } else {
+      return false;
+    }
+  }
   return true;
 }
 
