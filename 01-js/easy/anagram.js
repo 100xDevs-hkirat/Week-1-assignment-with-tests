@@ -7,17 +7,27 @@
   - `npm run test-anagram`
 */
 
-function sort(str){
- my arr = str.split("");
-myarr.sort();
-sortedString = myarr.join(" ");
-	return sortedString;
+function sort(str) {
+  newstr = str.toLowerCase();
+  myarr = newstr.split("");
+  myarr.sort();
+  sortedString = myarr.join("");
+  return sortedString;
 }
-
 
 
 function isAnagram(str1, str2) {
- 
-}
+  if (sort(str1) == sort(str2)) {
+    return true;
+  }
+  else {
+    return false;
+  }
 
-module.exports = isAnagram;	
+}
+res = isAnagram("Debit Card", "Bad Credit");
+console.log(res);
+
+
+module.exports = isAnagram;
+
