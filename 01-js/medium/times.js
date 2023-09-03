@@ -9,14 +9,13 @@ Hint - use Date class exposed in JS
 
 function calculateTime(n) {
     let startTime = new Date().getTime();
-    console.log(startTime)
     let sum = 0;
     for (let i = 0; i < n; i++) {
         sum += i;
     }
-    console.log(sum);
+
     let endTime = new Date().getTime();
-    console.log(endTime)
+
     console.log((endTime - startTime) / 1000)
 }
 
