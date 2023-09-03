@@ -13,9 +13,7 @@ function calculateTime(n) {
     for (let i = 0; i < n; i++) {
         sum += i;
     }
-
     let endTime = new Date().getTime();
-
     console.log((endTime - startTime) / 1000)
 }
 
