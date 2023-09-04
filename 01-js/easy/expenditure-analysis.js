@@ -62,4 +62,4 @@ var res = calculateTotalSpentByCategory([{
   itemName: 'Jeans',
 }]);
 
-console.log(res);
+// console.log(res);
