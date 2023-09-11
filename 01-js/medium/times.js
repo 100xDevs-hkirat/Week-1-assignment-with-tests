@@ -7,6 +7,27 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function calculateSumTime(n) {
+  const startTime = new Date().getTime();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  const endTime = new Date().getTime();
+  const elapsedTime = endTime - startTime;
+  return elapsedTime / 1000; // Convert milliseconds to seconds
 }
+
+const n1 = 100;
+const n2 = 100000;
+const n3 = 1000000000;
+
+console.log(
+  `Time taken for sum from 1 to ${n1}: ${calculateSumTime(n1)} seconds`
+);
+console.log(
+  `Time taken for sum from 1 to ${n2}: ${calculateSumTime(n2)} seconds`
+);
+console.log(
+  `Time taken for sum from 1 to ${n3}: ${calculateSumTime(n3)} seconds`
+);
