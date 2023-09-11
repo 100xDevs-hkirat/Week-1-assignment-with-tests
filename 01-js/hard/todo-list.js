@@ -34,8 +34,8 @@ class Todo {
      }
 
      update(n , task) {
-      let newN = this.todoArr.length
-      if (n >= newN) return                    
+      let arrayLength = this.todoArr.length
+      if (n >= arrayLength) return                    
       return this.todoArr[n] = task;
      }
 
