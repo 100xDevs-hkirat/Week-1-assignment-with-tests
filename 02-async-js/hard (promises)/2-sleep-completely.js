@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    let start = new Date();
+    while (new Date() - start < seconds*1000){
+        
+    }
 }
+
+let a = 2, b = 5
+console.log("Waiting for the answer:")
+sleep(1);
+console.log(a+b)
