@@ -7,6 +7,15 @@
 */
 
 function isPalindrome(str) {
+  const p1 = 0;
+  const p2 = str.length - 1;
+  while (p1 < p2){
+    if (str[p1] !== str[p2]){
+      return false;
+    }
+    p1++;
+    p2--;
+  }
   return true;
 }
 
