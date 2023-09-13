@@ -6,7 +6,27 @@
   - `npm run test-palindrome`
 */
 
+function charIsLetter(char) {
+  if (typeof char !== 'string') {
+    return false;
+  }
+
+  return char.toLowerCase() !== char.toUpperCase();
+}
+
 function isPalindrome(str) {
+  str = str.toLowerCase().replace(/[^a-z]/g, '');
+  var left = 0;
+  var right = str.length - 1;
+  while(left<right){
+    if(str[left]===str[right]&& charIsLetter(str[left])&& charIsLetter(str[right])){
+      left++;
+      right--;
+    }
+    else{
+      return false;
+    }
+  }
   return true;
 }
 
