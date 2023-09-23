@@ -1,0 +1,1 @@
+setTimeout(updateCount, 1000);

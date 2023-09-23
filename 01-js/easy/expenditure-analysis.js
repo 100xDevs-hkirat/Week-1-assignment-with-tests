@@ -18,7 +18,6 @@ function calculateTotalSpentByCategory(transactions) {
     else {
       ans[t.category] = t.price
     }
-
   }
   var keys = Object.keys(ans)
   var final = []
