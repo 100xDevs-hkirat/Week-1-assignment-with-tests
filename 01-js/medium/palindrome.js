@@ -7,7 +7,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let n = str.length;
+  if (str.toLowerCase() === str.toLowerCase().split("").reverse().join("")) {
+    return true;
+  }
+  return false;
 }
-
+console.log(isPalindrome("Nitin"));
 module.exports = isPalindrome;
