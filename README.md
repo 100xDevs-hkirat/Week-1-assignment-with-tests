@@ -1,4 +1,4 @@
-### FullStack Development Course Assignments (Week 1)
+## FullStack Development Course Assignments (Week 1)
 
 - The project contains easy, medium and hard assigments for week 1.
 - 01-js contains assignments related to JavaScript, things that were covered in the first class.
