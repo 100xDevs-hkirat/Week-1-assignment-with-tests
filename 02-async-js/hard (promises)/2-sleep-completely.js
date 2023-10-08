@@ -4,5 +4,12 @@
  */
 
 function sleep (seconds) {
-
+    const start = new Date().getTime();
+    while (true) {
+        if (new Date().getTime() - start >= seconds * 1000) {
+            break
+        }
+    }
 }
+sleep(2);
+console.log('jello')
