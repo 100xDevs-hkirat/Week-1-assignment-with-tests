@@ -5,9 +5,28 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
+function transform(str) {
+  let ans = "";
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] == "." ||
+      str[i] == " " ||
+      str[i] == "?" ||
+      str[i] == "!" ||
+      str[i] == ","
+    ) {
+    } else {
+      ans += str[i];
+    }
+  }
+  return ans.toLowerCase();
+}
 
 function isPalindrome(str) {
-  return true;
+  let newStr = transform(str);
+  let revstr = newStr.split("").reverse().join("");
+  if (revstr == newStr) return true;
+  else return false;
 }
 
 module.exports = isPalindrome;

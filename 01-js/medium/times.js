@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  let t1 = new Date();
+  let first = t1.getTime();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  let t2 = new Date();
+  let second = t2.getTime();
+  console.log(second - first + " miliseconds");
 }
+
+calculateTime(10000000);
