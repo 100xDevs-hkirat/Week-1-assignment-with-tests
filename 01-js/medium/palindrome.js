@@ -5,34 +5,28 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-function isPunctuation(char) {
-  const punctuationRegex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;
-  return punctuationRegex.test(char);
+function transform(str) {
+  let ans = "";
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] == "." ||
+      str[i] == " " ||
+      str[i] == "?" ||
+      str[i] == "!" ||
+      str[i] == ","
+    ) {
+    } else {
+      ans += str[i];
+    }
+  }
+  return ans.toLowerCase();
 }
 
 function isPalindrome(str) {
-  var newStr = str.toLowerCase();
-  console.log(newStr);
-  var start = 0,
-    end = newStr.length - 1;
-
-  while (start <= end) {
-    if (newStr[start] === " " || isPunctuation(newStr[start])) {
-      console.log("1");
-      start++;
-    } else if (newStr[end] === " " || isPunctuation(newStr[end])) {
-      console.log("2");
-      end--;
-    } else if (newStr[start] === newStr[end]) {
-      console.log("3");
-      start++;
-      end--;
-    } else {
-      console.log("4");
-      return false;
-    }
-  }
-  return true;
+  let newStr = transform(str);
+  let revstr = newStr.split("").reverse().join("");
+  if (revstr == newStr) return true;
+  else return false;
 }
 
 module.exports = isPalindrome;

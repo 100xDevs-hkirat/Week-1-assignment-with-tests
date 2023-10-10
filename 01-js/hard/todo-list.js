@@ -48,22 +48,4 @@ class Todo {
   }
 }
 
-let newList = new Todo();
-newList.add("1");
-newList.add("2");
-newList.add("3");
-newList.add("4");
-newList.add("5");
-newList.add("6");
-newList.add("7");
-console.log(newList.todoList);
-newList.remove(0);
-console.log(newList.todoList);
-newList.update(1, "Updated");
-console.log(newList.todoList);
-console.log(newList.getAll());
-console.log(newList.get(2));
-newList.clear();
-console.log(newList.todoList);
-
 module.exports = Todo;
