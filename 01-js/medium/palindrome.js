@@ -7,6 +7,27 @@
 */
 
 function isPalindrome(str) {
+  str = str.toLowerCase();
+  var len=str.length;
+  var s='';
+  for(let i=0;i<len;i++)
+  {  
+    //console.log(str.charCodeAt(i));
+    if(str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122)
+    {
+      s=s.concat(str[i]);
+      //console.log(s);
+    }
+  }
+  len=s.length;
+  for(let i=0;i<=(len/2);i++)
+  {
+    if(s[i]!==s[len-i-1])
+    {
+      return false;
+    }
+  }
+  //console.log(s);
   return true;
 }
 
