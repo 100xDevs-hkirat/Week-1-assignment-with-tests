@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  // Remove all spaces from the string
+  str = str.replace(/[\W_]/g, "");
+  let strcopy = str.split("").reverse().join("");
+
+  return strcopy === str;
 }
 
 module.exports = isPalindrome;
