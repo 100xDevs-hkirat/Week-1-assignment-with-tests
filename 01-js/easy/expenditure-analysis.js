@@ -9,7 +9,35 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  // console.log(transactions.length);
+  const categoryTotals = {};
+
+  // Iterate through the transactions
+  for (let i = 0; i < transactions.length; i++) {
+    const transaction = transactions[i];
+    const category = transaction.category;
+    const price = transaction.price;
+
+    // If the category doesn't exist in the categoryTotals object, create it
+    if (!categoryTotals[category]) {
+      categoryTotals[category] = 0;
+    }
+
+    // Add the price to the total spending for the category
+    categoryTotals[category] += price;
+  }
+
+  // Convert the categoryTotals object into an array of objects
+  const result = [];
+  for (const category in categoryTotals) {
+    // result.push({ [category]: categoryTotals[category] });
+    result.push({
+      category: category,
+      totalSpent: categoryTotals[category],
+    });
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
