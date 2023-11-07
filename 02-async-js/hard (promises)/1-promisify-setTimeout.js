@@ -1,6 +1,15 @@
-/*
-    Write a function that returns a promise that resolves after n seconds have passed, where n is passed as an argument to the function.
-*/
+const fs= require('fs');
+function promiseBody(resolve,reject){
+    setTimeout(resolve,n*1000);
+}
+function printfn() {
+    console.log('promise complete');
+}
 
 function wait(n) {
+    var promise = new Promise(promiseBody);
+    return promise;
 }
+var n =5;
+var answer = wait(n);
+answer.then(printfn);
