@@ -1,8 +1,20 @@
-/*
- * Write a function that halts the JS thread (make it busy wait) for a given number of milliseconds.
- * During this time the thread should not be able to do anything else.
- */
-
-function sleep (seconds) {
+function promiseBody(resolve,reject){
+var timeNow =Date.now();
+while((Date.now()-timeNow)/1000<=seconds)
+{
 
 }
+resolve('busy wait done')
+}
+
+function sleep (seconds) {
+    var promise = new Promise(promiseBody);
+    return promise;
+}
+
+function printfn() {
+    console.log('thread was halt for'+' '+seconds+' '+'seconds' );
+}
+var seconds=5;
+var answer= sleep(seconds);
+answer.then(printfn);
