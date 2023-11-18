@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  //first regex for remove space
+  // next regex for removing punctuation
+  const p = str
+    .toLowerCase()
+    .replace(/\s/g, "")
+    .replace(/[^\w\s\']|_/g, "");
+  const q = p;
+  if (q === p.split("").reverse().join("")) {
+    return true;
+  }
+  return false;
 }
 
 module.exports = isPalindrome;
