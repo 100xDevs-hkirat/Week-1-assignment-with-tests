@@ -77,22 +77,6 @@ function checkAnagramAlternative(str1, str2) {
   }
 }
 
-function errorHandling(str) {
-  if (typeof str !== 'string' || !str.trim()) {
-    throw new Error('Input should be a non-empty string');
-  }
-  return str;
-
-  /*  if (typeof str !== 'string') {
-      throw new Error('Input should be a string');
-    }
-  
-    if (str.trim().length === 0) {
-      return {};
-    }
-  */
-}
-
 // Function to validate if input is a non-empty string
 function validateString(str) {
   if (typeof str !== 'string') {
