@@ -7,8 +7,25 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
+function ConvertToSmall(str){
+  let d = "";
+  for(let i = 0;i<str.length;i++)
+  {
+    if(str.charCodeAt(i)>=65 && str.charCodeAt(i)<=90)
+      d+= String.fromCharCode(str.charCodeAt(i)+32);
+    else
+      d+= str[i];
+  }
+  return d;
+}
 
+function isAnagram(str1, str2) {
+  str1 = ConvertToSmall(str1);
+  str2 = ConvertToSmall(str2);
+  if(str1.split("").sort().join("") === str2.split("").sort().join(""))
+  return true;
+  else
+  return false;
 }
 
 module.exports = isAnagram;
