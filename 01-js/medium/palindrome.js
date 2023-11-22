@@ -7,6 +7,18 @@
 */
 
 function isPalindrome(str) {
+  let s = str ;
+  s= s.toLowerCase();
+  str = str.toLowerCase();
+  let a = str.length-1;
+  for(let i = 0;i<a/2;i++){
+    let temp = str[i];
+    str[i]=str[a-i];
+    str[a-i]=temp;
+  }
+  if(s!=str){
+    return false;
+  }
   return true;
 }
 

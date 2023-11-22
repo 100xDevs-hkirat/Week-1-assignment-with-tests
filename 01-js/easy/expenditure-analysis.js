@@ -9,6 +9,11 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+   
+  let arr=[];
+  
+
+
   return [];
 }
 
