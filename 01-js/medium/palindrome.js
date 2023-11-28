@@ -7,6 +7,14 @@
 */
 
 function isPalindrome(str) {
+  let start = 0; let end = str.length - 1;
+  while(start <= end){
+    if(str[start] !== str[end] && Math.abs(str.charCodeAt(start) - str.charCodeAt(end)) !== 32){
+      return false;
+  }
+    start++;
+    end--;
+  }
   return true;
 }
 
