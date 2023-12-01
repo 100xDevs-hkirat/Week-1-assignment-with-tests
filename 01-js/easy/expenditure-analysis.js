@@ -9,7 +9,52 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+   
+  let arr = {};
+  let size = Object.keys(transactions).length;
+  for(let i=0;i<size;i++){
+    let t = transactions[i];
+    if(arr[t.category]){
+        arr[t.category]=arr[t.category]+t.price;
+    }
+    else {
+        arr[t.category]=t.price;
+    }   
+  }
+  let keys=Object.keys(arr);
+  let ans = [];
+  for(let i=0;i<keys.length;i++){
+    let category=keys[i];
+
+    let obj = {
+      category:category,
+      totalSpent:arr[category]
+    }
+
+     ans.push(obj);
+     console.log(ans);
+   }
+   return ans;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+// let transactions =[
+//   {itemName:"Samosa", 
+//     category:"Food", 
+//     price:15, 
+//     timestamp:38443 },
+//     {itemName:"Mirinda", 
+//       category:"Drink", 
+//       price:35, 
+//       timestamp:3483 },
+//       {itemName:"Fruti",
+//        category:"Drink",
+//        price:20,
+//       timestamp:8349}
+// ]
+// let ans = calculateTotalSpentByCategory(transactions)
+// console.log(ans);
+// console.log(calculateTotalSpentByCategory(transactions));
+
+
