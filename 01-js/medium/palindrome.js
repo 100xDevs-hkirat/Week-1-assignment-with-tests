@@ -23,3 +23,4 @@ function isPalindrome(str) {
 }
 
 module.exports = isPalindrome;
+isPalindrome("hello help me")
