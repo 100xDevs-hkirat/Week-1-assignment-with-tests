@@ -6,8 +6,21 @@
   - `npm run test-palindrome`
 */
 
+function removePunctuation(str1) {
+  let s = "";
+  for (let i = 0; i < str1.length; i++) {
+    if ((str1.charCodeAt(i) >= 97 && str1.charCodeAt(i) <= 122))
+      s += str1[i];
+  }
+  return s;
+}
 function isPalindrome(str) {
+  str = str.toLowerCase();
+  str = removePunctuation(str);
+  if(str == str.split("").reverse().join(""))
   return true;
+  else
+  return false;
 }
 
 module.exports = isPalindrome;
