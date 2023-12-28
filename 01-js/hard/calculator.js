@@ -17,6 +17,60 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+var math = require("mathjs");
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(a) {
+    this.result += a;
+    return this.result;
+  }
+
+  subtract(a) {
+    this.result -= a;
+    return this.result;
+  }
+
+  multiply(a) {
+    this.result *= a;
+    return this.result;
+  }
+
+  divide(a) {
+    if (a != 0) {
+      this.result /= a;
+      return this.result;
+    } else {
+      throw new Error("Cannot divide by zero");
+    }
+  }
+
+  clear() {
+    this.result = 0;
+    return this.result;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+    var calculate = str.replace(/\s+/g, "");
+
+    if (/[^0-9+\-*/().\s]/.test(calculate)) {
+      throw new Error("non numeric characters in the expression");
+    }
+
+    const divisionByZeroPattern = /\/\s*0/g;
+    var boolean = divisionByZeroPattern.test(calculate);
+    if (boolean == true) throw new Error("division by 0 not allowed");
+    else {
+      this.result = math.evaluate(calculate);
+      return this.result;
+    }
+  }
+}
 
 module.exports = Calculator;
