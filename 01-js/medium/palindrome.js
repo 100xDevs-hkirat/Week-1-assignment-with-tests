@@ -6,8 +6,18 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
+function isPalindrome(str_param) {
+ let str = str_param.replace(/[^\w\s]|_/g, "")
+ if(str == "" || str.length == 1){
+  return true
+ } else { 
+ let refinedStr = str.toLowerCase().replaceAll(" ","").split("").join("")
+ let revStr = str.toLowerCase().replaceAll(" ","").split("").reverse().join("")
+ if(refinedStr == revStr){
   return true;
+ }
+}
+ return false;
 }
 
 module.exports = isPalindrome;
