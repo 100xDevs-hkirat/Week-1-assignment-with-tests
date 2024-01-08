@@ -8,8 +8,60 @@
   - `npm run test-expenditure-analysis`
 */
 
+
+// function calculateTotalSpentByCategory(transactions) {
+//   var spent = {};
+//   for(var  i = 0 ; i < transactions.length; i++ ){
+//     var t = transactions[i];
+//     if(spent[t.category]){
+//       spent[t.category] += t.price;
+// }
+// else {
+// spent[t.category] = t.price ;
+//     }
+//   } 
+
+// var keys = Object.keys(spent);
+
+// var answer = [];
+// for( var i = 0 ; i < keys.length; i++){
+// var category = keys[i];
+// var obj  = {
+//   category : category,
+//   totalSpent : spent[category]
+// };
+// answer.push(obj);
+
+// }
+// return answer;
+
+// }
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var spent = {};
+  var categories = [];
+  for(var  i = 0 ; i < transactions.length; i++ ){
+    var t = transactions[i];
+    if(spent[t.category]){
+      spent[t.category] += t.price;
+    } else {
+      spent[t.category] = t.price;
+      categories.push(t.category);
+    }
+  } 
+
+  var answer = [];
+  for( var i = 0 ; i < categories.length; i++){
+    var category = categories[i];
+    var obj  = {
+      category : category,
+      totalSpent : spent[category]
+    };
+    answer.push(obj);
+  }
+  return answer;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+
