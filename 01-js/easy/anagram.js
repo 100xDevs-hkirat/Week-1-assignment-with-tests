@@ -8,14 +8,15 @@
 */
 
 function sort(str){
-  let array = str.split("")
+  let array = str.toLowerCase()
+  array = array.split("")
   array = array.sort()
   array = array.join("")
   return array
 }
 
 function isAnagram(str1, str2) {
- if(str1.sort() === str2.sort()){
+ if(sort(str1) === sort(str2)){
   return true;
  }
  else{
