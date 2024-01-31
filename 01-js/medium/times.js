@@ -8,5 +8,16 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    var sum=0;
+
+    var curr= parseFloat(Date.now());
+    for(var i=1; i<=n; i++)
+    {
+        sum+=i;
+    }
+    var ncurr= parseFloat(Date.now());
+
+    return parseFloat(ncurr-curr);
 }
+
+console.log(calculateTime(10000000));
