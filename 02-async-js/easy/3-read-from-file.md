@@ -5,3 +5,19 @@ You can use the fs library to as a black box, the goal is to understand async ta
 Try to do an expensive operation below the file read and see how it affects the output. 
 Make the expensive operation more and more expensive and see how it affects the output. 
 
+const fs = require('fs);
+
+function printFile(err, data) {
+    if(err) {
+        console.error(err);
+        return;
+    }
+    console.log(data);
+}
+
+fs.readFile('/path/to/your/file', 'utf-8', printFile)
+
+counter = 0;
+for (var i = 0; i < 1000000000; i += 1) {
+    counter += 1;
+}
