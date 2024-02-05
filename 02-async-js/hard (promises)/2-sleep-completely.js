@@ -4,5 +4,8 @@
  */
 
 function sleep (seconds) {
-
+    const start = Date.now();
+    while (Date.now() - start < milliseconds) {
+      // Busy-waiting
+    }
 }
