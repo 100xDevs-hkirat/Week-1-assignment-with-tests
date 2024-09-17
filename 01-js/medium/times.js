@@ -7,6 +7,23 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function calculateSum(n){
+    let sum = 0;
+    for(let i=1; i<=n; i++){
+        sum += i;
+    }
+
+    return sum;
 }
+
+function calculateTime(n) {
+
+    const timeBeforeExecution = new Date().getTime();
+    calculateSum(n);
+    const timeAfterExecution = new Date().getTime();
+
+    let timeTaken = timeAfterExecution - timeBeforeExecution;
+
+    return timeTaken/1000;
+}
+

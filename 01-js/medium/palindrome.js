@@ -6,7 +6,27 @@
   - `npm run test-palindrome`
 */
 
+function sanitiseString(str){
+  ans = "";
+  for(let i=0; i<str.length; i++){
+    if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')){
+      ans += str[i];
+    }
+  }
+  return ans;
+}
+
 function isPalindrome(str) {
+  str = sanitiseString(str);
+  str = str.toLowerCase();
+  let i = 0;
+  let j = str.length - 1;  
+
+  while(i < j){
+    if(str[i] !== str[j]) return false;
+    i++;
+    j--;
+  }
   return true;
 }
 
