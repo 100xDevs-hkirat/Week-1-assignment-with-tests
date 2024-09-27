@@ -17,6 +17,33 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(result){
+    this.result = result;
+  }
+  add(num){
+    result += num;
+  }
+  subtract(num){
+    res += num;
+  }
+  multiply(){
+
+  }
+  divide(){
+
+  }
+  clear(){
+    clearme
+  }
+  getResult(result){
+    return result
+  }
+  calculate(expression){
+    expression = expression.replace(/\s/g, ""); //removes space (from chatgpt)
+    isValid() //for checking id string is valid
+  }
+
+}
 
 module.exports = Calculator;

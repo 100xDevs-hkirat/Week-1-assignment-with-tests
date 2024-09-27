@@ -7,7 +7,15 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  let str1 = "";
+  for(let x of str){
+    if(x > 'a' && x < 'z') str1 += x;
+  }
+  let str2 = str1.split('').reverse().join('');
+  return str1 === str2;
 }
+
+//can use two pointer alse i guess
 
 module.exports = isPalindrome;
