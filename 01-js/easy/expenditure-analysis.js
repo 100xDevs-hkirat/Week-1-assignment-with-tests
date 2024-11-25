@@ -9,7 +9,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  //it stores total unique category
+  let distinctCategory=[];
+  //it stores food category vs totalprice
+  let ans=[];
+
+
+  for(let i=0;i<transactions.length;i++){
+    let ob=transactions[i];
+    if(distinctCategory.includes(ob.category)){
+      let knownCategory=ans.find(obj=>obj.category===ob.category);
+      knownCategory.totalSpent+=ob.price;
+
+    }else{
+      distinctCategory.push(ob.category);
+      ans.push({category:ob.category,totalSpent:ob.price});
+    }
+    
+  }
+  return ans;
 }
 
 module.exports = calculateTotalSpentByCategory;

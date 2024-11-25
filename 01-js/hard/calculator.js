@@ -17,6 +17,85 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  result;
+  constructor(){
+     this.result=0;
+  }
+
+   add(number){
+     this.result+=number;
+
+   }
+   subtract(number){
+    this.result-=number;
+   }
+   multiply(number){
+    this.result*=number;
+   }
+   divide(number){
+    if(number==0){
+      throw new Error("cannot divide by zero");
+    }
+     this.result=this.result/number;
+   }
+
+  clear(){
+    this.result=0;
+    return this.result;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(s){
+    
+  let ans=[];
+
+  
+  let result = 0;
+  let number = 0;
+  let sign = 1;
+  for(let i = 0; i < s.length; i++){
+      let c = s.charAt(i);
+      if(!isNaN(c)){
+          number = 10 * number + (c - '0');
+      }else if(c == '+'){
+          result += sign * number;
+          number = 0;
+          sign = 1;
+      }else if(c == '-'){
+          result += sign * number;
+          number = 0;
+          sign = -1;
+      }else if(c == '('){
+          //we push the result first, then sign;
+          ans.push(result);
+          ans.push(sign);
+          //reset the sign and result for the value in the parenthesis
+          sign = 1;   
+          result = 0;
+      }else if(c == ')'){
+          result += sign * number;  
+          number = 0;
+          result *= ans.pop();    
+          result += ans.pop();   
+          
+      }else if(c>='a' && c<='z'){
+        throw new Error("input is invalid");
+        return;
+      }
+  }
+  if(number != 0) result += sign * number;
+  return result;
+
+
+     
+
+  
+
+  }
+
+
+}
 
 module.exports = Calculator;
