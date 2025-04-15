@@ -5,18 +5,40 @@
  * Compare it with the results from 3-promise-all.js
  */
 
-function waitOneSecond() {
+function wait(n){
+    return new Promise((resolve, reject) => {
+        // Simulating an asynchronous operation
+        setTimeout(() => {
+            resolve();
+        }, n*1000);
+    });
+}
 
+function waitOneSecond() {
+    return wait(1);
 }
 
 function waitTwoSecond() {
-
+    return wait(2);
 }
 
 function waitThreeSecond() {
-
+    return wait(3);
 }
 
 function calculateTime() {
-
+    const start_time = new Date().getTime();
+    waitOneSecond()
+    .then(() => waitTwoSecond())
+    .then(() => waitThreeSecond())
+    .then(() => {
+      const endTime = new Date().getTime(); // Record the end time
+      const duration = endTime - start_time;
+      console.log(`Sequential execution completed in ${duration} milliseconds`);
+    })
+    .catch((error) => {
+      console.log('At least one promise rejected:', error);
+    });
 }
+
+calculateTime()
