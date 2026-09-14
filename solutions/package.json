@@ -1,0 +1,6 @@
+{
+  "name": "week-one-solutions",
+  "private": true,
+  "scripts": { "test": "jest --runInBand --config jest.config.cjs" },
+  "devDependencies": { "jest": "29.7.0" }
+}
